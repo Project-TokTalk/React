@@ -1,7 +1,7 @@
 const LoginPage = () => {
   return (
-    <>
-      {/*
+    <> 
+      {/*  
         This example requires updating your template:
 
         ```
