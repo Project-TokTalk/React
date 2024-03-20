@@ -6,6 +6,9 @@ const Loading = <div>Loading....</div>
 
 const LoginPage =  lazy(() => import("../pages/LoginPage"))
 const SignIn =  lazy(() => import("../pages/SignIn"))
+const Chatbot =  lazy(() => import("../pages/Chatbot"))
+
+
 
 const root = createBrowserRouter([
     {
@@ -15,16 +18,11 @@ const root = createBrowserRouter([
     {
         path: "signin",
         element: <Suspense fallback={Loading}><SignIn/></Suspense>
+    },
+    {
+        path: "chat",
+        element: <Suspense fallback={Loading}><Chatbot/></Suspense>,
     }
-    // ,
-    // {
-    //     path: "test",
-    //     element: <Suspense fallback={Loading}><Test/></Suspense>,
-    // },
-    // {
-    //     path: "login",
-    //     element: <Suspense fallback={Loading}><SigIn/></Suspense>,
-    // }
 
 ])
 

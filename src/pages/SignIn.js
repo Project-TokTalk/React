@@ -133,7 +133,7 @@ const SignIn = () => {
                   name="nickname"
                   type="text"  
                   required
-                  maxLength={10}
+                  maxLength={13}
                   placeholder="닉네임은 13글자까지 입력할 수 있습니다."
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
