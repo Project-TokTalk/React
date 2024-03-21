@@ -1,4 +1,4 @@
-const LoginPage = () => {
+const Loginpage = () => {
   return (
     <>
       {/*
@@ -23,7 +23,10 @@ const LoginPage = () => {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
-              <label htmlFor="id" className="block text-sm font-medium leading-6 text-gray-900">
+              <label
+                htmlFor="id"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
                 ID
               </label>
               <div className="mt-2">
@@ -40,7 +43,10 @@ const LoginPage = () => {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Password
                 </label>
               </div>
@@ -66,16 +72,18 @@ const LoginPage = () => {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            {/* 회원가입페이지로 변경 */}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            Not a member? {/* 회원가입페이지로 변경 */}
+            <a
+              href="#"
+              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >
               Join us
             </a>
           </p>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default LoginPage;
+export default Loginpage;

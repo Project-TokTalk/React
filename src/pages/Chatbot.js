@@ -1,12 +1,11 @@
-import React from "react"
-import { ThemeProvider } from "styled-components"
+import React from "react";
+import { ThemeProvider } from "styled-components";
 
-import ChatBot from "react-simple-chatbot"
+import ChatBot from "react-simple-chatbot";
 
-
-  // id : 1번부터 시작, trigger를 통해 다름 칸으로 이동
-  // user : 사용자의 입력을 허용, 이때 message, option은 비활성화되는듯
-  // end : 챗봇의 마지막 종료를 알려주는 트리거
+// id : 1번부터 시작, trigger를 통해 다름 칸으로 이동
+// user : 사용자의 입력을 허용, 이때 message, option은 비활성화되는듯
+// end : 챗봇의 마지막 종료를 알려주는 트리거
 const Chatbot = ({}) => {
   const steps = [
     {
@@ -97,17 +96,20 @@ const Chatbot = ({}) => {
     /////////////////////////////////////////////////////////////////// 세부 질문 카테고리 안내 메시지
     {
       id: "8",
-      message: "챌린지와 관련된 카테고리중 문의하고자 하는 내용을 선택해주세요~",
+      message:
+        "챌린지와 관련된 카테고리중 문의하고자 하는 내용을 선택해주세요~",
       trigger: "11",
     },
     {
       id: "9",
-      message: "인바디과 관련된 카테고리중 문의하고자 하는 내용을 선택해주세요~",
+      message:
+        "인바디과 관련된 카테고리중 문의하고자 하는 내용을 선택해주세요~",
       trigger: "12",
     },
     {
       id: "10",
-      message: "캘린더와 관련된 카테고리중 문의하고자 하는 내용을 선택해주세요~",
+      message:
+        "캘린더와 관련된 카테고리중 문의하고자 하는 내용을 선택해주세요~",
       trigger: "13",
     },
     /////////////////////////////////////////////////////////////////// 세부 질문 카테고리 선택
@@ -230,11 +232,9 @@ const Chatbot = ({}) => {
     {
       id: "23",
       message: "사용해 주셔서 감사합니다",
-      end:true,
-    }
-  ]
-
-
+      end: true,
+    },
+  ];
 
   const theme = {
     background: "linear-gradient(0deg, #E1E6FF, #ffffff)",
@@ -248,40 +248,42 @@ const Chatbot = ({}) => {
     userFontColor: "#4a4a4a",
   };
 
-
   return (
     <>
-    <div className="sm:flex sm:min-h-screen sm:grid-col-3">
-    <div className="sm:w-3/12"></div>
-    <div className="sm:w-6/12">
-      <ThemeProvider theme={theme}>
-        <ChatBot 
-          // floating={true} // 플로팅 버튼을 통해 챗봇을 on/off 시켜줌
-          // opened={false} // 화면 시작 시 챗봇을 open상태로 띄워줌 
-          steps={steps}
-          botDelay="500"
-          userDelay="500"
-          enableMobileAutoFocus={true}
-          hideHeader={false}
-          headerTitle="TokTalk"
-          width='50%'
-          floatingStyle={{ left: '25%',top:'0%' ,transform: 'translateX(300%)' }}
-          style={{ 
-            height: '100%',
-            position: "absolute"
-          }}
-          contentStyle={{
-            height: '83%',
-          }}
-          placeholder="메시지를 입력하세요"
-
+      <div className="sm:grid-col-3 sm:flex sm:min-h-screen">
+        <div className="sm:w-3/12"></div>
+        <div className="sm:w-6/12">
+          <ThemeProvider theme={theme}>
+            <ChatBot
+              // floating={true} // 플로팅 버튼을 통해 챗봇을 on/off 시켜줌
+              // opened={false} // 화면 시작 시 챗봇을 open상태로 띄워줌
+              steps={steps}
+              botDelay="500"
+              userDelay="500"
+              enableMobileAutoFocus={true}
+              hideHeader={false}
+              headerTitle="TokTalk"
+              width="50%"
+              floatingStyle={{
+                left: "25%",
+                top: "0%",
+                transform: "translateX(300%)",
+              }}
+              style={{
+                height: "100%",
+                position: "absolute",
+              }}
+              contentStyle={{
+                height: "83%",
+              }}
+              placeholder="메시지를 입력하세요"
             />
-      </ThemeProvider>
+          </ThemeProvider>
+        </div>
+        <div className="sm:w-3/12"></div>
       </div>
-    <div className="sm:w-3/12"></div>
-    </div>
     </>
   );
 };
 
-export default Chatbot
+export default Chatbot;
