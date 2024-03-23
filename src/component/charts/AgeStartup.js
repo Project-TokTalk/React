@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
-export default function Graph(props) {
+export default function AgeStartup(props) {
   const [options, setOptions] = useState({
     theme: { mode: "white" }, // 다크모드 전환 가능
     chart: {
@@ -79,20 +79,20 @@ export default function Graph(props) {
   return (
     <>
       <div>
-        <div className="p-3 text-2xl font-bold leading-6 text-gray-900">
+        <div className="px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
           연령대별 창업유무
         </div>
-        <div className="px-3 text-sm font-medium leading-6 text-gray-900">
+        <div className="px-6 text-sm font-medium leading-6 text-gray-900">
           여기에 상위 1위, 해당 퍼센트 입력
         </div>
-        <div className="px-3 text-sm font-medium leading-6 text-gray-900">
+        <div className="px-6 text-sm font-medium leading-6 text-gray-900">
           여기에 상위 2위, 해당 퍼센트 입력
         </div>
-        <div className="px-3 text-sm font-medium leading-6 text-gray-900">
+        <div className="px-6 text-sm font-medium leading-6 text-gray-900">
           여기에 상위 3위, 해당 퍼센트 입력
         </div>
       </div>
-      <div>
+      <div className="h-full">
         <ReactApexChart
           options={options}
           series={series}

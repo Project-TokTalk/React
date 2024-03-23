@@ -5,8 +5,8 @@ const { createBrowserRouter } = require("react-router-dom");
 const Loading = <div>Loading....</div>;
 
 const InitPage = lazy(() => import("../pages/InitPage"));
-const LoginPage = lazy(() => import("../pages/LoginPage"));
 const SignIn = lazy(() => import("../pages/SignIn"));
+const SignUp = lazy(() => import("../pages/SignUp"));
 const UserEdit = lazy(() => import("../pages/UserEdit"));
 const Chatbot = lazy(() => import("../pages/Chatbot"));
 const AdminMain = lazy(() => import("../pages/AdminMain"));
@@ -22,18 +22,18 @@ const root = createBrowserRouter([
     ),
   },
   {
-    path: "login",
-    element: (
-      <Suspense fallback={Loading}>
-        <LoginPage />
-      </Suspense>
-    ),
-  },
-  {
     path: "signin",
     element: (
       <Suspense fallback={Loading}>
         <SignIn />
+      </Suspense>
+    ),
+  },
+  {
+    path: "signup",
+    element: (
+      <Suspense fallback={Loading}>
+        <SignUp />
       </Suspense>
     ),
   },

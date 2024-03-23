@@ -1,35 +1,36 @@
-import Admin_header from "../component/layout/Admin_header";
-import Graph from "../component/charts/Age_startup";
+import AdminHeader from "../component/layout/AdminHeader";
+import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
 import FAQ from "../component/table/FAQ";
+import Unsolved from "../component/table/Unsolved";
 
 const AdminMain = () => {
   return (
     <>
-      <Admin_header />
-      <div className="grid h-5/6 flex-1  grid-cols-2">
-        <div>
-          <div className="grid grid-cols-12">
-            <section className="col-span-8 m-5 ring-1 ring-inset ring-gray-300">
-              <Graph />
+      <AdminHeader />
+      <div className="grid max-h-full flex-1 grid-cols-2 bg-stone-100">
+        <div className="grid h-full">
+          <div className="flex flex-row">
+            <section className="ml-5 mt-5 w-8/12 ring-1 ring-inset ring-gray-300">
+              <AgeStartup />
             </section>
-            <section className="col-span-4 m-5 ring-1 ring-inset ring-gray-300">
-              4
+            <section className="ml-5 mt-5 w-4/12 ring-1 ring-inset ring-gray-300">
+              123
             </section>
           </div>
-          <div>
-            <div className="grid grid-cols-12">
-              <section className="col-span-7 m-5 ring-1 ring-inset ring-gray-300">
+          <div className="flex h-full">
+            <div className="flex flex-row ">
+              <section className="ml-5 mt-5 w-7/12 ring-1 ring-inset ring-gray-300">
                 <Country />
               </section>
-              <section className="col-span-5 m-5 ring-1 ring-inset ring-gray-300">
+              <section className="ml-5 mt-5 w-5/12 ring-1 ring-inset ring-gray-300">
                 <FAQ />
               </section>
             </div>
           </div>
         </div>
-        <div className="flex justify-center">
-          <FAQ />
+        <div className="m-5 flex h-full justify-center">
+          <Unsolved />
         </div>
       </div>
     </>

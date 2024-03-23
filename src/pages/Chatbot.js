@@ -6,7 +6,7 @@ import ChatBot from "react-simple-chatbot";
 // id : 1번부터 시작, trigger를 통해 다름 칸으로 이동
 // user : 사용자의 입력을 허용, 이때 message, option은 비활성화되는듯
 // end : 챗봇의 마지막 종료를 알려주는 트리거
-const Chatbot = ({}) => {
+const Chatbot = () => {
   const steps = [
     {
       id: "1",
@@ -250,37 +250,21 @@ const Chatbot = ({}) => {
 
   return (
     <>
-      <div className="sm:grid-col-3 sm:flex sm:min-h-screen">
-        <div className="sm:w-3/12"></div>
-        <div className="sm:w-6/12">
-          <ThemeProvider theme={theme}>
-            <ChatBot
-              // floating={true} // 플로팅 버튼을 통해 챗봇을 on/off 시켜줌
-              // opened={false} // 화면 시작 시 챗봇을 open상태로 띄워줌
-              steps={steps}
-              botDelay="500"
-              userDelay="500"
-              enableMobileAutoFocus={true}
-              hideHeader={false}
-              headerTitle="TokTalk"
-              width="50%"
-              floatingStyle={{
-                left: "25%",
-                top: "0%",
-                transform: "translateX(300%)",
-              }}
-              style={{
-                height: "100%",
-                position: "absolute",
-              }}
-              contentStyle={{
-                height: "83%",
-              }}
-              placeholder="메시지를 입력하세요"
-            />
-          </ThemeProvider>
-        </div>
-        <div className="sm:w-3/12"></div>
+      <div className="min-h-screen">
+        <ThemeProvider theme={theme}>
+          <ChatBot
+            floating={true} // 플로팅 버튼을 통해 챗봇을 on/off 시켜줌
+            opened={true} // 화면 시작 시 챗봇을 open상태로 띄워줌
+            steps={steps}
+            botDelay="500"
+            userDelay="500"
+            enableMobileAutoFocus={true}
+            hideHeader={false}
+            headerTitle="TokTalk"
+            style={{}}
+            placeholder="메시지를 입력하세요"
+          />
+        </ThemeProvider>
       </div>
     </>
   );
