@@ -2,7 +2,6 @@ import AdminHeader from "../component/layout/AdminHeader";
 import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
 import FAQ from "../component/table/FAQ";
-import Gender from "../component/charts/Gender"
 import Unsolved from "../component/table/Unsolved";
 
 const AdminMain = () => {
@@ -13,7 +12,7 @@ const AdminMain = () => {
         <div className="grid h-full">
           <div className="flex flex-row">
             <section className="ml-7 mt-10 w-1/2 ring-1 ring-inset ring-gray-300">
-              <AgeStartup />
+              <AgeStartup /> 
             </section>
             <section className="ml-5 mt-10 w-1/2 ring-1 ring-inset ring-gray-300 mr-5">
               GenderPage
