@@ -36,24 +36,23 @@ const SignUp = () => {
       service: service,
       policy: policy,
     });
-
-    axios({
-      url: "/useredit",
-      method: "post",
-      data: {
+    // 손승아, axios.post를 이용해 Spring Boot와 연결, 20240326
+    axios.post("http://localhost:8081/user/signup",{
         password: password,
         phone: phone,
         mobile: mobile,
-        country: country,
-        resi_num: resi_num,
+        nation: country,
+        age: resi_num,
         gender: gender,
-        nickname: nickname,
+        name: nickname,
         selectedBusiness: selectedBusiness,
         service: service,
         policy: policy,
-      },
-      baseURL: "http://localhost:8081",
-    })
+    },{
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  })
       .then(function (response) {
         console.log(response.data);
       })
@@ -85,7 +84,7 @@ const SignUp = () => {
     }
 
     Send();
-    navigate("#"); // 라우팅 처리
+    navigate("/signin"); // 라우팅 처리
     // navigate("/chat"); // 라우팅 처리
   };
 
