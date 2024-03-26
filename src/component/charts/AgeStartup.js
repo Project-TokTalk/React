@@ -77,9 +77,10 @@ export default function AgeStartup(props) {
   ]);
 
   return (
-    <>
-      <div>
-        <div className="px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
+    <div className="flex">
+      
+      <div className="flex flex-col">
+        <div className="h-1/4 px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
           연령대별 창업유무
         </div>
         <div className="px-6 text-sm font-medium leading-6 text-gray-900">
@@ -92,7 +93,7 @@ export default function AgeStartup(props) {
           여기에 상위 3위, 해당 퍼센트 입력
         </div>
       </div>
-      <div className="h-full">
+      <div className="h-full w-3/4 mt-10 mr-7 ml-7">
         <ReactApexChart
           options={options}
           series={series}
@@ -100,6 +101,32 @@ export default function AgeStartup(props) {
           height={350}
         />
       </div>
-    </>
+    </div>
   );
+  // return (
+  //   <>
+  //     <div>
+  //       <div className="px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
+  //         연령대별 창업유무
+  //       </div>
+  //       <div className="px-6 text-sm font-medium leading-6 text-gray-900">
+  //         여기에 상위 1위, 해당 퍼센트 입력
+  //       </div>
+  //       <div className="px-6 text-sm font-medium leading-6 text-gray-900">
+  //         여기에 상위 2위, 해당 퍼센트 입력
+  //       </div>
+  //       <div className="px-6 text-sm font-medium leading-6 text-gray-900">
+  //         여기에 상위 3위, 해당 퍼센트 입력
+  //       </div>
+  //     </div>
+  //     <div className="h-full">
+  //       <ReactApexChart
+  //         options={options}
+  //         series={series}
+  //         type="line"
+  //         height={350}
+  //       />
+  //     </div>
+  //   </>
+  // );
 }

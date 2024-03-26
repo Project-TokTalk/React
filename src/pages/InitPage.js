@@ -5,7 +5,7 @@ const InitPage = () => {
     <div className="grid h-screen grid-rows-2">
       <div className="flex w-full items-end justify-center">
         <div className="m-8 flex items-end justify-center text-xl font-extrabold">
-          저희 서비스를 이용해보셨나요?
+          <div>저희 서비스를 이용해보셨나요?</div>
         </div>
       </div>
       <div className="flex w-full grid-cols-2">
