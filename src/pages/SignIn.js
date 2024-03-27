@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignIn = () => {
   const [password, setPassword] = useState("");
@@ -7,17 +8,14 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handle_phone = (e) => {
-    const regex = /^[0-9]{0,11}$/;
-    if (regex.test(e.target.value)) {
       setPhone(e.target.value);
-    }
   };
 
   const handle_pw = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleSignin = (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault(); // 폼 기본 동작 방지
 
     // 입력 필드 유효성 검사
@@ -25,7 +23,26 @@ const SignIn = () => {
       alert("모든 항목을 입력해주세요."); // 임시로 넣었습니다.
       return;
     }
-    navigate("/chat");
+
+    // 손승아, DB에 사용자 정보 있을 때만 로그인, 20240327
+    try {
+      const response = await axios.post("http://localhost:8081/user/login", {
+        phone,
+        password,
+      })
+
+      console.log(response.data);
+
+      if( phone === "ADMIN") {
+        navigate("/admin");
+      } else {
+        navigate("/chat");
+      }
+    } catch (error) {
+      console.error("로그인 에러 : ",error);
+
+      alert("로그인에 실패했습니다. 다시 시도해주세요.")
+    }
   };
 
   return (
