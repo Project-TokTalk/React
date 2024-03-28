@@ -11,14 +11,14 @@ const SignUp = () => {
   const [phone, setphone] = useState("");
   const [mobile, setMobile] = useState("skt");
   const [country, setCountry] = useState("kr");
-  const [resi_num, setResiNum] = useState("");
+  const [age, setAgeRange] = useState("");
   const [gender, setGender] = useState("");
   const [nickname, setNickname] = useState("");
   const [selectedBusiness, setSelectedBusiness] = useState(null);
   const [service, setService] = useState(false);
   const [policy, setPolicy] = useState(false);
 
-  const resi_numRef = useRef("");
+  // const resi_numRef = useRef("");
   const genderRef = useRef("");
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const SignUp = () => {
       phone: phone,
       mobile: mobile,
       country: country,
-      resi_num: resi_num,
+      age: age,
       gender: gender,
       nickname: nickname,
       selectedBusiness: selectedBusiness,
@@ -42,7 +42,7 @@ const SignUp = () => {
         phone: phone,
         mobile: mobile,
         nation: country,
-        age: resi_num,
+        age: age,
         gender: gender,
         name: nickname,
         selectedBusiness: selectedBusiness,
@@ -72,7 +72,7 @@ const SignUp = () => {
     if (
       !password ||
       !phone ||
-      !resi_num ||
+      !age ||
       !gender ||
       !nickname ||
       selectedBusiness === null ||
@@ -133,18 +133,14 @@ const SignUp = () => {
     setCountry(e.target.value);
   };
 
-  // 주민번호 - 숫자만 입력하도록 제한
-  const handle_regi = (e) => {
-    const regex1 = /^[0-9]{0,6}$/;
-    if (regex1.test(e.target.value)) {
-      setResiNum(e.target.value);
-    }
+  const handle_age = (e) => {
+    setAgeRange(e.target.value);
   };
 
   // 주민번호 앞 6자리를 입력 시 자동으로 뒷자리 입력란으로 이동
-  useEffect(() => {
-    resi_num.length >= 6 && genderRef.current.focus();
-  }, [resi_num]);
+  // useEffect(() => {
+  //   resi_num.length >= 6 && genderRef.current.focus();
+  // }, [resi_num]);
 
   // 성별 입력란
   const handle_gender = (e) => {
@@ -284,10 +280,10 @@ const SignUp = () => {
               </label>
               <div className="mt-2">
                 <select
-                  id="country"
-                  name="country"
-                  value={country}
-                  onChange={handle_country}
+                  id="age"
+                  name="age"
+                  value={age}
+                  onChange={handle_age}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   {ageRange.map((item) => (

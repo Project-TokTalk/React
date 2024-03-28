@@ -123,6 +123,15 @@ const SignIn = () => {
               Join us
             </Link>
           </div>
+          <div className="mt-3 text-center text-sm text-gray-500">
+            Don't need signIn? { /* 비회원으로 연결 */}
+            <Link
+              to={"/chat"}
+              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >
+              Chat now
+            </Link>
+          </div>
         </div>
       </div>
     </>
