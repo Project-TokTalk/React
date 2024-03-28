@@ -150,13 +150,14 @@ const SignUp = () => {
   // };
 
   const Gender = [
-    { text: "Male", value: "M" },
-    { text: "Female", value: "F" },
+    { name: "Male", value: "M" },
+    { name: "Female", value: "F" },
   ];
 
-  const handle_gender = (e) => {
-    setSelectedGender(Number(e.target.value));
-  };
+const handle_gender = (e) => {
+  setSelectedGender(e.target.value);
+};
+
 
   const handle_nick = (e) => {
     setNickname(e.target.value);
@@ -303,34 +304,27 @@ const SignUp = () => {
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium leading-6 text-gray-900">
+            <div className="sm:col-span-3 ">
+              <label
+                htmlFor="gender"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
                 Gender
               </label>
-              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-6">
-                {Gender.map((Gender, idx) => (
-                  <label key={idx} className="flex items-center justify-center">
-                    <input
-                      id="Gender"
-                      name="Gender"
-                      type="radio"
-                      value={Gender.value}
-                      required
-                      onChange={handle_gender}
-                      checked={idx === selectedGender}
-                      className="hidden"
-                    />
-                    <span
-                      // flex-grow : 나눠진 칸을 전체 차지하도록 설정
-                      className={`Gender flex flex-grow cursor-pointer items-center justify-center
-                          ${idx === selectedGender ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
-                          mx-2 rounded-md border px-4 py-2`}
-                      onClick={() => setSelectedGender(idx)}
-                    >
-                      {Gender.text}
-                    </span>
-                  </label>
-                ))}
+              <div className="mt-2 flex w-full">
+                <select
+                  id="gender"
+                  name="gender"
+                  value={selectedGender}
+                  onChange={handle_gender}
+                  className="flex w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                >
+                  {Gender.map((item) => (
+                    <option value={item.value} key={item.value}>
+                      {item.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
