@@ -43,7 +43,7 @@ const SignUp = () => {
         mobile: mobile,
         nation: country,
         age: age,
-        selectedGender: selectedGender,
+        gender: selectedGender,
         name: nickname,
         selectedBusiness: selectedBusiness,
         service: service,
@@ -73,7 +73,7 @@ const SignUp = () => {
       !password ||
       !phone ||
       !age ||
-      selectedGender === null ||
+      !selectedGender ||
       !nickname ||
       selectedBusiness === null ||
       !service ||
@@ -155,6 +155,7 @@ const SignUp = () => {
   ];
 
 const handle_gender = (e) => {
+  console.log("성별 왜 안뜨는데 장난하나 : "+e.target.value);
   setSelectedGender(e.target.value);
 };
 
