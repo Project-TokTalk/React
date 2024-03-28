@@ -11,7 +11,7 @@ const SignUp = () => {
   const [phone, setphone] = useState("");
   const [mobile, setMobile] = useState("skt");
   const [country, setCountry] = useState("kr");
-  const [age, setAgeRange] = useState("");
+  const [age, setAgeRange] = useState("10");
   const [selectedGender, setSelectedGender] = useState(null);
   const [nickname, setNickname] = useState("");
   const [selectedBusiness, setSelectedBusiness] = useState(null);
@@ -30,7 +30,7 @@ const SignUp = () => {
       mobile: mobile,
       country: country,
       age: age,
-      gender: selectedGender,
+      selectedGender: selectedGender,
       nickname: nickname,
       selectedBusiness: selectedBusiness,
       service: service,
@@ -43,7 +43,7 @@ const SignUp = () => {
         mobile: mobile,
         nation: country,
         age: age,
-        gender: selectedGender,
+        selectedGender: selectedGender,
         name: nickname,
         selectedBusiness: selectedBusiness,
         service: service,
@@ -322,7 +322,7 @@ const SignUp = () => {
                     />
                     <span
                       // flex-grow : 나눠진 칸을 전체 차지하도록 설정
-                      className={`Business flex flex-grow cursor-pointer items-center justify-center
+                      className={`Gender flex flex-grow cursor-pointer items-center justify-center
                           ${idx === selectedGender ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
                           mx-2 rounded-md border px-4 py-2`}
                       onClick={() => setSelectedGender(idx)}
