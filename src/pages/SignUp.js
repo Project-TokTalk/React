@@ -119,6 +119,16 @@ const SignUp = () => {
     { value: "JP", name: "Japan" },
   ];
 
+  const ageRange = [
+    { value: "10", name: "10~20" },
+    { value: "20", name: "20~30" },
+    { value: "30", name: "30~40" },
+    { value: "40", name: "40~50" },
+    { value: "50", name: "50~60" },
+    { value: "60", name: "60~70" },
+    { value: "70", name: "70~80" },
+  ];
+
   const handle_country = (e) => {
     setCountry(e.target.value);
   };
@@ -265,50 +275,27 @@ const SignUp = () => {
               </div>
             </div>
 
-            <label
-              htmlFor="resi_num"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Korean Residential Number
-            </label>
-            {/* grid-cols-8, sm:grid-cols-12 작은화면 : 8개, 그 외 : 12개로 칸을 분할, 최대가 12개임 */}
-            <div className="mt-3 grid grid-cols-8 gap-x-3 gap-y-6 sm:grid-cols-12">
-              <div className="col-span-4 sm:col-span-6">
-                <input
-                  id="resi_num"
-                  name="resi_num"
-                  type="text"
-                  value={resi_num}
-                  ref={resi_numRef}
-                  onChange={(event) => {
-                    handle_regi(event);
-                  }}
-                  className="flex-grow:1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-              <div className="col-span-1 flex items-center justify-center">
-                <div className="flex-grow:1 flex w-full items-center justify-center rounded-md border-0 py-1.5 text-gray-900  sm:text-sm sm:leading-6">
-                  -
-                </div>
-              </div>
-              <div className="col-span-1 flex items-center justify-center sm:col-span-2 ">
-                <input
-                  id="gender"
-                  name="gender"
-                  type="text"
-                  value={gender}
-                  ref={genderRef}
-                  maxLength={1}
-                  onChange={(event) => {
-                    handle_gender(event);
-                  }}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-              <div className="col-span-2 flex items-center justify-center sm:col-span-3">
-                <div className="flex-grow:1 justify-left items-left flex w-full rounded-md border-0 py-1.5 text-gray-900  sm:text-sm sm:leading-6">
-                  xxxxxx
-                </div>
+            <div className="grid-cols-1 sm:col-span-3">
+              <label
+                htmlFor="country"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Age range
+              </label>
+              <div className="mt-2">
+                <select
+                  id="country"
+                  name="country"
+                  value={country}
+                  onChange={handle_country}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                >
+                  {ageRange.map((item) => (
+                    <option value={item.value} key={item.value}>
+                      {item.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
