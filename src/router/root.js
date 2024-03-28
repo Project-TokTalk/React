@@ -72,3 +72,4 @@ const root = createBrowserRouter([
 ]);
 
 export default root;
+ 

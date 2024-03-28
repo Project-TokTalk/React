@@ -12,14 +12,14 @@ const SignUp = () => {
   const [mobile, setMobile] = useState("skt");
   const [country, setCountry] = useState("kr");
   const [age, setAgeRange] = useState("");
-  const [gender, setGender] = useState("");
+  const [selectedGender, setSelectedGender] = useState(null);
   const [nickname, setNickname] = useState("");
   const [selectedBusiness, setSelectedBusiness] = useState(null);
   const [service, setService] = useState(false);
   const [policy, setPolicy] = useState(false);
 
   // const resi_numRef = useRef("");
-  const genderRef = useRef("");
+  // const genderRef = useRef("");
   const navigate = useNavigate();
 
   // 최종적으로 저장된 데이터를 보내주는 함수
@@ -30,7 +30,7 @@ const SignUp = () => {
       mobile: mobile,
       country: country,
       age: age,
-      gender: gender,
+      gender: selectedGender,
       nickname: nickname,
       selectedBusiness: selectedBusiness,
       service: service,
@@ -43,7 +43,7 @@ const SignUp = () => {
         mobile: mobile,
         nation: country,
         age: age,
-        gender: gender,
+        gender: selectedGender,
         name: nickname,
         selectedBusiness: selectedBusiness,
         service: service,
@@ -73,7 +73,7 @@ const SignUp = () => {
       !password ||
       !phone ||
       !age ||
-      !gender ||
+      selectedGender === null ||
       !nickname ||
       selectedBusiness === null ||
       !service ||
@@ -143,11 +143,20 @@ const SignUp = () => {
   // }, [resi_num]);
 
   // 성별 입력란
+  // const handle_gender = (e) => {
+  //   const regex2 = /^[0-9]{0,1}$/;
+  //   if (regex2.test(e.target.value)) {
+  //     setSelectedGender(e.target.value);
+  //   }
+  // };
+
+  const Gender = [
+    { text: "Male", value: 0 },
+    { text: "Female", value: 1 },
+  ];
+
   const handle_gender = (e) => {
-    const regex2 = /^[0-9]{0,1}$/;
-    if (regex2.test(e.target.value)) {
-      setGender(e.target.value);
-    }
+    setSelectedGender(Number(e.target.value));
   };
 
   const handle_nick = (e) => {
@@ -292,6 +301,37 @@ const SignUp = () => {
                     </option>
                   ))}
                 </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium leading-6 text-gray-900">
+                Gender
+              </label>
+              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-6">
+                {Gender.map((Gender, idx) => (
+                  <label key={idx} className="flex items-center justify-center">
+                    <input
+                      id="Gender"
+                      name="Gender"
+                      type="radio"
+                      value={Gender.value}
+                      required
+                      onChange={handle_gender}
+                      checked={idx === selectedGender}
+                      className="hidden"
+                    />
+                    <span
+                      // flex-grow : 나눠진 칸을 전체 차지하도록 설정
+                      className={`Business flex flex-grow cursor-pointer items-center justify-center
+                          ${idx === selectedGender ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
+                          mx-2 rounded-md border px-4 py-2`}
+                      onClick={() => setSelectedGender(idx)}
+                    >
+                      {Gender.text}
+                    </span>
+                  </label>
+                ))}
               </div>
             </div>
 
