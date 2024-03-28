@@ -120,13 +120,12 @@ const SignUp = () => {
   ];
 
   const ageRange = [
-    { value: "10", name: "10~20" },
-    { value: "20", name: "20~30" },
-    { value: "30", name: "30~40" },
-    { value: "40", name: "40~50" },
-    { value: "50", name: "50~60" },
-    { value: "60", name: "60~70" },
-    { value: "70", name: "70~80" },
+    { value: "20", name: "20~29" },
+    { value: "30", name: "30~39" },
+    { value: "40", name: "40~49" },
+    { value: "50", name: "50~59" },
+    { value: "60", name: "60~69" },
+    { value: "70", name: "70~79" },
   ];
 
   const handle_country = (e) => {
