@@ -11,8 +11,8 @@ const SignUp = () => {
   const [phone, setphone] = useState("");
   const [mobile, setMobile] = useState("skt");
   const [country, setCountry] = useState("kr");
-  const [age, setAgeRange] = useState("10");
-  const [selectedGender, setSelectedGender] = useState(null);
+  const [age, setAgeRange] = useState("20");
+  const [selectedGender, setSelectedGender] = useState("M");
   const [nickname, setNickname] = useState("");
   const [selectedBusiness, setSelectedBusiness] = useState(null);
   const [service, setService] = useState(false);
@@ -150,8 +150,8 @@ const SignUp = () => {
   // };
 
   const Gender = [
-    { text: "Male", value: 0 },
-    { text: "Female", value: 1 },
+    { text: "Male", value: "M" },
+    { text: "Female", value: "F" },
   ];
 
   const handle_gender = (e) => {
