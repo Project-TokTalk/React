@@ -100,10 +100,10 @@ const SignUp = () => {
   };
 
   const mobileList = [
-    { value: "skt", name: "SKT" },
-    { value: "kt", name: "KT" },
-    { value: "lg", name: "LG U+" },
-    { value: "mvno", name: "알뜰폰" },
+    { value: "SKT", name: "SKT" },
+    { value: "KT", name: "KT" },
+    { value: "LG", name: "LG U+" },
+    { value: "MVNO", name: "알뜰폰" },
   ];
 
   const handle_mobile = (e) => {
@@ -111,12 +111,12 @@ const SignUp = () => {
   };
 
   const countryList = [
-    { value: "kr", name: "South Korea" },
-    { value: "us", name: "United States" },
-    { value: "ca", name: "Canada" },
-    { value: "mx", name: "Mexico" },
-    { value: "cn", name: "China" },
-    { value: "jp", name: "Japen" },
+    { value: "KR", name: "South Korea" },
+    { value: "US", name: "United States" },
+    { value: "CA", name: "Canada" },
+    { value: "MX", name: "Mexico" },
+    { value: "CN", name: "China" },
+    { value: "JP", name: "Japan" },
   ];
 
   const handle_country = (e) => {
