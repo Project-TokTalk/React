@@ -3,6 +3,13 @@ import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
 import FAQ from "../component/table/FAQ";
 import Unsolved from "../component/table/Unsolved";
+import Chatbot from "./Chatbot";
+import SenarioControl from "../component/table/SenarioControl"
+import MemberControl from "../component/layout/MemberControl";
+import SenarioHeader from "../component/layout/SenarioHeader";
+import ChatbotHeader from "../component/layout/ChatbotHeader";
+import Members from "../component/table/Members";
+import UnsolvedHeader from "../component/layout/UnsolveHeader";
 
 const AdminMain = () => {
   return (
@@ -30,11 +37,40 @@ const AdminMain = () => {
             </div>
           </div>
         </div>
-        <div className="m-5 flex h-4/5 w-full justify-center">
-          
-          <Unsolved />
+      </div>
+      <UnsolvedHeader/>
+      <div className="ml-10 grid max-h-full flex-1 grid-cols-1 bg-stone-100 max-w-full">
+        <div className="grid h-full">
+          <div className="m-5 flex h-4/5 w-full justify-center"> 
+            <Unsolved />
+          </div>
         </div>
       </div>
+      <MemberControl/>
+      <div className="ml-10 grid max-h-full flex-1 grid-cols-1 bg-stone-100 max-w-full">
+        <div className="grid h-full">
+          <div className="m-5 flex h-4/5 w-full justify-center"> 
+            <Members />
+          </div>
+        </div>
+      </div>
+      <SenarioHeader/>
+      <div className="ml-10 grid max-h-full flex-1 grid-cols-1 bg-stone-100 max-w-full">
+        <div className="grid h-full">
+          <div className="m-5 flex h-4/5 w-full justify-center"> 
+            <SenarioControl />
+          </div>
+        </div>
+      </div>
+      <ChatbotHeader/>
+      <div className="ml-10 grid max-h-full flex-1 grid-cols-1 bg-stone-100 max-w-full">
+        <div className="grid h-full">
+          <div className="m-5 flex h-4/5 w-full justify-center"> 
+            idontknowthat
+          </div>
+        </div>
+      </div>
+      <Chatbot />
     </>
   );
 };
