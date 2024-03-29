@@ -117,6 +117,10 @@ const SignUp = () => {
     { value: "MX", name: "Mexico" },
     { value: "CN", name: "China" },
     { value: "JP", name: "Japan" },
+    { value: "PH", name: "Philippines" },
+    { value: "TH", name: "Thailand" },
+    { value: "VN", name: "Vietnam" },
+    { value: "UZ", name: "Uzbekistan" },
   ];
 
   const ageRange = [

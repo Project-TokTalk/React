@@ -8,7 +8,10 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handle_phone = (e) => {
+    // 손승아, 입력값 길이 11자 제한, 20240329
+    if(e.target.value.length <=11){
       setPhone(e.target.value);
+    }
   };
 
   const handle_pw = (e) => {
