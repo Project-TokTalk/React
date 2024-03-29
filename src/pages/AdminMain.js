@@ -8,6 +8,7 @@ const AdminMain = () => {
   return (
     <>
       <AdminHeader />
+      {/* 사이드바 배치를 위해 전체 요소에서 10px의 좌측마진 배치 */}
       <div className="ml-10 grid max-h-full flex-1 grid-cols-1 bg-stone-100 max-w-full">
         <div className="grid h-full">
           <div className="flex flex-row">
@@ -29,9 +30,10 @@ const AdminMain = () => {
             </div>
           </div>
         </div>
-        {/* <div className="m-5 flex h-full justify-center">
+        <div className="m-5 flex h-4/5 w-full justify-center">
+          
           <Unsolved />
-        </div> */}
+        </div>
       </div>
     </>
   );
