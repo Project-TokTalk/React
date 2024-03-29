@@ -14,7 +14,7 @@ const SignUp = () => {
   const [age, setAgeRange] = useState("20");
   const [selectedGender, setSelectedGender] = useState("M");
   const [nickname, setNickname] = useState("");
-  const [selectedBusiness, setSelectedBusiness] = useState(0);
+  const [selectedBusiness, setSelectedBusiness] = useState(false);
   const [service, setService] = useState(false);
   const [policy, setPolicy] = useState(false);
 
@@ -45,7 +45,7 @@ const SignUp = () => {
         age: age,
         gender: selectedGender,
         name: nickname,
-        selectedBusiness: selectedBusiness,
+        start: selectedBusiness,
         service: service,
         policy: policy,
     },{
@@ -166,12 +166,12 @@ const handle_gender = (e) => {
 
   // 사업자 등록증 여부를 묻기 위한 라디오 버튼
   const Business = [
-    { text: "Y", value: 1 },
-    { text: "N", value: 0 },
+    { text: "Y", value: true },
+    { text: "N", value: false },
   ];
   const handle_business = (e) => {
     console.log(e.target.value)
-    setSelectedBusiness(Number(e.target.value));
+    setSelectedBusiness(e.target.value);
   };
 
   const handle_service = (isChecked) => {
