@@ -10,11 +10,11 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [phone, setphone] = useState("");
   const [mobile, setMobile] = useState("skt");
-  const [country, setCountry] = useState("kr");
+  const [country, setCountry] = useState("KR");
   const [age, setAgeRange] = useState("20");
   const [selectedGender, setSelectedGender] = useState("M");
   const [nickname, setNickname] = useState("");
-  const [selectedBusiness, setSelectedBusiness] = useState(null);
+  const [selectedBusiness, setSelectedBusiness] = useState(0);
   const [service, setService] = useState(false);
   const [policy, setPolicy] = useState(false);
 
@@ -32,7 +32,7 @@ const SignUp = () => {
       age: age,
       selectedGender: selectedGender,
       nickname: nickname,
-      selectedBusiness: selectedBusiness,
+      start: selectedBusiness,
       service: service,
       policy: policy,
     });
@@ -134,6 +134,7 @@ const SignUp = () => {
 
   const handle_age = (e) => {
     setAgeRange(e.target.value);
+    console.log(e.target.value)
   };
 
   // 주민번호 앞 6자리를 입력 시 자동으로 뒷자리 입력란으로 이동
@@ -155,7 +156,6 @@ const SignUp = () => {
   ];
 
 const handle_gender = (e) => {
-  console.log("성별 왜 안뜨는데 장난하나 : "+e.target.value);
   setSelectedGender(e.target.value);
 };
 
@@ -166,10 +166,11 @@ const handle_gender = (e) => {
 
   // 사업자 등록증 여부를 묻기 위한 라디오 버튼
   const Business = [
-    { text: "Y", value: 0 },
-    { text: "N", value: 1 },
+    { text: "Y", value: 1 },
+    { text: "N", value: 0 },
   ];
   const handle_business = (e) => {
+    console.log(e.target.value)
     setSelectedBusiness(Number(e.target.value));
   };
 
@@ -356,8 +357,30 @@ const handle_gender = (e) => {
                 Possession of Business Registration Certificate
               </label>
               <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-6">
-                {Business.map((Business, idx) => (
-                  <label key={idx} className="flex items-center justify-center">
+              {Business.map((item) => (
+                <label key={item.value} className="flex items-center justify-center">
+                  <input
+                    id={item.value}
+                    name="Business"
+                    type="radio"
+                    value={item.value}
+                    required
+                    onChange={handle_business}
+                    checked={item.value === selectedBusiness}
+                    className="hidden"
+                  />
+                  <span
+                    className={`Business flex flex-grow cursor-pointer items-center justify-center
+                        ${item.value === selectedBusiness ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
+                        mx-2 rounded-md border px-4 py-2`}
+                    onClick={() => setSelectedBusiness(item.value)}
+                  >
+                    {item.text}
+                  </span>
+                </label>
+              ))}
+                {/* {Business.map((Business, text) => (
+                  <label key={text} className="flex items-center justify-center">
                     <input
                       id="Business"
                       name="Business"
@@ -365,20 +388,20 @@ const handle_gender = (e) => {
                       value={Business.value}
                       required
                       onChange={handle_business}
-                      checked={idx === selectedBusiness}
+                      checked={text === selectedBusiness}
                       className="hidden"
                     />
                     <span
                       // flex-grow : 나눠진 칸을 전체 차지하도록 설정
                       className={`Business flex flex-grow cursor-pointer items-center justify-center
-                          ${idx === selectedBusiness ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
+                          ${text === selectedBusiness ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
                           mx-2 rounded-md border px-4 py-2`}
-                      onClick={() => setSelectedBusiness(idx)}
+                      onClick={() => setSelectedBusiness(text)}
                     >
                       {Business.text}
                     </span>
                   </label>
-                ))}
+                ))} */}
               </div>
             </div>
 
