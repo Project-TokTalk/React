@@ -1,29 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Raphael from "raphael/raphael";
-import "morris.js/morris.js";
-import "morris.js/morris.css";
+import axios from "axios";
 
 const Country = () => {
+  const [chartData, setChartData] = useState([]);
+
   useEffect(() => {
-    // Raphael을 전역 스코프로 설정하여 Morris.js가 사용할 수 있도록 함
     window.Raphael = Raphael;
 
-    // Morris.js 초기화 확인 후 Donut 차트 생성
-    if (window.Morris) {
-      window.Morris.Donut({
-        element: "test", // 차트를 표시할 요소의 ID
-        data: [
-          { label: "a", value: 15 },
-          { label: "b", value: 35 },
-          { label: "c", value: 50 },
-        ], // 차트에 표시할 데이터
-        colors: ["#5f76e8", "#01caf1", "#172072"], // 차트의 색상 설정
-        formatter: function (value, data) {
-          return value + "%"; // 값의 포맷 지정
-        },
+    // 손승아, axios.get 통해 spring boot에서 데이터 받아오기, 20240401
+    axios.get("http://localhost:8081/admin/country")
+      .then(response => {
+        const data = response.data;
+        console.log("백분율 값과 국가 이름:", data);
+        setChartData(data);
+
+        // Morris.js 초기화 확인 후 Donut 차트 생성
+        if (window.Morris) {
+          window.Morris.Donut({
+            element: "test",
+            data: data.map(item => ({ label: item.nation, value: item.userCount })),
+            colors: ["#5f76e8", "#01caf1", "#172072"], 
+            formatter: function (value, data) {
+              return value + "%";
+            },
+          });
+        }
+      })
+      .catch(error => {
+        console.error("데이터 요청 실패", error);
       });
-    }
-  }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
+  }, []);
 
   return (
     <div className="grid h-full grid-rows-3 grid-rows-5">
