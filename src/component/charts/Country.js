@@ -13,13 +13,14 @@ const Country = () => {
       .then(response => {
         const data = response.data;
         console.log("백분율 값과 국가 이름:", data);
-        setChartData(data);
+        const filteredData = data.filter(item => item.nation !== 'ADMIN'); // admin 국가 필터링
+        setChartData(filteredData);
 
         // Morris.js 초기화 확인 후 Donut 차트 생성
         if (window.Morris) {
           window.Morris.Donut({
             element: "test",
-            data: data.map(item => ({ label: item.nation, value: item.userCount })),
+            data: filteredData.map(item => ({ label: item.nation, value: item.userCount })),
             colors: ["#5f76e8", "#01caf1", "#172072"], 
             formatter: function (value, data) {
               return value + "%";
