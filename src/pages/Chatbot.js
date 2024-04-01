@@ -254,7 +254,10 @@ const Chatbot = () => {
         <ThemeProvider theme={theme}>
           <ChatBot
             floating={true} // 플로팅 버튼을 통해 챗봇을 on/off 시켜줌
-            opened={true} // 화면 시작 시 챗봇을 open상태로 띄워줌
+            opened={false} // 화면 시작 시 챗봇을 open상태로 띄워줌
+            // opened={`${isSidebarOpen ? "false" : "true"}`}
+            // 관리자로 접속 시 false로 바꿀건데 값을 어떻게 가져오는지 확인 필요
+
             steps={steps}
             botDelay="500"
             userDelay="500"

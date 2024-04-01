@@ -37,22 +37,27 @@ const SignUp = () => {
       policy: policy,
     });
     // 손승아, axios.post를 이용해 Spring Boot와 연결, 20240326
-    axios.post("http://localhost:8081/user/signup",{
-        password: password,
-        phone: phone,
-        mobile: mobile,
-        nation: country,
-        age: age,
-        gender: selectedGender,
-        name: nickname,
-        start: selectedBusiness,
-        service: service,
-        policy: policy,
-    },{
-    headers:{
-      'Content-Type': 'application/json'
-    }
-  })
+    axios
+      .post(
+        "http://localhost:8081/user/signup",
+        {
+          password: password,
+          phone: phone,
+          mobile: mobile,
+          nation: country,
+          age: age,
+          gender: selectedGender,
+          name: nickname,
+          start: selectedBusiness,
+          service: service,
+          policy: policy,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      )
       .then(function (response) {
         console.log(response.data);
       })
@@ -103,7 +108,7 @@ const SignUp = () => {
     { value: "SKT", name: "SKT" },
     { value: "KT", name: "KT" },
     { value: "LG", name: "LG U+" },
-    { value: "MVNO", name: "알뜰폰" },
+    { value: "MVNO", name: "MVNO" },
   ];
 
   const handle_mobile = (e) => {
@@ -138,7 +143,7 @@ const SignUp = () => {
 
   const handle_age = (e) => {
     setAgeRange(e.target.value);
-    console.log(e.target.value)
+    console.log(e.target.value);
   };
 
   // 주민번호 앞 6자리를 입력 시 자동으로 뒷자리 입력란으로 이동
@@ -159,10 +164,9 @@ const SignUp = () => {
     { name: "Female", value: "F" },
   ];
 
-const handle_gender = (e) => {
-  setSelectedGender(e.target.value);
-};
-
+  const handle_gender = (e) => {
+    setSelectedGender(e.target.value);
+  };
 
   const handle_nick = (e) => {
     setNickname(e.target.value);
@@ -174,7 +178,7 @@ const handle_gender = (e) => {
     { text: "N", value: false },
   ];
   const handle_business = (e) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
     setSelectedBusiness(e.target.value);
   };
 
@@ -288,7 +292,7 @@ const handle_gender = (e) => {
 
             <div className="grid-cols-1 sm:col-span-3">
               <label
-                htmlFor="country"
+                htmlFor="age"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Age range
@@ -361,28 +365,31 @@ const handle_gender = (e) => {
                 Possession of Business Registration Certificate
               </label>
               <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-6">
-              {Business.map((item) => (
-                <label key={item.value} className="flex items-center justify-center">
-                  <input
-                    id={item.value}
-                    name="Business"
-                    type="radio"
-                    value={item.value}
-                    required
-                    onChange={handle_business}
-                    checked={item.value === selectedBusiness}
-                    className="hidden"
-                  />
-                  <span
-                    className={`Business flex flex-grow cursor-pointer items-center justify-center
+                {Business.map((item) => (
+                  <label
+                    key={item.value}
+                    className="flex items-center justify-center"
+                  >
+                    <input
+                      id={item.value}
+                      name="Business"
+                      type="radio"
+                      value={item.value}
+                      required
+                      onChange={handle_business}
+                      checked={item.value === selectedBusiness}
+                      className="hidden"
+                    />
+                    <span
+                      className={`Business flex flex-grow cursor-pointer items-center justify-center
                         ${item.value === selectedBusiness ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
                         mx-2 rounded-md border px-4 py-2`}
-                    onClick={() => setSelectedBusiness(item.value)}
-                  >
-                    {item.text}
-                  </span>
-                </label>
-              ))}
+                      onClick={() => setSelectedBusiness(item.value)}
+                    >
+                      {item.text}
+                    </span>
+                  </label>
+                ))}
                 {/* {Business.map((Business, text) => (
                   <label key={text} className="flex items-center justify-center">
                     <input

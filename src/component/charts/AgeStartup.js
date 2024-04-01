@@ -78,7 +78,6 @@ export default function AgeStartup(props) {
 
   return (
     <div className="flex">
-      
       <div className="flex flex-col">
         <div className="h-1/4 px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
           연령대별 창업유무
@@ -93,7 +92,7 @@ export default function AgeStartup(props) {
           여기에 상위 3위, 해당 퍼센트 입력
         </div>
       </div>
-      <div className="h-full w-3/4 mt-10 mr-7 ml-7">
+      <div className="ml-7 mr-7 mt-10 h-full w-3/4">
         <ReactApexChart
           options={options}
           series={series}
