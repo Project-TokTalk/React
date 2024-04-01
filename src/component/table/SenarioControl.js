@@ -35,7 +35,7 @@ const SenarioControl = () => {
     <>
       <div className="container mx-auto flex h-screen w-full flex-col justify-center p-3">
         <div
-          className="flex h-full w-full overflow-auto bg-white shadow"
+          className="flex h-5/6 w-full overflow-auto bg-white shadow"
           id="unsolved-scroll"
         >
           <table className="h-full w-full table-auto object-center">
@@ -95,8 +95,6 @@ const SenarioControl = () => {
           </table>
         </div>
         <div className="flex flex-row justify-center">
-          <div class="flex  h-full flex-none transform items-center justify-center duration-500 ease-in-out dark:text-white"></div>
-
           <div class="item flex h-full grow items-center justify-center">
             <div className="ml-40 mt-3 flex h-10 w-40 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
               추가하기

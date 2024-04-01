@@ -54,9 +54,9 @@ export default function AgeStartup(props) {
     ],
     fill: {
       type: "gradient", // 그라데이션 끝 색상, stops: 비율 조정
-      gradient: { gradientToColors: ["blue"], stops: [0, 100] },
+      gradient: { gradientToColors: ["blue"], stops: [100, 100] },
     },
-    colors: ["blue"], // 그라데이션 시작 색상, 라벨 색상
+    colors: ["green"], // 그라데이션 시작 색상, 라벨 색상
     tooltip: {
       // fromatter : 데이터 포멧
       y: { formatter: (value) => `$ ${value.toFixed(2)}` },

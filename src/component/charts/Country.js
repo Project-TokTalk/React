@@ -9,33 +9,37 @@ const Country = () => {
     window.Raphael = Raphael;
 
     // 손승아, axios.get 통해 spring boot에서 데이터 받아오기, 20240401
-    axios.get("http://localhost:8081/admin/country")
-      .then(response => {
+    axios
+      .get("http://localhost:8081/admin/country")
+      .then((response) => {
         const data = response.data;
         console.log("백분율 값과 국가 이름:", data);
-        const filteredData = data.filter(item => item.nation !== 'ADMIN'); // admin 국가 필터링
+        const filteredData = data.filter((item) => item.nation !== "ADMIN"); // admin 국가 필터링
         setChartData(filteredData);
 
         // Morris.js 초기화 확인 후 Donut 차트 생성
         if (window.Morris) {
           window.Morris.Donut({
             element: "test",
-            data: filteredData.map(item => ({ label: item.nation, value: item.userCount })),
-            colors: ["#5f76e8", "#01caf1", "#172072"], 
+            data: filteredData.map((item) => ({
+              label: item.nation,
+              value: item.userCount,
+            })),
+            colors: ["#5f76e8", "#01caf1", "#172072"],
             formatter: function (value, data) {
               return value + "%";
             },
           });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("데이터 요청 실패", error);
       });
   }, []);
 
   return (
-    <div className="grid h-full grid-rows-3 grid-rows-5">
-      <div className="row-span-3 h-80">
+    <div className="grid h-full grid-rows-3 ">
+      <div className="row-span-3 w-full">
         <div>
           <div className="px-3 pt-3 text-xl font-bold leading-6">
             국가별 이용자 수

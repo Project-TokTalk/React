@@ -250,7 +250,7 @@ const Chatbot = () => {
 
   return (
     <>
-      <div className="min-h-screen">
+      <div>
         <ThemeProvider theme={theme}>
           <ChatBot
             floating={true} // 플로팅 버튼을 통해 챗봇을 on/off 시켜줌

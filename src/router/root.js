@@ -10,7 +10,7 @@ const SignUp = lazy(() => import("../pages/SignUp"));
 const UserEdit = lazy(() => import("../pages/UserEdit"));
 const Chatbot = lazy(() => import("../pages/Chatbot"));
 const AdminMain = lazy(() => import("../pages/AdminMain"));
-const Test3 = lazy(() => import("../pages/Test3"));
+const ChatRecord = lazy(() => import("../component/table/ChatRecord"));
 
 const root = createBrowserRouter([
   {
@@ -65,7 +65,7 @@ const root = createBrowserRouter([
     path: "test",
     element: (
       <Suspense fallback={Loading}>
-        <Test3 />
+        <ChatRecord />
       </Suspense>
     ),
   },
