@@ -315,16 +315,16 @@ const AdminMain = () => {
         <div className="grid h-screen max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
           <div className="grid h-full">
             <div className="flex flex-row">
-              <section className="ml-5 mt-5 w-1/2 ">
+              <section className="ml-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
                 <AgeStartup />
               </section>
-              <section className="ml-5 mr-5 mt-5 w-1/2 ">
+              <section className="ml-5 mr-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
                 <Gender />
               </section>
             </div>
             <div className="grid h-full">
               <div className="flex flex-row ">
-                <section className="mb-5 ml-5 mt-5 w-1/2 ">
+                <section className="mb-5 ml-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
                   <Country />
                 </section>
                 <section className="m-5 h-1/2 w-1/2 ">

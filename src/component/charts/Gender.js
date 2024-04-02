@@ -10,7 +10,7 @@ export default function Gender(props) {
     plotOptions: {
       bar: {
         borderRadius: 4,
-        horizontal: true,
+        horizontal: true, // 이게 수평그래프로 변환
       },
     },
     dataLabels: {
@@ -97,32 +97,34 @@ export default function Gender(props) {
           options={options}
           series={[
             {
+              // 데이터 여기서 바꾸면 됨, 아니면 위에서 변수 선언하고 불러오던가
               data: [
                 {
                   x: "2011",
                   y: 12,
-                  goals: [
-                    {
-                      name: "Actual",
-                      value: 14,
-                      strokeWidth: 20,
-                      strokeDashArray: 20,
-                      strokeColor: "#775DD0",
-                    },
-                  ],
+                  // 마커 추가는 보류
+                  // goals: [
+                  //   {
+                  //     name: "Actual",
+                  //     value: 14,
+                  //     strokeWidth: 20,
+                  //     strokeDashArray: 20,
+                  //     strokeColor: "#775DD0",
+                  //   },
+                  // ],
                 },
                 {
                   x: "2012",
                   y: 44,
-                  goals: [
-                    {
-                      name: "Expected",
-                      value: 54,
-                      strokeWidth: 20,
-                      strokeHeight: 20,
-                      strokeColor: "#775DD0",
-                    },
-                  ],
+                  // goals: [
+                  //   {
+                  //     name: "Expected",
+                  //     value: 54,
+                  //     strokeWidth: 20,
+                  //     strokeHeight: 20,
+                  //     strokeColor: "#775DD0",
+                  //   },
+                  // ],
                 },
               ],
             },

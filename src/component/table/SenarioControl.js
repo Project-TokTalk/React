@@ -34,67 +34,66 @@ const SenarioControl = () => {
   return (
     <>
       <div className="container mx-auto flex h-screen w-full flex-col justify-center p-3">
-        <div
-          className="flex h-5/6 w-full overflow-auto bg-white shadow"
-          id="unsolved-scroll"
-        >
-          <table className="h-full w-full table-auto object-center">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+        <div className="flex h-5/6 w-full bg-white shadow" id="unsolved-scroll">
+          <table className="flex h-full min-h-0 w-full flex-col object-center">
+            <thead className="flex w-full flex-col bg-gray-100">
+              <tr className="flex">
+                <th className="flex w-16 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   -
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-16 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   번호
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-32 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   대분류
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-32 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   중분류
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-32 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   소분류
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-96 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   질문
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-96 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   답변
                 </th>
-                <th className="dark:border-dark-5 whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex flex-1 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   ars 번호, url
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-gray-50">
-              {IdList.map((id) => (
-                <tr key={id} className="text-gray-700">
-                  <td className="dark:border-dark-5 w-12 border p-2 pl-4">
-                    <input
-                      type="checkbox"
-                      id={`checkbox-${id}`}
-                      onChange={(e) => onChangeEach(e, id)}
-                      checked={CheckList.includes(id)}
-                    />
-                  </td>
-                  <td className="dark:border-dark-5 w-12 border p-2 pl-4">
-                    {id}
-                  </td>
-                  <td className="dark:border-dark-5 flex justify-center border p-2">
-                    **** 확인
-                  </td>
-                  <td className="dark:border-dark-5 border p-2">-</td>
-                  <td className="dark:border-dark-5 border p-2">-</td>
-                  <td className="dark:border-dark-5 border p-2">-</td>
-                  <td className="dark:border-dark-5 border p-2">-</td>
-                  <td className="dark:border-dark-5 w-16 border p-2 pl-4">-</td>
-                </tr>
-              ))}
+            <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
+              <div className="flex h-full w-full flex-col overflow-auto">
+                {IdList.map((id) => (
+                  <tr key={id} className="flex text-gray-700">
+                    <td className="flex w-16 items-center justify-center border p-2">
+                      <input
+                        type="checkbox"
+                        id={`checkbox-${id}`}
+                        onChange={(e) => onChangeEach(e, id)}
+                        checked={CheckList.includes(id)}
+                      />
+                    </td>
+                    <td className="flex w-16 justify-center border p-2">
+                      {id}
+                    </td>
+                    <td className="flex w-32 justify-center border p-2">
+                      **** 확인
+                    </td>
+                    <td className="flex w-32 justify-center border p-2">-</td>
+                    <td className="flex w-32 justify-center border p-2">-</td>
+                    <td className="flex w-96 justify-center border p-2">-</td>
+                    <td className="flex w-96 justify-center border p-2">-</td>
+                    <td className="flex flex-1 justify-center border p-2">-</td>
+                  </tr>
+                ))}
+              </div>
             </tbody>
           </table>
         </div>
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-row justify-center pt-2">
           <div class="item flex h-full grow items-center justify-center">
             <div className="ml-40 mt-3 flex h-10 w-40 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
               추가하기

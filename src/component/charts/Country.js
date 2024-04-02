@@ -54,7 +54,7 @@ const Country = () => {
             여기에 상위 3위, 해당 퍼센트 입력
           </div>
         </div>
-        <div className="row-span-4 grid pl-16 ">
+        <div className="row-span-4 grid justify-end pr-10 ">
           <div id="test" /> {/* 차트를 표시할 요소 */}
         </div>
       </div>
