@@ -49,7 +49,7 @@ const config = {
     },
   ],
   customComponents: {
-    // Replaces the default header
+    // 이거 아래요소들은 커스텀이고 아직 제작안한상태로 에러나서 주석처리함
     header: () => <Header />,
     // Replaces the default bot avatar - 챗봇 아바타 변경, 우리 로고쓰면 될듯?
     // botAvatar: (props) => <MyAvatar {...props} />,

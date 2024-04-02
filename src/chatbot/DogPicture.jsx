@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+// 이건 예시용
 const DogPicture = () => {
   const [imageUrl, setImageUrl] = useState("");
 
