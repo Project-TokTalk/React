@@ -35,7 +35,35 @@ const Chatbot = () => {
     {
       id: "01",
       message: "당신의 이름을 알려주세요",
-      trigger: "02",
+      trigger: "02-1",
+    },
+    {
+      id: "02-1",
+      user: true,
+      trigger: ({ value }) => {
+        if (value === "123") {
+          return "001";
+        } else if (value === "qwe") {
+          return "002";
+        } else {
+          return "003"; // 사용자 입력이 다른 경우의 트리거
+        }
+      },
+    },
+    {
+      id: "001",
+      message: "test1",
+      trigger: "03",
+    },
+    {
+      id: "002",
+      message: "test2",
+      trigger: "03",
+    },
+    {
+      id: "003",
+      message: "test3",
+      trigger: "03",
     },
     {
       id: "02",

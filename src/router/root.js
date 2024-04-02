@@ -9,7 +9,7 @@ const SignUp = lazy(() => import("../pages/SignUp"));
 const UserEdit = lazy(() => import("../pages/UserEdit"));
 const Chatbot = lazy(() => import("../pages/Chatbot"));
 const AdminMain = lazy(() => import("../pages/AdminMain"));
-const ChatRecord = lazy(() => import("../component/table/ChatRecord"));
+const Chat = lazy(() => import("../chatbot/Chat"));
 
 const root = createBrowserRouter([
   {
@@ -48,7 +48,7 @@ const root = createBrowserRouter([
     path: "chat",
     element: (
       <Suspense fallback={Loading}>
-        <Chatbot />
+        <Chat />
       </Suspense>
     ),
   },
@@ -57,14 +57,6 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <AdminMain />
-      </Suspense>
-    ),
-  },
-  {
-    path: "test",
-    element: (
-      <Suspense fallback={Loading}>
-        <ChatRecord />
       </Suspense>
     ),
   },
