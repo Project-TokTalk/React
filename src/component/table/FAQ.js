@@ -1,5 +1,5 @@
 const FAQ = () => {
-  const IdList = [1, 2, 3, 4];
+  // const IdList = [1, 2, 3, 4];
 
   return (
     <>

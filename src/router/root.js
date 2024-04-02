@@ -4,7 +4,6 @@ const { createBrowserRouter } = require("react-router-dom");
 
 const Loading = <div>Loading....</div>;
 
-const InitPage = lazy(() => import("../pages/InitPage"));
 const SignIn = lazy(() => import("../pages/SignIn"));
 const SignUp = lazy(() => import("../pages/SignUp"));
 const UserEdit = lazy(() => import("../pages/UserEdit"));

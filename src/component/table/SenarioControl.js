@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const SenarioControl = () => {
   const [CheckList, setCheckList] = useState([]);
+  const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   // 각각의 아이템에 대한 ID 리스트
   const IdList = [
@@ -9,12 +10,12 @@ const SenarioControl = () => {
     22, 23, 24, 25, 26, 27, 28, 29, 30,
   ]; // 예시로 임의의 ID 리스트 설정
 
-  const onChangeEach = (e, id) => {
+  const onChangeEach = (e, id_scen) => {
     if (e.target.checked) {
-      setCheckList((prevCheckList) => [...prevCheckList, id]); // 이전 상태를 이용하여 업데이트
+      setCheckList((prevCheckList) => [...prevCheckList, id_scen]); // 이전 상태를 이용하여 업데이트
     } else {
       setCheckList((prevCheckList) =>
-        prevCheckList.filter((checkedId) => checkedId !== id),
+        prevCheckList.filter((checkedId) => checkedId !== id_scen),
       ); // 이전 상태를 이용하여 업데이트
     }
   };
@@ -30,6 +31,16 @@ const SenarioControl = () => {
   useEffect(() => {
     Send(CheckList);
   }, [CheckList]);
+
+  // 답안 입력 변경 핸들러
+  const onAnswerChange = (e, id_unsolved) => {
+    const { value } = e.target;
+    setAnswers((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[id_unsolved - 1] = value;
+      return updatedAnswers;
+    });
+  };
 
   return (
     <>
@@ -66,27 +77,79 @@ const SenarioControl = () => {
             </thead>
             <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
               <div className="flex h-full w-full flex-col overflow-auto">
-                {IdList.map((id) => (
-                  <tr key={id} className="flex text-gray-700">
+                {IdList.map((id_scen) => (
+                  <tr key={id_scen} className="flex text-gray-700">
                     <td className="flex w-16 items-center justify-center border p-2">
                       <input
                         type="checkbox"
-                        id={`checkbox-${id}`}
-                        onChange={(e) => onChangeEach(e, id)}
-                        checked={CheckList.includes(id)}
+                        id={`checkbox-${id_scen}`}
+                        onChange={(e) => onChangeEach(e, id_scen)}
+                        checked={CheckList.includes(id_scen)}
                       />
                     </td>
                     <td className="flex w-16 justify-center border p-2">
-                      {id}
+                      {id_scen}
                     </td>
-                    <td className="flex w-32 justify-center border p-2">
-                      **** 확인
+                    <td className="flex w-32 border">
+                      <input
+                        className="h-full bg-transparent p-2"
+                        type="input"
+                        id={`answer-${id_scen}`}
+                        onChange={(e) => onAnswerChange(e, id_scen)}
+                        value="**** 확인"
+                        style={{ width: "90%", flex: 1 }}
+                      />
                     </td>
-                    <td className="flex w-32 justify-center border p-2">-</td>
-                    <td className="flex w-32 justify-center border p-2">-</td>
-                    <td className="flex w-96 justify-center border p-2">-</td>
-                    <td className="flex w-96 justify-center border p-2">-</td>
-                    <td className="flex flex-1 justify-center border p-2">-</td>
+                    <td className="flex w-32 justify-center border">
+                      <input
+                        className="h-full bg-transparent p-2"
+                        type="input"
+                        id={`answer-${id_scen}`}
+                        onChange={(e) => onAnswerChange(e, id_scen)}
+                        value=""
+                        style={{ width: "90%", flex: 1 }}
+                      />
+                    </td>
+                    <td className="flex w-32 justify-center border">
+                      <input
+                        className="h-full bg-transparent p-2"
+                        type="input"
+                        id={`answer-${id_scen}`}
+                        onChange={(e) => onAnswerChange(e, id_scen)}
+                        value=""
+                        style={{ width: "90%", flex: 1 }}
+                      />
+                    </td>
+                    <td className="flex w-96 justify-center border">
+                      <input
+                        className="h-full bg-transparent p-2"
+                        type="input"
+                        id={`answer-${id_scen}`}
+                        onChange={(e) => onAnswerChange(e, id_scen)}
+                        value=""
+                        style={{ width: "90%", flex: 1 }}
+                      />
+                    </td>
+                    <td className="flex w-96 justify-center border">
+                      <input
+                        className="h-full bg-transparent p-2"
+                        type="input"
+                        id={`answer-${id_scen}`}
+                        onChange={(e) => onAnswerChange(e, id_scen)}
+                        value=""
+                        style={{ width: "90%", flex: 1 }}
+                      />
+                    </td>
+                    <td className="flex flex-1 justify-center border">
+                      <input
+                        className="h-full bg-transparent p-2"
+                        type="input"
+                        id={`answer-${id_scen}`}
+                        onChange={(e) => onAnswerChange(e, id_scen)}
+                        value=""
+                        style={{ width: "90%", flex: 1 }}
+                      />
+                    </td>
                   </tr>
                 ))}
               </div>

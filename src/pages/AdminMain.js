@@ -51,10 +51,7 @@ const AdminMain = () => {
         >
           <div class="flex items-center space-x-2 pl-8 ">
             <div>
-              <div
-                onclick="setDark('dark')"
-                class="moon text-white hover:text-blue-500 dark:hover:text-[#38BDF8]"
-              >
+              <div class="moon text-white hover:text-blue-500 dark:hover:text-[#38BDF8]">
                 <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
               </div>
             </div>
@@ -68,7 +65,7 @@ const AdminMain = () => {
         </div>
         <div
           onClick={openNav}
-          className="absolute -right-6 top-2 flex transform rounded-full border-4 border-white bg-[#1E293B] p-3 text-white transition duration-500 ease-in-out hover:rotate-45 hover:bg-purple-500 dark:border-[#0F172A] dark:hover:bg-blue-500"
+          className="absolute -right-6 top-2 flex transform rounded-full border-4 border-white bg-[#1E293B] p-3 text-white transition duration-500 ease-in-out hover:rotate-45 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +87,7 @@ const AdminMain = () => {
           className={`mt-20 ${isSidebarOpen ? "flex" : "hidden"} h-[calc(100vh)] w-full flex-col space-y-2 text-white`}
         >
           <button
-            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(homeRef)}
           >
             <svg
@@ -107,10 +104,10 @@ const AdminMain = () => {
               <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
               <path d="M10 12h4v4h-4z" />
             </svg>
-            <div className="text-white">서비스 대시보드</div>
+            <div>서비스 대시보드</div>
           </button>
           <button
-            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(unsolvedRef)}
           >
             <svg
@@ -130,7 +127,7 @@ const AdminMain = () => {
             <div>미응답 질문</div>
           </button>
           <button
-            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(chatRef)}
           >
             <svg
@@ -149,7 +146,7 @@ const AdminMain = () => {
             <div>챗봇 사용 이력</div>
           </button>
           <button
-            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(humanRef)}
           >
             <svg
@@ -157,26 +154,18 @@ const AdminMain = () => {
               width="30"
               height="30"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              stroke-width="1.5"
               stroke="#ffffff"
               fill="none"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z"
-                stroke-width="0"
-                fill="currentColor"
-              />
-              <path
-                d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z"
-                stroke-width="0"
-                fill="currentColor"
-              />
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
             </svg>
             <div>회원관리</div>
           </button>
           <button
-            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(scenarioRef)}
           >
             <svg
@@ -203,7 +192,7 @@ const AdminMain = () => {
           className={`mt-20 ${isSidebarOpen ? "hidden" : "flex"} h-[calc(100vh)] w-full flex-col space-y-2`}
         >
           <button
-            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(homeRef)}
           >
             <svg
@@ -222,7 +211,7 @@ const AdminMain = () => {
             </svg>
           </button>
           <button
-            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(unsolvedRef)}
           >
             <svg
@@ -241,7 +230,7 @@ const AdminMain = () => {
             </svg>
           </button>
           <button
-            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(chatRef)}
           >
             <svg
@@ -259,7 +248,7 @@ const AdminMain = () => {
             </svg>
           </button>
           <button
-            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(humanRef)}
           >
             <svg
@@ -267,25 +256,17 @@ const AdminMain = () => {
               width="20"
               height="20"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              stroke-width="1.5"
               stroke="#ffffff"
               fill="none"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z"
-                stroke-width="0"
-                fill="currentColor"
-              />
-              <path
-                d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z"
-                stroke-width="0"
-                fill="currentColor"
-              />
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
             </svg>
           </button>
           <button
-            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 dark:hover:text-blue-500"
+            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(scenarioRef)}
           >
             <svg
@@ -308,10 +289,11 @@ const AdminMain = () => {
         </div>
       </aside>
       <div
-        className={`${isSidebarOpen ? "ml-60" : "ml-12"} transform pb-4 duration-500 ease-in-out`}
+        className={`${isSidebarOpen ? "ml-60" : "ml-12"} transform bg-slate-50 pb-4 duration-500 ease-in-out`}
       >
         <div ref={homeRef}></div>
         <AdminHeader />
+
         <div className="grid h-screen max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
           <div className="grid h-full">
             <div className="flex flex-row">

@@ -19,6 +19,9 @@ export default function Gender(props) {
     xaxis: {
       categories: ["South Korea", "Canada"],
     },
+
+    // colors: ["red"], 이거로 그래프 색 변경
+
     // annotations: {   보류합시다
 
     //   points: [
@@ -102,6 +105,7 @@ export default function Gender(props) {
                 {
                   x: "2011",
                   y: 12,
+
                   // 마커 추가는 보류
                   // goals: [
                   //   {

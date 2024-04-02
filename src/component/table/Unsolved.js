@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const Unsolved = () => {
   const [CheckList, setCheckList] = useState([]);
+  const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   // 각각의 아이템에 대한 ID 리스트
   const IdList = [
@@ -9,12 +10,12 @@ const Unsolved = () => {
     22, 23, 24, 25, 26, 27, 28, 29, 30,
   ]; // 예시로 임의의 ID 리스트 설정
 
-  const onChangeEach = (e, id) => {
+  const onChangeEach = (e, id_unsolved) => {
     if (e.target.checked) {
-      setCheckList((prevCheckList) => [...prevCheckList, id]); // 이전 상태를 이용하여 업데이트
+      setCheckList((prevCheckList) => [...prevCheckList, id_unsolved]); // 이전 상태를 이용하여 업데이트
     } else {
       setCheckList((prevCheckList) =>
-        prevCheckList.filter((checkedId) => checkedId !== id),
+        prevCheckList.filter((checkedId) => checkedId !== id_unsolved),
       ); // 이전 상태를 이용하여 업데이트
     }
   };
@@ -30,6 +31,16 @@ const Unsolved = () => {
   useEffect(() => {
     Send(CheckList);
   }, [CheckList]);
+
+  // 답안 입력 변경 핸들러
+  const onAnswerChange = (e, id_unsolved) => {
+    const { value } = e.target;
+    setAnswers((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[id_unsolved - 1] = value;
+      return updatedAnswers;
+    });
+  };
 
   return (
     <>
@@ -47,7 +58,7 @@ const Unsolved = () => {
                 <th className="flex flex-1 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   미해결 질문
                 </th>
-                <th className="flex flex-1 justify-center whitespace-nowrap border p-2 pr-7 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex flex-1 justify-center whitespace-nowrap border p-2 pr-3 text-xl font-bold leading-6 text-gray-900">
                   추가할 답안
                 </th>
               </tr>
@@ -55,24 +66,31 @@ const Unsolved = () => {
             <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
               <div className="flex h-full w-full flex-col overflow-auto">
                 {/* 여기서 데이터 삽입하면 됩니다. */}
-                {IdList.map((id) => (
-                  <tr key={id} className="flex text-gray-700 ">
+                {IdList.map((id_unsolved) => (
+                  <tr key={id_unsolved} className="flex text-gray-700 ">
                     <td className="flex w-16 items-center justify-center border">
                       <input
                         type="checkbox"
-                        id={`checkbox-${id}`}
-                        onChange={(e) => onChangeEach(e, id)}
-                        checked={CheckList.includes(id)}
+                        id={`checkbox-${id_unsolved}`}
+                        onChange={(e) => onChangeEach(e, id_unsolved)}
+                        checked={CheckList.includes(id_unsolved)}
                       />
                     </td>
                     <td className="flex w-16 items-center justify-center border">
-                      {id}
+                      {id_unsolved}
                     </td>
                     <td className="flex flex-1 items-center border p-2">
-                      미해결 질문 {id}
+                      미해결 질문 {id_unsolved}
                     </td>
-                    <td className="flex flex-1 items-center border p-2">
-                      추가할 답안 {id}
+                    <td className="flex flex-1 items-center border">
+                      <input
+                        className="h-full bg-transparent"
+                        type="input"
+                        id={`answer-${id_unsolved}`}
+                        onChange={(e) => onAnswerChange(e, id_unsolved)}
+                        placeholder="Type Answer"
+                        style={{ width: "90%", flex: 1 }}
+                      />
                     </td>
                   </tr>
                 ))}
