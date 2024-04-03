@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import man from "../../image/man.png";
-import woman from "../../image/woman.png";
+import axios from "axios";
 
 export default function Gender(props) {
   const [options] = useState({
@@ -17,7 +16,7 @@ export default function Gender(props) {
       enabled: false,
     },
     xaxis: {
-      categories: ["South Korea", "Canada"],
+      categories: ["Female", "Male"],
     },
 
     // colors: ["red"], 이거로 그래프 색 변경
@@ -79,6 +78,25 @@ export default function Gender(props) {
     // },
   });
 
+  const [series, setSeries] = useState([]);
+
+  useEffect(()=>{
+    axios.get("http://localhost:8081/admin/gender").then(response=>{
+      const genderDataList = response.data.filter(genderData => genderData.gender !== "ADMIN");;
+      setSeries([
+        {
+          data: genderDataList.map(genderData => ({
+            x: genderData.gender,
+            y: Math.floor(genderData.userPercentage),
+          })),
+        },
+      ]);
+  })
+  .catch(error => {
+    console.error("에러났다 이놈아 ",error);
+  })
+},[]);
+
   return (
     <div className="flex">
       <div className="flex flex-col">
@@ -98,43 +116,9 @@ export default function Gender(props) {
       <div className="ml-7 mr-7 mt-10 h-full w-3/4">
         <ReactApexChart
           options={options}
-          series={[
-            {
-              // 데이터 여기서 바꾸면 됨, 아니면 위에서 변수 선언하고 불러오던가
-              data: [
-                {
-                  x: "2011",
-                  y: 12,
-
-                  // 마커 추가는 보류
-                  // goals: [
-                  //   {
-                  //     name: "Actual",
-                  //     value: 14,
-                  //     strokeWidth: 20,
-                  //     strokeDashArray: 20,
-                  //     strokeColor: "#775DD0",
-                  //   },
-                  // ],
-                },
-                {
-                  x: "2012",
-                  y: 44,
-                  // goals: [
-                  //   {
-                  //     name: "Expected",
-                  //     value: 54,
-                  //     strokeWidth: 20,
-                  //     strokeHeight: 20,
-                  //     strokeColor: "#775DD0",
-                  //   },
-                  // ],
-                },
-              ],
-            },
-          ]}
+          series={series}
           type="bar"
-          height={350} // 전체 차트 영역의 높이
+          height={350}
         />
       </div>
     </div>
