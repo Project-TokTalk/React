@@ -1,5 +1,6 @@
 import Chatbot from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
+import "./style/chatbot.css";
 
 import config from "./bot/config.js";
 import MessageParser from "./bot/MessageParser.js";
@@ -18,4 +19,3 @@ const Chat = () => {
 };
 
 export default Chat;
-

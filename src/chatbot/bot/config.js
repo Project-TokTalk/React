@@ -1,5 +1,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import DogPicture from "../DogPicture";
+import ChatMessage from "../component/ChatMessage";
 
 const botName = "ExcitementBot";
 const message = createChatBotMessage("Hello world!");
@@ -18,16 +19,7 @@ const config = {
   // 초기 메시지
   initialMessages: [createChatBotMessage(`Hi! I'm ${botName}`)],
   botName: botName,
-  customStyles: {
-    botMessageBox: {
-      // 시스템측 채팅 색상
-      backgroundColor: "#376B7E",
-    },
-    chatButton: {
-      // 채팅 보내기 버튼 색상
-      backgroundColor: "#5ccc9d",
-    },
-  },
+  customStyles: {},
   state: {
     // 나도 모르겟다. 현재 위젯의 상태를 정의한다는데
     myCustomProperty: "Bikershorts",
@@ -51,17 +43,17 @@ const config = {
   customComponents: {
     // 이거 아래요소들은 커스텀이고 아직 제작안한상태로 에러나서 주석처리함
     header: () => <Header />,
-    // Replaces the default bot avatar - 챗봇 아바타 변경, 우리 로고쓰면 될듯?
+    // 챗봇 아바타 변경, 우리 로고쓰면 될듯?
     // botAvatar: (props) => <MyAvatar {...props} />,
 
-    // Replaces the default bot chat message container - 컨테이너 스타일 변경
-    // botChatMessage: (props) => <MyCustomChatMessage {...props} />,
+    // 컨테이너 스타일 변경
+    botChatMessage: (props) => <ChatMessage {...props} bot />,
 
-    // Replaces the default user icon - 사용자 아바타 변경
+    // 사용자 아바타 변경
     // userAvatar: (props) => <MyCustomAvatar {...props} />,
 
-    // Replaces the default user chat message - 사용자 채팅 컨테이너 스타일 변경
-    //userChatMessage: (props) => <MyCustomUserChatMessage {...props} />,
+    // 사용자 채팅 컨테이너 스타일 변경
+    userChatMessage: (props) => <ChatMessage {...props} />,
   },
 };
 export default config;

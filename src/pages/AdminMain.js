@@ -1,5 +1,11 @@
 import { useState, useRef } from "react";
+
 import AdminHeader from "../component/layout/AdminHeader";
+import UnsolveHeader from "../component/layout/UnsolveHeader";
+import ChatbotHeader from "../component/layout/ChatbotHeader";
+import MemberControl from "../component/layout/MemberControl";
+import SenarioHeader from "../component/layout/SenarioHeader";
+
 import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
 import FAQ from "../component/table/FAQ";
@@ -43,11 +49,15 @@ const AdminMain = () => {
     <>
       {/* 사이드 바 따로 분리하고 싶었으나 전체 페이지의 이동을 위해 여기로 합침 */}
       <aside
-        className={`fixed z-50 flex h-screen w-60 ${isSidebarOpen ? "translate-x-none" : "-translate-x-48"} transform bg-[#1E293B] transition duration-1000 ease-in-out`}
+        className={`fixed z-50 flex h-screen w-60 ${
+          isSidebarOpen ? "translate-x-none" : "-translate-x-48"
+        } transform bg-[#1E293B] transition duration-1000 ease-in-out`}
       >
         {/* open sidebar button 버튼 */}
         <div
-          className={`absolute -right-6 top-2 flex h-12 w-full ${isSidebarOpen ? "translate-x-0" : "translate-x-24 scale-x-0"} transform items-center justify-between rounded-full border-4 border-white bg-[#1E293B]  transition duration-300 ease-in dark:border-[#0F172A]`}
+          className={`absolute -right-6 top-2 flex h-12 w-full ${
+            isSidebarOpen ? "translate-x-0" : "translate-x-24 scale-x-0"
+          } transform items-center justify-between rounded-full border-4 border-white bg-[#1E293B]  transition duration-300 ease-in dark:border-[#0F172A]`}
         >
           <div class="flex items-center space-x-2 pl-8 ">
             <div>
@@ -84,7 +94,9 @@ const AdminMain = () => {
         </div>
         {/* MAX SIDEBAR 설정 */}
         <div
-          className={`mt-20 ${isSidebarOpen ? "flex" : "hidden"} h-[calc(100vh)] w-full flex-col space-y-2 text-white`}
+          className={`mt-20 ${
+            isSidebarOpen ? "flex" : "hidden"
+          } h-[calc(100vh)] w-full flex-col space-y-2 text-white`}
         >
           <button
             className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
@@ -189,7 +201,9 @@ const AdminMain = () => {
         </div>
         {/* MINI SIDEBAR 설정 */}
         <div
-          className={`mt-20 ${isSidebarOpen ? "hidden" : "flex"} h-[calc(100vh)] w-full flex-col space-y-2`}
+          className={`mt-20 ${
+            isSidebarOpen ? "hidden" : "flex"
+          } h-[calc(100vh)] w-full flex-col space-y-2`}
         >
           <button
             className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
@@ -289,11 +303,12 @@ const AdminMain = () => {
         </div>
       </aside>
       <div
-        className={`${isSidebarOpen ? "ml-60" : "ml-12"} transform bg-slate-50 pb-4 duration-500 ease-in-out`}
+        className={`${
+          isSidebarOpen ? "ml-60" : "ml-12"
+        } transform bg-slate-50 pb-4 duration-500 ease-in-out`}
       >
         <div ref={homeRef}></div>
         <AdminHeader />
-
         <div className="grid h-screen max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
           <div className="grid h-full">
             <div className="flex flex-row">
@@ -316,38 +331,44 @@ const AdminMain = () => {
             </div>
           </div>
         </div>
-        <div ref={unsolvedRef}></div>
-        <div className="flex h-24"></div>
+
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+          <div className="h-10"></div>
+          <div ref={unsolvedRef}></div>
+          <UnsolveHeader />
           <div className="grid h-full">
-            <div className="m-5 flex h-4/5 w-full justify-center">
+            <div className="mx-5 flex h-4/5 w-full justify-center">
               <Unsolved />
             </div>
           </div>
         </div>
-        <div ref={chatRef}></div>
 
-        <div className="flex h-24"></div>
-
-        <div className="grid h-screen max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+        <div className="grid max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+          <div className="h-10"></div>
+          <div ref={chatRef}></div>
+          <ChatbotHeader />
           <div>
             <ChatRecord />
           </div>
         </div>
-        <div ref={humanRef}></div>
-        <div className="flex h-24"></div>
+
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+          <div className="h-10"></div>
+          <div ref={humanRef}></div>
+          <MemberControl />
           <div className="grid h-full">
-            <div className="m-5 flex h-4/5 w-full justify-center">
+            <div className="mx-5 flex h-4/5 w-full justify-center">
               <Members />
             </div>
           </div>
         </div>
-        <div ref={scenarioRef}></div>
-        <div className="flex h-24"></div>
+
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+          <div className="h-10"></div>
+          <div ref={scenarioRef}></div>
+          <SenarioHeader />
           <div className="grid h-full">
-            <div className="m-5 flex h-4/5 w-full justify-center">
+            <div className="mx-5 flex h-4/5 w-full justify-center">
               <SenarioControl />
             </div>
           </div>
