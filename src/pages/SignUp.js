@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // 통신사, 약관동의는 모달창으로 처리 예정
 // 나머지 요소들은 아마도? 그대로 사용 예정 (약간의 스타일 변경 필요)
@@ -116,17 +116,17 @@ const SignUp = () => {
   };
 
   const countryList = [
-    { value: "KR", name: "South Korea" },
-    { value: "US", name: "United States" },
     { value: "CA", name: "Canada" },
-    { value: "MX", name: "Mexico" },
     { value: "CN", name: "China" },
     { value: "JP", name: "Japan" },
+    { value: "MX", name: "Mexico" },
     { value: "PH", name: "Philippines" },
+    { value: "KR", name: "South Korea" },
     { value: "TH", name: "Thailand" },
-    { value: "VN", name: "Vietnam" },
+    { value: "US", name: "United States" },
     { value: "UZ", name: "Uzbekistan" },
-  ];
+    { value: "VN", name: "Vietnam" }
+];
 
   const ageRange = [
     { value: "20", name: "20~29" },
@@ -196,7 +196,7 @@ const SignUp = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            src={require('../image/TokTalk4.png')}
             alt="logo"
           />
         </div>
@@ -235,7 +235,7 @@ const SignUp = () => {
                   name="phone"
                   type="text"
                   value={phone}
-                  placeholder="숫자만 입력해주세요"
+                  placeholder="Enter only numbers"
                   required
                   onChange={handle_phone}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -351,7 +351,7 @@ const SignUp = () => {
                   name="nickname"
                   type="text"
                   value={nickname}
-                  placeholder="닉네임은 13글자까지 입력할 수 있습니다."
+                  placeholder="Nickname can be up to 13 characters"
                   required
                   maxLength={13}
                   onChange={handle_nick}
