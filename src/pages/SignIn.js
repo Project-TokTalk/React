@@ -1,6 +1,7 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import KakaoLogo from '../image/kakao.png'; // 카카오톡 로고 이미지 파일 경로
 
 const SignIn = () => {
   const [password, setPassword] = useState("");
@@ -54,7 +55,7 @@ const SignIn = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            src={require('../image/TokTalk4.png')}
             alt="logo"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -115,6 +116,16 @@ const SignIn = () => {
                 Sign in
               </button>
             </div>
+            {/* 카카오톡으로 로그인 버튼 */}
+            <div>
+              <button
+                type="submit"
+                onClick={handleSignin}
+                className="flex items-center justify-center w-full rounded-md bg-yellow-400 hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm"
+              >
+                <img src={KakaoLogo} alt="KakaoTalk Logo" className="h-6 mr-2" /> Sign in with KakaoTalk
+              </button>
+            </div>
           </form>
 
           <div className="mt-3 text-center text-sm text-gray-500">
@@ -124,6 +135,15 @@ const SignIn = () => {
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
               Join us
+            </Link>
+          </div>
+          <div className="mt-3 text-center text-sm text-gray-500">
+          {/* 비밀번호 찾기 페이지로 변경 */}
+            <Link
+              to={"/findpw"}
+              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >
+              Forgot your password?
             </Link>
           </div>
           <div className="mt-3 text-center text-sm text-gray-500">
