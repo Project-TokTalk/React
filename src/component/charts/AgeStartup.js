@@ -93,20 +93,26 @@ export default function AgeStartup(props) {
       <div className="ml-7 mr-7 mt-10 h-full w-3/4">
         <ReactApexChart options={options} series={series} type="line" height={350} />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col" style={{ width: "30%" }}>
         <div className="h-1/4 px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
           연령대별 창업유무
         </div>
-        <div className="px-6 text-sm font-medium leading-6 text-gray-900">
-          여기에 상위 1위, 해당 퍼센트 입력
-        </div>
-        <div className="px-6 text-sm font-medium leading-6 text-gray-900">
-          여기에 상위 2위, 해당 퍼센트 입력
-        </div>
-        <div className="px-6 text-sm font-medium leading-6 text-gray-900">
-          여기에 상위 3위, 해당 퍼센트 입력
-        </div>
+        {series.length > 0 && series[0].data ? (
+          series[0].data
+            .map((item, index) => ({ age: options.xaxis.categories[index], count: item }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 3)
+            .map((item, index) => (
+              <div key={index} className="px-6 text-sm font-medium leading-6 text-gray-900" style={{ fontFamily: "Nanum Gothic", fontSize: "17px", fontWeight: "bold" }}>
+                {`${index + 1}위: ${item.age}대 - ${((item.count / series[0].data.reduce((a, b) => a + b, 0)) * 100).toFixed(2)}%`}
+              </div>
+            ))
+        ) : (
+          <div>데이터를 불러오는 중...</div>
+        )}
       </div>
     </div>
   );
+  
+  
 }

@@ -46,14 +46,18 @@ const Country = () => {
             show: true,
             name: {
               show: true, // 이름 표시 여부
-              fontSize: '30px'
+              fontSize: '30px',
+              fontWeight: 'bold',
+              fontFamily: 'Nanum Gothic'
             },
             value: {
               show: true, // 값 표시 여부
               fontSize: '20px',
               formatter: function (val) {
                 return val + '명'; // 라벨 값 뒤에 "명" 추가
-              }
+              },
+              fontWeight: 'bold',
+              fontFamily: 'Nanum Gothic'
             }
           }
         }
@@ -79,7 +83,7 @@ const Country = () => {
           <br></br>
           <br></br>
           {chartData.slice(0, 3).map((item, index) => (
-            <div key={index} className="px-6 text-sm font-medium leading-6" style={{ fontFamily: "Arial", fontSize: "17px", fontWeight: "bold" }}>
+            <div key={index} className="px-6 text-sm font-medium leading-6" style={{ fontFamily: "Nanum Gothic", fontSize: "17px", fontWeight: "bold" }}>
               {`${index + 1}위 : ${item.nation} - ${item.userPercentage.toFixed(2)}%`}
             </div>
           ))}
