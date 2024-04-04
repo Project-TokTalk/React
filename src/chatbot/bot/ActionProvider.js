@@ -1,9 +1,11 @@
 import React from "react";
+import DogPicture from "../DogPicture";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   // hello를 입력 시 아래 문자열이 출력
-  const handleHello = () => {
-    const botMessage = createChatBotMessage("Hello. Nice to meet you.");
+  const handleHello = (answer) => {
+    const botMessage = createChatBotMessage(answer);
+    console.log(answer + "why?")
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
@@ -14,9 +16,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   // 문자열만 출력되고 widget쪽은 안되는건지 console.log도 안나오고 사진 로드도 안되 (이미지 주소 쳐보면 정상적인거 확인됨)
   const handleDog = () => {
     const botMessage = createChatBotMessage(
-      "Here's a nice dog picture for you!",
+      console.log("i can say it"),
       {
-        widget: "dogPicture",
+        widget: DogPicture,
       },
     );
 

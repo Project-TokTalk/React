@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 
 const MessageParser = ({ children, actions }) => {
-  const parse = (message) => {
-    // 입력받을 특정문자열
-    if (message.includes("hello")) {
-      // 출력
-      actions.handleHello();
-    }
+  const [answer, setAnswer] = useState(""); // answer를 state로 정의
 
-    if (message.includes("dog")) {
-      actions.handleDog();
-    }
+  const parse = (message) => {
+    const dataToSend = {
+      chat: message
+    };
+
+    axios.post('http://127.0.0.1:8089/send_data', dataToSend)
+      .then(response => {
+        console.log(message);
+        console.log("여기까진 도착");
+        const answer = response.data.message;
+        console.log('Answer:', answer);
+        setAnswer(answer); // 응답 받은 후에 answer 값을 설정
+      })
+      .catch(error => {
+        console.error('Error sending data:', error);
+      });
+    actions.handleHello(answer );
   };
 
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
-          // GPT님께서 파싱 함수를 자식 요소에 전달이랍니다
           parse: parse,
-
-          // 액션 제공자를 자식 요소에 전달이랍니다. 나도 이해 못함.
-          actions: actions, // actions를 전달
+          actions: actions,
+          answer: answer, // answer 값을 props로 전달
         });
       })}
     </div>
