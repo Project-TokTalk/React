@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SenarioHeader from "../layout/SenarioHeader";
 
 const SenarioControl = () => {
   const [CheckList, setCheckList] = useState([]);
@@ -44,8 +45,9 @@ const SenarioControl = () => {
 
   return (
     <>
-      <div className="container mx-auto flex h-screen w-full flex-col justify-center p-3">
-        <div className="flex h-5/6 w-full bg-white shadow" id="unsolved-scroll">
+      <div className="container mx-auto flex h-screen w-full flex-col justify-start p-3">
+        <SenarioHeader />
+        <div className="flex h-2/3 w-full bg-white shadow" id="unsolved-scroll">
           <table className="flex h-full min-h-0 w-full flex-col object-center">
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
