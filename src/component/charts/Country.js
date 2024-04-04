@@ -38,7 +38,23 @@ const Country = () => {
     legend: {
       show: false,
     },
-  };
+    
+    plotOptions: {
+      pie: {
+        donut: {
+          labels: {
+            show: true,
+            name: {
+              show: true, // 이름 표시 여부
+            },
+            value: {
+              show: true, // 값 표시 여부
+            }
+          }
+        }
+      }
+    }
+  };  
 
   const chartSeries = chartData.map((item) => item.userCount);
 
