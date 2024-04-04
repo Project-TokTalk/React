@@ -61,7 +61,7 @@ const AdminMain = () => {
         >
           <div class="flex items-center space-x-2 pl-8 ">
             <div>
-              <div class="moon text-white hover:text-blue-500 dark:hover:text-[#38BDF8]">
+              <div class="text-white">
                 <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
               </div>
             </div>

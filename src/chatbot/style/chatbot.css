@@ -1,27 +1,36 @@
-.react-chatbot-kit-chat-container {
-  position: fixed;
-  right: 30px;
-  bottom: 25px;
-  width: 370px;
-  height: 80%;
-  min-height: 520px;
-  max-height: 680px;
-  overflow: hidden;
-  border-radius: 25px;
-  box-shadow: rgb(0 0 0 / 30%) 0px 12px 60px 5px;
+/* 이거로 모바일 pc구분할건데 일단 나머지 크기 맞주고 해볼게, 근데 안할수도잇음 */
+@media screen and (max-width: 767px) {
+  .react-chatbot-kit-chat-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: rgb(0 0 0 / 30%) 0px 12px 60px 5px;
+  }
 }
 
+/*  
+  참고로 채팅 메시지 속성은 ChatMessage.js 참고 바랍니다.
+  통일시키고 싶긴한데 그거 할 시간에 딴거할거임
+*/
+
+/* 그냥 범위 구분하려고 색 넣은거임 입력란은 색이 안들어가 */
 .react-chatbot-kit-chat-inner-container {
   height: 100%;
-  background-color: #89b6e4; {/* 그냥 범위 구분하려고 색 넣은거임 입력란은 색이 안들어가 */}
+  width: auto;
+  background-color: #7589f8;
 }
 
+/* 입력란 속성, 여기서 가운데 정렬함 */
 .react-chatbot-kit-chat-input-container {
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* 메시지가 나오는 공간 속성 */
 .react-chatbot-kit-chat-message-container {
-  height: 560px;
+  height: 597px;
   padding: 0.5rem 1.1rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -31,37 +40,104 @@
   display: none;
 }
 
+/* 입력란에서 텍스트 입력칸 속성 */
 .react-chatbot-kit-chat-input {
+  height: 50px;
+  width: 270px;
   border: none;
   border-radius: 20px;
   padding: 1.3rem 1.2rem;
-  margin-right: 0.5rem;
   font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .react-chatbot-kit-chat-input:focus-visible {
   outline: none;
 }
 
+/* 입력란 전체 크기 및 속성 */
 .react-chatbot-kit-chat-input-form {
   background-color: #ffffff;
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
   border: 1.4px solid #f2f2f2;
+  display: flex; /* 아이콘을 가운데 정렬하기 위해 Flexbox 사용 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  margin-bottom: 20px;
 }
 
+/* placeholder 입니다 */
 .react-chatbot-kit-chat-input::placeholder {
   color: #d4d4d4;
   font-weight: 300;
 }
 
+/* 보내기 버튼 속성 */
 .react-chatbot-kit-chat-btn-send {
-  width: fit-content;
-  height: fit-content;
-  border-radius: 10px;
-  padding: 0.8rem;
-  background-color: transparent;
+  width: 30px; /* 아이콘의 가로 크기 조정 */
+  height: 30px; /* 아이콘의 세로 크기 조정 */
+  border-radius: 50%; /* 아이콘을 원 모양으로 만듭니다. */
+
+  background-color: black;
+  margin-right: 10px;
+  display: flex; /* 아이콘을 가운데 정렬하기 위해 Flexbox 사용 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
 }
 
+.react-chatbot-kit-chat-btn-send-icon {
+}
+
+/* 채팅 나오는거 속성 */
 .react-chatbot-kit-chat-bot-message-container {
   align-items: flex-end;
   margin: 1.2rem 0;
+}
+
+/* 비어있는 속성들은 나중에 쓸까 싶어서 일단 넣었음, 나중에 정리할때 다 지우기 */
+
+.react-chatbot-kit-chat-bot-avatar-container {
+}
+
+.react-chatbot-kit-chat-bot-avatar-icon {
+}
+
+.react-chatbot-kit-chat-bot-avatar-letter {
+}
+
+.react-chatbot-kit-chat-bot-message {
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+}
+
+.react-chatbot-kit-chat-bot-loading-icon-container {
+}
+
+.chatbot-loader-container {
+}
+
+#chatbot-loader #chatbot-loader-dot1 {
+}
+
+#chatbot-loader #chatbot-loader-dot2 {
+}
+
+#chatbot-loader #chatbot-loader-dot3 {
+}
+
+.react-chatbot-kit-error {
+}
+
+.react-chatbot-kit-error-container {
+}
+
+.react-chatbot-kit-error-header {
+}
+
+.react-chatbot-kit-error-docs {
 }
