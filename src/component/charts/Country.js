@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReactApexChart from "react-apexcharts";
+import './Font.css'; // CSS 파일을 불러옵니다.
 
 const Country = () => {
   const [chartData, setChartData] = useState([]);
@@ -66,8 +67,8 @@ const Country = () => {
   };  
 
   return (
-    <div className="flex">
-      <div className="ml-7 mr-7 mt-10 h-full w-3/4">
+    <div className="flex items-center" style={{ marginTop: "60px" }}>
+      <div className="w-3/4">
         <ReactApexChart
           options={chartOptions}
           series={chartData.map((item) => item.userCount)}
@@ -75,22 +76,31 @@ const Country = () => {
           height={350}
         />
       </div>
-      <div className="col-span-1" style={{ width: "30%" }}>
-        <div>
-          <div className="px-3 pt-3 text-xl font-bold leading-6">
-            국가별 이용자 수
-          </div>
-          <br></br>
-          <br></br>
+      <div className="flex flex-col w-1/4 p-4" style={{ width: "30%" }}>
+        <div className="text-2xl font-bold mb-4">
+          국가별 이용자 수
+        </div>
+        <div className="space-y-2">
           {chartData.slice(0, 3).map((item, index) => (
-            <div key={index} className="px-6 text-sm font-medium leading-6" style={{ fontFamily: "Nanum Gothic", fontSize: "17px", fontWeight: "bold" }}>
-              {`${index + 1}위 : ${item.nation} - ${item.userPercentage.toFixed(2)}%`}
+            <div key={index} className="flex items-center">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 mr-2">
+                {index + 1}
+              </div>
+              <div>
+                <div className="text-lg font-medium" style={{ fontWeight: "bold" }}>
+                  {`${item.nation}`}
+                </div>
+                <div className="text-sm text-gray-600">
+                  {`${item.userPercentage.toFixed(2)}%`}
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
+  
 };
 
 export default Country;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
+import './Font.css'; // CSS 파일을 불러옵니다.
 
 export default function AgeStartup(props) {
   const [options, setOptions] = useState({
@@ -89,12 +90,12 @@ export default function AgeStartup(props) {
   };
 
   return (
-    <div className="flex">
-      <div className="ml-7 mr-7 mt-10 h-full w-3/4">
+    <div className="flex items-center" style={{ marginTop: "30px" }}>
+      <div className="w-3/4">
         <ReactApexChart options={options} series={series} type="line" height={350} />
       </div>
-      <div className="flex flex-col" style={{ width: "30%" }}>
-        <div className="h-1/4 px-3 pt-3 text-xl font-bold leading-6 text-gray-900">
+      <div className="flex flex-col w-1/4 p-4" style={{ width: "30%" }}>
+        <div className="text-2xl font-bold mb-4">
           연령대별 창업유무
         </div>
         {series.length > 0 && series[0].data ? (
@@ -103,16 +104,28 @@ export default function AgeStartup(props) {
             .sort((a, b) => b.count - a.count)
             .slice(0, 3)
             .map((item, index) => (
-              <div key={index} className="px-6 text-sm font-medium leading-6 text-gray-900" style={{ fontFamily: "Nanum Gothic", fontSize: "17px", fontWeight: "bold" }}>
-                {`${index + 1}위: ${item.age}대 - ${((item.count / series[0].data.reduce((a, b) => a + b, 0)) * 100).toFixed(2)}%`}
+              <div key={index} className="flex items-center mb-2">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 mr-2">
+                  {index + 1}
+                </div>
+                <div>
+                  <div className="text-lg font-medium" style={{ fontWeight: "bold" }}>
+                    {`${item.age}대`}
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    {`${((item.count / series[0].data.reduce((a, b) => a + b, 0)) * 100).toFixed(2)}%`}
+                  </div>
+                </div>
               </div>
             ))
         ) : (
-          <div>데이터를 불러오는 중...</div>
+          <div className="text-gray-600">데이터를 불러오는 중...</div>
         )}
       </div>
     </div>
   );
+  
+  
   
   
 }
