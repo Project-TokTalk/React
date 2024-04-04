@@ -6,7 +6,8 @@ const MessageParser = ({ children, actions }) => {
 
   const parse = (message) => {
     const dataToSend = {
-      chat: message
+      chat: message,
+      phone : "01000000000"
     };
 
     axios.post('http://127.0.0.1:8089/send_data', dataToSend)
@@ -16,11 +17,13 @@ const MessageParser = ({ children, actions }) => {
         const answer = response.data.message;
         console.log('Answer:', answer);
         setAnswer(answer); // 응답 받은 후에 answer 값을 설정
+        actions.handleHello(answer);    
       })
       .catch(error => {
         console.error('Error sending data:', error);
       });
-    actions.handleHello(answer );
+      
+    
   };
 
   return (
