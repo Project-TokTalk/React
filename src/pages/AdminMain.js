@@ -1,11 +1,6 @@
 import { useState, useRef } from "react";
 
 import AdminHeader from "../component/layout/AdminHeader";
-import UnsolveHeader from "../component/layout/UnsolveHeader";
-import ChatbotHeader from "../component/layout/ChatbotHeader";
-import MemberControl from "../component/layout/MemberControl";
-import SenarioHeader from "../component/layout/SenarioHeader";
-
 import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
 import FAQ from "../component/table/FAQ";
@@ -61,7 +56,7 @@ const AdminMain = () => {
         >
           <div class="flex items-center space-x-2 pl-8 ">
             <div>
-              <div class="moon text-white hover:text-blue-500 dark:hover:text-[#38BDF8]">
+              <div class="text-white">
                 <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
               </div>
             </div>
@@ -333,9 +328,7 @@ const AdminMain = () => {
         </div>
 
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
-          <div className="h-10"></div>
           <div ref={unsolvedRef}></div>
-          <UnsolveHeader />
           <div className="grid h-full">
             <div className="mx-5 flex h-4/5 w-full justify-center">
               <Unsolved />
@@ -344,18 +337,15 @@ const AdminMain = () => {
         </div>
 
         <div className="grid max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
-          <div className="h-10"></div>
           <div ref={chatRef}></div>
-          <ChatbotHeader />
           <div>
             <ChatRecord />
           </div>
         </div>
 
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
-          <div className="h-10"></div>
           <div ref={humanRef}></div>
-          <MemberControl />
+
           <div className="grid h-full">
             <div className="mx-5 flex h-4/5 w-full justify-center">
               <Members />
@@ -364,9 +354,8 @@ const AdminMain = () => {
         </div>
 
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
-          <div className="h-10"></div>
           <div ref={scenarioRef}></div>
-          <SenarioHeader />
+
           <div className="grid h-full">
             <div className="mx-5 flex h-4/5 w-full justify-center">
               <SenarioControl />

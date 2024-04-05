@@ -1,10 +1,12 @@
 import React from "react";
+import ChatbotHeader from "../layout/ChatbotHeader";
 
 const ChatRecord = () => {
   return (
     <>
+      <ChatbotHeader />
       <div className="flex h-screen w-full bg-white text-gray-800 antialiased">
-        <div className="flex flex-1 flex-col">
+        <div className="flex h-4/5 flex-1 flex-col">
           <main className="flex min-h-0 flex-grow border-t">
             <section className="flex min-h-0 w-full max-w-sm flex-none flex-col overflow-auto bg-gray-100 p-4">
               <h1 className="mb-3 pl-3 font-semibold">사용자별 대화내역</h1>

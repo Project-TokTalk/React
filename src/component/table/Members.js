@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import MemberControl from "../layout/MemberControl";
 
 const Members = () => {
   const [CheckList, setCheckList] = useState([]);
@@ -43,9 +44,10 @@ const Members = () => {
 
   return (
     <>
-      <div className="container mx-auto flex h-screen w-full flex-col justify-center overflow-x-auto p-3">
+      <div className="container mx-auto flex h-screen w-full flex-col justify-start overflow-x-auto p-3">
+        <MemberControl />
         <div
-          className="flex h-5/6 w-full overflow-auto bg-white shadow"
+          className="flex h-2/3 w-full overflow-auto bg-white shadow"
           id="unsolved-scroll"
         >
           <table className="flex h-full min-h-0 w-full flex-col object-center">
