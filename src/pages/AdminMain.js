@@ -5,12 +5,13 @@ import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
 import FAQ from "../component/table/FAQ";
 import Unsolved from "../component/table/Unsolved";
-import Chatbot from "./Chatbot";
+import Chat from "../chatbot/Chat";
 import SenarioControl from "../component/table/SenarioControl";
 import Members from "../component/table/Members";
 import ChatRecord from "../component/table/ChatRecord";
 import TokTalk from "../image/TokTalk.png";
 import Gender from "../component/charts/Gender";
+import DateGraph from "../component/charts/DateGraph";
 
 const AdminMain = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -316,13 +317,22 @@ const AdminMain = () => {
             </div>
             <div className="grid h-full">
               <div className="flex flex-row ">
-                <section className="mb-5 ml-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
+                <section className="ml-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
                   <Country />
                 </section>
-                <section className="m-5 h-1/2 w-1/2 ">
-                  <FAQ />
+                <section className="ml-5 mr-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
+                  <DateGraph />
                 </section>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+          <div ref={unsolvedRef}></div>
+          <div className="grid h-full">
+            <div className="mx-5 flex h-4/5 w-full justify-center">
+              <FAQ />
             </div>
           </div>
         </div>
@@ -363,7 +373,7 @@ const AdminMain = () => {
           </div>
         </div>
       </div>
-      <Chatbot />
+      <Chat />
     </>
   );
 };

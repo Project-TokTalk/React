@@ -46,7 +46,7 @@ const Chat = () => {
   ) : (
     <button
       onClick={onClick}
-      className="absolute bottom-6 right-6 flex transform rounded-full border-4 border-white bg-[#1E293B] p-3 text-white transition duration-500 ease-in-out"
+      className="fixed bottom-6 right-6 flex transform rounded-full border-4 border-white bg-[#1E293B] p-3 text-white transition duration-500 ease-in-out"
     >
       <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
     </button>
