@@ -1,29 +1,32 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const MessageParser = ({ children, actions }) => {
   const [answer, setAnswer] = useState(""); // answer를 state로 정의
 
   const parse = (message) => {
+    if (message.includes("test")) {
+      actions.createbtn();
+    }
+
     const dataToSend = {
       chat: message,
-      phone : "01000000000"
+      phone: "01000000000",
     };
 
-    axios.post('http://127.0.0.1:8089/send_data', dataToSend)
-      .then(response => {
+    axios
+      .post("http://127.0.0.1:8089/send_data", dataToSend)
+      .then((response) => {
         console.log(message);
         console.log("여기까진 도착");
         const answer = response.data.message;
-        console.log('Answer:', answer);
+        console.log("Answer:", answer);
         setAnswer(answer); // 응답 받은 후에 answer 값을 설정
-        actions.handleHello(answer);    
+        actions.handleHello(answer);
       })
-      .catch(error => {
-        console.error('Error sending data:', error);
+      .catch((error) => {
+        console.error("Error sending data:", error);
       });
-      
-    
   };
 
   return (

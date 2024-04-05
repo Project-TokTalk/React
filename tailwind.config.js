@@ -4,7 +4,7 @@ module.exports = {
   content: ["./src/**/*.{js, jsx,ts,tsx}", "./src/**/**/*.{js, jsx,ts,tsx}"],
   theme: {
     extend: {
-      color: {
+      colors: {
         transparent: colors.transparent,
         top_color: "#002267",
         chat_a: "#6981BD",

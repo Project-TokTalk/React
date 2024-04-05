@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 // 시스템인지 봇인지 각각 판단해서 스타일 적용
 const ChatMessageContainer = styled.div`
-  max-width: 85%;
+  max-width: 80%;
   width: fit-content;
   display: flex;
   justify-content: center;
 
   /* 채팅 메시지 배경색 */
-  background-color: ${(props) => (props.isBot ? "#E6F4F1" : "#F9F871")};
+  background-color: ${(props) => (props.isBot ? "#F8F8FF" : "#F9F871")};
   border-radius: ${(props) =>
     props.isBot ? "20px 20px 20px 5px" : "20px 20px 5px 20px"};
   margin-left: 0.4rem;

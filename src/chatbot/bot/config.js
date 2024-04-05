@@ -1,42 +1,67 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import DogPicture from "../DogPicture";
+import SelectBtn from "../SelectBtn";
 import ChatMessage from "../component/ChatMessage";
 import TokTalk from "../../image/TokTalk.png";
 
 const botName = "ExcitementBot";
-// const message = createChatBotMessage("Hello world!");
+const message = createChatBotMessage("Hello world!");
 
 const getConfig = () => {
+  // 이건 챗봇측 아바타
+  const BotAvatar = () => {
+    return (
+      <div className="react-chatbot-kit-chat-bot-avatar">
+        <div
+          className="react-chatbot-kit-chat-bot-avatar-container"
+          style={{ background: "none" }}
+        >
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-chat_a">
+            <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // 이건 사용자의 아바타
+  const UserAvatar = () => {
+    return <div className="react-chatbot-kit-chat-bot-avatar"></div>;
+  };
+
   const config = {
     // 초기 메시지
-    initialMessages: [createChatBotMessage(`Hi! I'm ${botName}`)],
     botName: botName,
     customStyles: {},
+
+    initialMessages: [
+      createChatBotMessage("Would you like to see a picture of a dog?"),
+    ],
+
     state: {
       // 나도 모르겟다. 현재 위젯의 상태를 정의한다는데
-      myCustomProperty: "Bikershorts",
+      // myCustomProperty: "Bikershorts",
     },
+
     widgets: [
       {
         // 위젯 이름
-        widgetName: "DogPicture",
+        widgetName: "SelectBtn",
 
-        // Function that will be called internally to resolve the widget - 따로 위젯을 생성하는 함수
-        widgetFunc: (props) => <DogPicture {...props} />,
+        // 따로 위젯을 생성하는 함수
+        widgetFunc: (props) => <SelectBtn {...props} />,
 
-        // Any props you want the widget to receive on render - 위젯에 추가적으로 전달되는 속성
-        props: {},
+        // 위젯에 추가적으로 전달되는 속성
+        // props: {},
 
-        // Any piece of state defined in the state object that you want to pass down to this widget
         // 위젯에 전달되는 상태
-        mapStateToProps: ["selectedFlightId", "selectedFlight"],
+        // mapStateToProps: ["selectedFlightId", "selectedFlight"],
       },
     ],
     customComponents: {
-      // 이거 아래요소들은 커스텀이고 아직 제작안한상태로 에러나서 주석처리함
       header: () => (
-        // 헤더 색 적용 안되서 일단 검은색 씌웠어
-        <div className="flex w-full items-center bg-black p-5">
+        // 헤더 색 적용 완료
+        <div className="flex w-full items-center bg-top_color p-5">
           {/* 여기 버튼이 회원정보로 가는 버튼 */}
           <button className="flex h-5 w-5 justify-start rounded-full ring-1 ring-inset ring-gray-100">
             <svg
@@ -77,13 +102,13 @@ const getConfig = () => {
       ),
 
       // 챗봇 아바타 변경, 우리 로고쓰면 될듯?
-      // botAvatar: (props) => <MyAvatar {...props} />,
+      botAvatar: (props) => <BotAvatar {...props} />,
 
-      // 컨테이너 스타일 변경
+      // 챗봇 컨테이너 스타일 변경
       botChatMessage: (props) => <ChatMessage {...props} bot />,
 
       // 사용자 아바타 변경
-      // userAvatar: (props) => <MyCustomAvatar {...props} />,
+      userAvatar: (props) => <UserAvatar {...props} />,
 
       // 사용자 채팅 컨테이너 스타일 변경
       userChatMessage: (props) => <ChatMessage {...props} />,
