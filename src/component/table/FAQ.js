@@ -1,37 +1,22 @@
 const FAQ = () => {
-  // const IdList = [1, 2, 3, 4];
+  const IdList = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30,
+  ];
 
   return (
     <>
-      <div className="flex justify-center mt-8 mb-8">
-        <div className="text-xl leading-6"><h2 className="text-2xl font-bold mb-3">자주 묻는 질문</h2>
-          <div className="mt-3 grid h-96 flex-col">
-            <div className="h-full overflow-auto bg-white shadow" id="faq-scroll">
+      <div className="mb-8 mt-8 flex justify-center">
+        <div className="text-xl leading-6">
+          <h2 className="mb-3 text-2xl font-bold">자주 묻는 질문</h2>
+          <div className="mt-3 grid h-full flex-col">
+            <div
+              className="h-full overflow-auto bg-white shadow"
+              id="faq-scroll"
+            >
               <div className="max-h-full overflow-y-auto">
                 <table className="h-full table-fixed ring-1 ring-inset ring-gray-300">
                   <tbody className="h-full">
-                    {/*
-                    
-                    여기 테이블 넣는거 이 코드 참고해서 입력하면 될듯
-                    {IdList.map((id) => (
-                      <tr
-                        key={id}
-                        className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs"
-                      >
-                        <td className="flex justify-center whitespace-normal pl-3 pr-3">
-                          {id}
-                        </td>
-                        <td className="flex-1 whitespace-normal pl-3 pr-3">
-                          질문 리스트
-                        </td>
-                        <td className="flex w-20 justify-center whitespace-normal pl-3 pr-3">
-                          질문 횟수
-                        </td>
-                      </tr>
-                    ))}
-                        */}
-
                     <tr
                       className="relative scale-100 transform
                                           cursor-default border-b-2 py-1 text-xs
@@ -76,8 +61,9 @@ const FAQ = () => {
                       <td className="whitespace-normal px-2 py-2">
                         <div className="leading-5 text-gray-900">
                           Create pull request #1213 이거 아래 공간있는거 너무
-                          불편한데 안지워지네 다른 크기는 어떻게든 조절했는데 저거
-                          크기 h-96 이상으로 할 수 없으니까 어찌 할 방도가 없네
+                          불편한데 안지워지네 다른 크기는 어떻게든 조절했는데
+                          저거 크기 h-96 이상으로 할 수 없으니까 어찌 할 방도가
+                          없네
                         </div>
                       </td>
                     </tr>
@@ -98,126 +84,23 @@ const FAQ = () => {
                         </div>
                       </td>
                     </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
 
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
-                    <tr
-                      className="relative scale-100 transform
-                                          cursor-default border-b-2 py-1 text-xs
-
-                                  "
-                    >
-                      <td className="whitespace-normal pl-3 pr-3">
-                        <div>07:45</div>
-                      </td>
-                      <td className="whitespace-normal px-2 py-2">
-                        <div className="leading-5 text-gray-900">
-                          Create pull request #1213
-                        </div>
-                      </td>
-                    </tr>
+                    {IdList.map((id_faq) => (
+                      <tr
+                        key={id_faq}
+                        className="relative scale-100 transform
+                    cursor-default border-b-2 py-1 text-xs"
+                      >
+                        <td className="whitespace-normal pl-3 pr-3">
+                          <div>07:45</div>
+                        </td>
+                        <td className="whitespace-normal px-2 py-2">
+                          <div className="leading-5 text-gray-900">
+                            Create pull request #1213
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

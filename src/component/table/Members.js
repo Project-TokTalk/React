@@ -1,8 +1,25 @@
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import MemberControl from "../layout/MemberControl";
 
 const Members = () => {
   const [CheckList, setCheckList] = useState([]);
+  const [memberList, setMemberList] = useState([]);
+
+  // 이주명(0405) 멤버리스트 불러오기 추가
+  useEffect(() => {
+    axios
+      .get("http://localhost:8081/admin/member")
+      .then((response) => {
+        const memberList = response.data;
+        setMemberList(memberList);
+      })
+      .catch((error) => {
+        console.error("데이터 요청 실패", error);
+      });
+  }, []);
+  console.log(memberList);
+  // 이주명(0405) 여기까지
   const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   const IdList = [
@@ -42,6 +59,9 @@ const Members = () => {
     });
   };
 
+  // 04/05
+  // 오름차순, 내림차순 정렬 위해 버튼 만들어놧는데 혹시나 안쓸거면 알아서 지우십셔
+
   return (
     <>
       <div className="container mx-auto flex h-screen w-full flex-col justify-start overflow-x-auto p-3">
@@ -62,23 +82,103 @@ const Members = () => {
                 <th className="flex w-64 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   닉네임
                 </th>
-                <th className="flex w-28 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-28 justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900">
                   국적
+                  <button className=" ml-1 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
                 </th>
                 <th className="flex w-56 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   전화번호
                 </th>
-                <th className="flex w-56 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-56 justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900">
                   생년월일
+                  <button className=" ml-1 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
                 </th>
-                <th className="flex w-28 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-28 justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900">
                   성별
+                  <button className=" ml-1 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
                 </th>
                 <th className="flex w-52 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   사업자 등록증 여부
+                  <button className=" ml-1 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
                 </th>
-                <th className="flex flex-1 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex flex-1 justify-center whitespace-nowrap border p-2 pl-4 text-xl font-bold leading-6 text-gray-900">
                   가입일자
+                  <button className=" ml-1 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
                 </th>
               </tr>
             </thead>
@@ -86,87 +186,77 @@ const Members = () => {
             <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
               <div className="flex h-full w-full flex-col overflow-auto">
                 {/* 여기서 데이터 삽입하면 됩니다. */}
-                {IdList.map((id_mem) => (
-                  <tr key={id_mem} className="flex text-gray-700 ">
+                {memberList.map((member, index) => (
+                  <tr key={index} className="flex w-full text-gray-700 ">
                     <td className="flex w-16 items-center justify-center border">
                       <input
                         type="checkbox"
-                        id={`checkbox-${id_mem}`}
-                        onChange={(e) => onChangeEach(e, id_mem)}
-                        checked={CheckList.includes(id_mem)}
+                        id={`checkbox-${index}`}
+                        onChange={(e) =>
+                          e.target.checked
+                            ? setCheckList((prevCheckList) => [
+                                ...prevCheckList,
+                                index,
+                              ])
+                            : setCheckList((prevCheckList) =>
+                                prevCheckList.filter(
+                                  (checkedId) => checkedId !== index,
+                                ),
+                              )
+                        }
+                        checked={CheckList.includes(index)}
                       />
                     </td>
                     <td className="flex w-16 items-center justify-center border">
-                      {id_mem}
+                      {index + 1}
                     </td>
                     <td className="flex w-64 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="요아소비"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.name}
                       />
                     </td>
-                    <td className="flex w-28 justify-center border">
+                    <td className="flex w-28 border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="일본"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.nation}
                       />
                     </td>
                     <td className="flex w-56 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="01044442222"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.phone}
                       />
                     </td>
                     <td className="flex w-56 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="20200230"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.age}
                       />
                     </td>
                     <td className="flex w-28 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="미정"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.gender}
                       />
                     </td>
                     <td className="flex w-52 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="Y"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.start ? "Yes" : "No"}
                       />
                     </td>
                     <td className="flex flex-1 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
-                        id={`answer-${id_mem}`}
-                        onChange={(e) => onAnswerChange(e, id_mem)}
-                        value="2024-03-29"
-                        style={{ width: "90%", flex: 1 }}
+                        value={member.join_dt.join("-")}
                       />
                     </td>
                   </tr>

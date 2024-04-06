@@ -2,6 +2,18 @@ import React from "react";
 import ChatbotHeader from "../layout/ChatbotHeader";
 
 const ChatRecord = () => {
+  const user_IdList = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30,
+  ];
+  const chat_IdList = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30,
+  ];
+
+  // 04/05
+  // 각각 반복문으로 바꿔서 전체 코드 길이 줄임
+
   return (
     <>
       <ChatbotHeader />
@@ -11,168 +23,34 @@ const ChatRecord = () => {
             <section className="flex min-h-0 w-full max-w-sm flex-none flex-col overflow-auto bg-gray-100 p-4">
               <h1 className="mb-3 pl-3 font-semibold">사용자별 대화내역</h1>
               <ul>
-                <li>
-                  <article
-                    tabindex="0"
-                    className="mb-2 flex  cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                  >
-                    <span className="flex-none pr-2 pt-1">
-                      <img
-                        className="h-8 w-8 rounded-md"
-                        src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                      />
-                    </span>
-                    <div className="flex-1">
-                      <header className="mb-1">
-                        Tarun T <span className="font-semibold">commented</span>{" "}
-                        on
-                        <h1 className="inline">"RE: WPMS issue".</h1>
-                      </header>
-                      <p className="text-gray-600">
-                        Hi Mazhar, Please note this issue comes when user is not
-                        closing or logout sy…
-                      </p>
-                      <footer className="mt-2 text-sm text-gray-500">
-                        Friday 22:16
-                      </footer>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article
-                    tabindex="0"
-                    className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                  >
-                    <span className="flex-none pr-2 pt-1">
-                      <img
-                        className="h-8 w-8 rounded-md"
-                        src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                      />
-                    </span>
-                    <div className="flex-1">
-                      <header className="mb-1">
-                        Tarun T <span className="font-semibold">commented</span>{" "}
-                        on
-                        <h1 className="inline">"RE: WPMS issue".</h1>
-                      </header>
-                      <p className="text-gray-600">
-                        Hi Mazhar, Please note this issue comes when user is not
-                        closing or logout sy…
-                      </p>
-                      <footer className="mt-2 text-sm text-gray-500">
-                        Friday 22:16
-                      </footer>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article
-                    tabindex="0"
-                    className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                  >
-                    <span className="flex-none pr-2 pt-1">
-                      <img
-                        className="h-8 w-8 rounded-md"
-                        src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                      />
-                    </span>
-                    <div className="flex-1">
-                      <header className="mb-1">
-                        Tarun T <span className="font-semibold">commented</span>{" "}
-                        on
-                        <h1 className="inline">"RE: WPMS issue".</h1>
-                      </header>
-                      <p className="text-gray-600">
-                        Hi Mazhar, Please note this issue comes when user is not
-                        closing or logout sy…
-                      </p>
-                      <footer className="mt-2 text-sm text-gray-500">
-                        Friday 22:16
-                      </footer>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article
-                    tabindex="0"
-                    className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                  >
-                    <span className="flex-none pr-2 pt-1">
-                      <img
-                        className="h-8 w-8 rounded-md"
-                        src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                      />
-                    </span>
-                    <div className="flex-1">
-                      <header className="mb-1">
-                        Tarun T <span className="font-semibold">commented</span>{" "}
-                        on
-                        <h1 className="inline">"RE: WPMS issue".</h1>
-                      </header>
-                      <p className="text-gray-600">
-                        Hi Mazhar, Please note this issue comes when user is not
-                        closing or logout sy…
-                      </p>
-                      <footer className="mt-2 text-sm text-gray-500">
-                        Friday 22:16
-                      </footer>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article
-                    tabindex="0"
-                    className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                  >
-                    <span className="flex-none pr-2 pt-1">
-                      <img
-                        className="h-8 w-8 rounded-md"
-                        src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                      />
-                    </span>
-                    <div className="flex-1">
-                      <header className="mb-1">
-                        Tarun T <span className="font-semibold">commented</span>{" "}
-                        on
-                        <h1 className="inline">"RE: WPMS issue".</h1>
-                      </header>
-                      <p className="text-gray-600">
-                        Hi Mazhar, Please note this issue comes when user is not
-                        closing or logout sy…
-                      </p>
-                      <footer className="mt-2 text-sm text-gray-500">
-                        Friday 22:16
-                      </footer>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article
-                    tabindex="0"
-                    className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                  >
-                    <span className="flex-none pr-2 pt-1">
-                      <img
-                        className="h-8 w-8 rounded-md"
-                        src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                      />
-                    </span>
-                    <div className="flex-1">
-                      <header className="mb-1">
-                        Tarun T <span className="font-semibold">commented</span>{" "}
-                        on
-                        <h1 className="inline">"RE: WPMS issue".</h1>
-                      </header>
-                      <p className="text-gray-600">
-                        Hi Mazhar, Please note this issue comes when user is not
-                        closing or logout sy…
-                      </p>
-                      <footer className="mt-2 text-sm text-gray-500">
-                        Friday 22:16
-                      </footer>
-                    </div>
-                  </article>
-                </li>
+                {user_IdList.map((id_chatuser) => (
+                  <li key={id_chatuser} className="flex text-gray-700 ">
+                    <article
+                      tabindex="0"
+                      className="mb-2 flex  cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
+                    >
+                      <span className="flex-none pr-2 pt-1">
+                        <img
+                          className="h-8 w-8 rounded-md"
+                          src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
+                        />
+                      </span>
+
+                      <div className="flex-1">
+                        <header className="mb-1">
+                          사용자 아이디 {id_chatuser}
+                        </header>
+                        <p className="text-gray-600">
+                          사용자의 마지막 채팅 내용 혹은 주요 채팅? <br />
+                          몰라 알아서 하슈 {id_chatuser}
+                        </p>
+                        <footer className="mt-2 text-sm text-gray-500">
+                          마지막 채팅 시간으로 수정 {id_chatuser}
+                        </footer>
+                      </div>
+                    </article>
+                  </li>
+                ))}
               </ul>
             </section>
 
@@ -233,7 +111,7 @@ const ChatRecord = () => {
               <header className="flex items-center border-t bg-white px-4 py-1">
                 <div className="flex h-8 items-center justify-center">
                   <h2 id="content-caption" className="font-semibold">
-                    Tickets requiring your attention (6)
+                    사용자별 채팅 내역
                   </h2>
                 </div>
               </header>
@@ -257,414 +135,51 @@ const ChatRecord = () => {
                 </thead>
                 <tbody className="flex min-h-0 w-full flex-1 flex-col px-4">
                   <div className="flex h-full w-full flex-col overflow-auto">
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        User/1
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        -
-                      </td>
-                    </tr>
-                    <tr
-                      role="row"
-                      className="flex cursor-pointer border-b hover:bg-blue-100"
-                    >
-                      <td className="flex w-64 justify-center px-1 py-3">
-                        2024년 04월 01일 오전 11:41
-                      </td>
-                      <td className="flex w-40 justify-center px-1 py-3">
-                        System
-                      </td>
-                      <td className="flex-1 truncate px-1 py-3">
-                        Marla Da rsuz
-                      </td>
-                      <td className="flex w-24 justify-center truncate px-1 py-3">
-                        Y
-                      </td>
-                    </tr>
+                    {/* 04/05
+                    그냥 Y/N 보여줄라고 조건식 넣음 ^^ */}
+                    {chat_IdList.map((id_chatlist) =>
+                      id_chatlist % 2 == 1 ? (
+                        <tr
+                          role="row"
+                          className="flex border-b hover:bg-blue-100"
+                        >
+                          <td className="flex w-64 items-center justify-center px-1 py-3">
+                            2024년 04월 01일 오전 11:41
+                            <br /> 채팅 일시
+                          </td>
+                          <td className="flex w-40 items-center justify-center px-1 py-3">
+                            System
+                          </td>
+                          <td className="flex flex-1 items-center truncate px-1 py-3">
+                            채팅 내용 {id_chatlist}
+                          </td>
+
+                          <td className="flex w-24 items-center justify-center truncate px-1 py-3">
+                            Y
+                          </td>
+                        </tr>
+                      ) : (
+                        <tr
+                          role="row"
+                          className="flex border-b hover:bg-blue-100"
+                        >
+                          <td className="flex w-64 items-center justify-center px-1 py-3">
+                            2024년 04월 01일 오전 11:41
+                            <br /> 채팅 일시
+                          </td>
+                          <td className="flex w-40 items-center justify-center px-1 py-3">
+                            System
+                          </td>
+                          <td className="flex flex-1 items-center truncate px-1 py-3">
+                            채팅 내용 {id_chatlist}
+                          </td>
+
+                          <td className="flex w-24 items-center justify-center truncate px-1 py-3">
+                            N
+                          </td>
+                        </tr>
+                      ),
+                    )}
                   </div>
                 </tbody>
               </table>

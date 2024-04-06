@@ -308,31 +308,22 @@ const AdminMain = () => {
         <div className="grid h-screen max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
           <div className="grid h-full">
             <div className="flex flex-row">
-              <section className="ml-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
+              <section className="ml-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
                 <AgeStartup />
               </section>
-              <section className="ml-5 mr-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
+              <section className="ml-5 mr-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
                 <Gender />
               </section>
             </div>
             <div className="grid h-full">
               <div className="flex flex-row ">
-                <section className="ml-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
+                <section className="ml-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
                   <Country />
                 </section>
-                <section className="ml-5 mr-5 mt-5 w-1/2 ring-1 ring-inset ring-gray-300">
+                <section className="ml-5 mr-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
                   <DateGraph />
                 </section>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
-          <div ref={unsolvedRef}></div>
-          <div className="grid h-full">
-            <div className="mx-5 flex h-4/5 w-full justify-center">
-              <FAQ />
             </div>
           </div>
         </div>

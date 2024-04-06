@@ -1,6 +1,6 @@
 const AdminHeader = () => {
   return (
-    <nav id="navbar" className="flex">
+    <nav id="navbar" className="flex bg-white">
       <div className="flex h-full w-4/5 items-center">
         <div className="flex p-5 pl-10 text-3xl font-bold">서비스 대시보드</div>
       </div>

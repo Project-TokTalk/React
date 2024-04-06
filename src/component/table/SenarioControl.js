@@ -94,7 +94,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -104,7 +104,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -114,7 +114,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -124,7 +124,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-96 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -134,7 +134,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-96 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -144,7 +144,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex flex-1 justify-center border">
                       <input
-                        className="h-full bg-transparent p-2"
+                        className="flex h-full w-full bg-transparent p-2 text-center"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
