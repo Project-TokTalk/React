@@ -31,6 +31,11 @@ export default function Gender(props) {
         `;
       },
     },
+    // 애니메이션 속도 설정
+    animations: {
+      enabled: true,
+      speed: 800, // 애니메이션 속도를 800ms로 설정
+    },
   });
 
   const [series, setSeries] = useState([]);

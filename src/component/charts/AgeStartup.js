@@ -11,7 +11,7 @@ export default function AgeStartup(props) {
       type: "bar",
       stacked: true,
       toolbar: { show: true },
-      animations: { enabled: false }, // 그래프 애니메이션을 비활성화합니다.
+      animations: { enabled: true, speed: 800 },
     },
     dataLabels: { enabled: true, enabledOnSeries: [0, 1] },
     grid: { show: false },

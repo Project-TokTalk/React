@@ -53,6 +53,11 @@ const DateGraph = () => {
       colors: ['#5CACEE'], // 선의 색상
       width: 4, // 선의 두께
     },
+    // 애니메이션 속도 설정
+    animations: {
+      enabled: true,
+      speed: 800, // 애니메이션 속도를 800ms로 설정
+    },
   };
 
   const series = [
