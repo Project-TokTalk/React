@@ -71,10 +71,10 @@ const ChatRecord = () => {
                   </label>
                   <ul className="flex">
                     <li>
-                      <div className="flex w-24 flex-col items-center rounded-md border bg-white p-2">
+                      <button className="flex w-24 cursor-default flex-col items-center rounded-md border bg-white p-2 focus:bg-yellow-200 focus:outline-none">
                         <p className="text-lg font-semibold">32</p>
                         <p className="text-sm uppercase text-gray-600">Count</p>
-                      </div>
+                      </button>
                     </li>
                   </ul>
                 </section>
@@ -92,14 +92,14 @@ const ChatRecord = () => {
                   </label>
                   <ul className="flex">
                     <li>
-                      <button className="flex w-24 flex-col items-center rounded-l-md border border-r-0 bg-white p-2 focus:bg-yellow-200 focus:outline-none">
+                      <button className="flex w-24 cursor-default flex-col items-center rounded-l-md border border-r-0 bg-white p-2 focus:bg-yellow-200 focus:outline-none">
                         <p className="text-lg font-semibold">30</p>
                         <p className="text-sm uppercase text-gray-600">Good</p>
                       </button>
                     </li>
 
                     <li>
-                      <button className="flex w-24 flex-col items-center rounded-r-md border bg-white p-2 focus:bg-yellow-200 focus:outline-none">
+                      <button className="flex w-24 cursor-default flex-col items-center rounded-r-md border bg-white p-2 focus:bg-yellow-200 focus:outline-none">
                         <p className="text-lg font-semibold">2</p>
                         <p className="text-sm uppercase text-gray-600">Bad</p>
                       </button>

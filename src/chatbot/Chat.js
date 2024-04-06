@@ -8,7 +8,10 @@ import ActionProvider from "./bot/ActionProvider.js";
 import TokTalk from "../image/TokTalk.png";
 
 const Chat = () => {
-  const [show, toggleShow] = useState(false);
+  const [show, toggleShow] = useState(
+    // /chat으로 접속시에만 켜진상태로 나옴
+    window.location.pathname.includes("/chat"),
+  );
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -18,7 +21,7 @@ const Chat = () => {
         toggleShow(false);
       }
     };
-  // 저도 이건 몰라요.. 지우면 버튼 안되긴 함
+    // 저도 이건 몰라요.. 지우면 버튼 안되긴 함
     window.addEventListener("click", handleOutsideClick);
 
     return () => {

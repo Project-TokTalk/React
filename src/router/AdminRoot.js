@@ -1,26 +1,19 @@
-import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-// 관리자 로그인 시 이동 경로 설정
-// 삭제 예정
-function AdminRoot({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        localStorage.getItem("ADMIN") ? ( // 관리자인지 먼저 확인
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "../pages/Chatbot",
-              state: { from: props.location },
-            }}
-          />
-        )
-      }
-    />
-  );
+function AdminRoot() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const phone = localStorage.getItem("phone");
+    if (phone === "ADMIN") {
+      navigate("/admin"); // phone 값이 "ADMIN"일 경우에만 /admin으로 이동
+    } else {
+      navigate("/chat"); // 그 외의 경우에는 Chat 페이지로 이동
+    }
+  }, [navigate]);
+
+  return null;
 }
 
 export default AdminRoot;

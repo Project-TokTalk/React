@@ -11,7 +11,19 @@ export default function AgeStartup(props) {
       type: "bar",
       stacked: true,
       toolbar: { show: true },
-      animations: { enabled: true, speed: 800 },
+      animations: {
+        enabled: true,
+        easing: "easeinout",
+        speed: 800,
+        animateGradually: {
+          enabled: true,
+          delay: 150,
+        },
+        dynamicAnimation: {
+          enabled: true,
+          speed: 350,
+        },
+      }, // 그래프 애니메이션을 비활성화합니다.
     },
     dataLabels: { enabled: true, enabledOnSeries: [0, 1] },
     grid: { show: false },
@@ -26,8 +38,9 @@ export default function AgeStartup(props) {
     fill: { type: "gradient", gradient: { stops: [0, 0] } },
     colors: ["#5CACEE", "#3A5FCD"],
     tooltip: {
+      enabled: false,
       style: {
-        background: "rgba(255, 255, 255, 0.9)", // 투명도를 조절하여 툴팁의 배경색을 설정합니다.
+        background: "rgba(0, 0, 0, 0.9)", // 투명도를 조절하여 툴팁의 배경색을 설정합니다.
         opacity: 1, // 툴팁의 불투명도를 100%로 설정합니다.
       },
     },
@@ -109,7 +122,7 @@ export default function AgeStartup(props) {
             .map((item, index) => (
               <div key={index} className="mb-2 flex items-center">
                 <div
-                  className="bg-color_c mr-3 flex h-6 w-6 items-center justify-center rounded-full text-lg font-bold text-white"
+                  className="mr-3 flex h-6 w-6 items-center justify-center rounded-full bg-color_c text-lg font-bold text-white"
                   style={{
                     fontFamily: "Noto Sans",
                   }}
@@ -125,7 +138,7 @@ export default function AgeStartup(props) {
                   >
                     {`${item.age}대`}
                   </div>
-                  <div className="flex justify-center text-sm text-gray-600">
+                  <div className="flex justify-start text-sm text-gray-600">
                     {`${(((item.startTrueCount + item.startFalseCount) / totalUsers) * 100).toFixed(2)}%`}
                   </div>
                 </div>

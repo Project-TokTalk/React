@@ -51,28 +51,44 @@ const SenarioControl = () => {
           <table className="flex h-full min-h-0 w-full flex-col object-center">
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
-                <th className="flex w-16 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   -
                 </th>
-                <th className="flex w-16 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   번호
                 </th>
-                <th className="flex w-32 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-32 cursor-default justify-center border p-2 pl-7 text-xl font-bold leading-6 text-gray-900 hover:bg-blue-100 hover:active:bg-blue-200">
                   대분류
+                  <button className=" ml-1 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
                 </th>
-                <th className="flex w-32 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-32 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   중분류
                 </th>
-                <th className="flex w-32 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-32 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   소분류
                 </th>
-                <th className="flex w-96 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-96 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   질문
                 </th>
-                <th className="flex w-96 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-96 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   답변
                 </th>
-                <th className="flex flex-1 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex flex-1 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                   ars 번호, url
                 </th>
               </tr>
@@ -89,12 +105,12 @@ const SenarioControl = () => {
                         checked={CheckList.includes(id_scen)}
                       />
                     </td>
-                    <td className="flex w-16 justify-center border p-2">
+                    <td className="flex w-16 cursor-default justify-center border p-2">
                       {id_scen}
                     </td>
                     <td className="flex w-32 border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -104,7 +120,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -114,7 +130,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -124,7 +140,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-96 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -134,7 +150,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-96 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -144,7 +160,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex flex-1 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}

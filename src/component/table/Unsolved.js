@@ -56,16 +56,16 @@ const Unsolved = () => {
             <table className="flex h-full min-h-0 w-full flex-col object-center shadow ring-1 ring-inset ring-gray-300">
               <thead className="flex w-full flex-col bg-gray-100">
                 <tr className="flex">
-                  <th className="flex w-16 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                  <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                     -
                   </th>
-                  <th className="flex w-16 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                  <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                     No
                   </th>
-                  <th className="flex flex-1 justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                  <th className="flex flex-1 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                     미해결 질문
                   </th>
-                  <th className="flex flex-1 justify-center   border p-2 pr-3 text-xl font-bold leading-6 text-gray-900">
+                  <th className="flex flex-1 cursor-default justify-center   border p-2 pr-3 text-xl font-bold leading-6 text-gray-900">
                     추가할 답안
                   </th>
                 </tr>
@@ -74,7 +74,7 @@ const Unsolved = () => {
                 <div className="flex h-full w-full flex-col overflow-auto">
                   {/* 여기서 데이터 삽입하면 됩니다. */}
                   {IdList.map((id_unsolved) => (
-                    <tr key={id_unsolved} className="flex text-gray-700 ">
+                    <tr key={id_unsolved} className="flex text-gray-700">
                       <td className="flex w-16 items-center justify-center border">
                         <input
                           type="checkbox"
@@ -83,15 +83,15 @@ const Unsolved = () => {
                           checked={CheckList.includes(id_unsolved)}
                         />
                       </td>
-                      <td className="flex w-16 items-center justify-center border">
+                      <td className="flex w-16 cursor-default items-center justify-center border">
                         {id_unsolved}
                       </td>
-                      <td className="flex flex-1 items-center border p-2">
+                      <td className="flex flex-1 cursor-default items-center border p-2">
                         미해결 질문 {id_unsolved}
                       </td>
                       <td className="flex flex-1 items-center border">
                         <input
-                          className="h-full bg-transparent pl-3"
+                          className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-green-500 focus:border-green-500 focus:outline-none"
                           type="input"
                           id={`answer-${id_unsolved}`}
                           onChange={(e) => onAnswerChange(e, id_unsolved)}

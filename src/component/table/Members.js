@@ -73,16 +73,16 @@ const Members = () => {
           <table className="flex h-full min-h-0 w-full flex-col object-center">
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
-                <th className="flex w-16 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-16 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   -
                 </th>
-                <th className="flex w-16 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-16 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   No
                 </th>
-                <th className="flex w-64 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-64 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   닉네임
                 </th>
-                <th className="flex w-28 justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-28 cursor-default justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900 hover:bg-blue-100 hover:active:bg-blue-200">
                   국적
                   <button className=" ml-1 flex items-center">
                     <svg
@@ -101,10 +101,10 @@ const Members = () => {
                     </svg>
                   </button>
                 </th>
-                <th className="flex w-56 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-56 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
                   전화번호
                 </th>
-                <th className="flex w-56 justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-56 cursor-default justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900 hover:bg-blue-100 hover:active:bg-blue-200">
                   생년월일
                   <button className=" ml-1 flex items-center">
                     <svg
@@ -123,7 +123,7 @@ const Members = () => {
                     </svg>
                   </button>
                 </th>
-                <th className="flex w-28 justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-28 cursor-default justify-center whitespace-nowrap border p-2 pl-5 text-xl font-bold leading-6 text-gray-900 hover:bg-blue-100 hover:active:bg-blue-200">
                   성별
                   <button className=" ml-1 flex items-center">
                     <svg
@@ -142,7 +142,7 @@ const Members = () => {
                     </svg>
                   </button>
                 </th>
-                <th className="flex w-52 justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex w-52 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900 hover:bg-blue-100 hover:active:bg-blue-200">
                   사업자 등록증 여부
                   <button className=" ml-1 flex items-center">
                     <svg
@@ -161,9 +161,9 @@ const Members = () => {
                     </svg>
                   </button>
                 </th>
-                <th className="flex flex-1 justify-center whitespace-nowrap border p-2 pl-4 text-xl font-bold leading-6 text-gray-900">
+                <th className="flex flex-1 cursor-default justify-center whitespace-nowrap border p-2 pl-4 text-xl font-bold leading-6 text-gray-900 hover:bg-blue-100 hover:active:bg-blue-200">
                   가입일자
-                  <button className=" ml-1 flex items-center">
+                  <button className="ml-1 flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -187,7 +187,7 @@ const Members = () => {
               <div className="flex h-full w-full flex-col overflow-auto">
                 {/* 여기서 데이터 삽입하면 됩니다. */}
                 {memberList.map((member, index) => (
-                  <tr key={index} className="flex w-full text-gray-700 ">
+                  <tr key={index} className="flex w-full text-gray-700">
                     <td className="flex w-16 items-center justify-center border">
                       <input
                         type="checkbox"
@@ -207,54 +207,54 @@ const Members = () => {
                         checked={CheckList.includes(index)}
                       />
                     </td>
-                    <td className="flex w-16 items-center justify-center border">
+                    <td className="flex w-16 cursor-default items-center justify-center border">
                       {index + 1}
                     </td>
                     <td className="flex w-64 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.name}
                       />
                     </td>
                     <td className="flex w-28 border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.nation}
                       />
                     </td>
                     <td className="flex w-56 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.phone}
                       />
                     </td>
                     <td className="flex w-56 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.age}
                       />
                     </td>
                     <td className="flex w-28 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.gender}
                       />
                     </td>
                     <td className="flex w-52 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.start ? "Yes" : "No"}
                       />
                     </td>
                     <td className="flex flex-1 justify-center border">
                       <input
-                        className="flex h-full w-full bg-transparent p-2 text-center"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
                         value={member.join_dt.join("-")}
                       />
