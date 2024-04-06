@@ -56,7 +56,7 @@ const root = createBrowserRouter([
     path: "admin",
     element: (
       <Suspense fallback={Loading}>
-        <AdminMain />
+        <AdminRoot />
       </Suspense>
     ),
   },

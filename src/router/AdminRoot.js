@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import AdminMain from "../pages/AdminMain"; // AdminMain 컴포넌트 import
+import Chat from "../chatbot/Chat"; // Chat 컴포넌트 import
 
 function AdminRoot() {
+  const sessionPhone = window.sessionStorage.getItem("phone");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const phone = localStorage.getItem("phone");
-    if (phone === "ADMIN") {
-      navigate("/admin"); // phone 값이 "ADMIN"일 경우에만 /admin으로 이동
-    } else {
-      navigate("/chat"); // 그 외의 경우에는 Chat 페이지로 이동
-    }
-  }, [navigate]);
-
-  return null;
+  // sessionPhone이 "ADMIN"인 경우에는 AdminMain을, 그렇지 않은 경우에는 Chat을 반환합니다.
+  return sessionPhone === "ADMIN" ? <AdminMain /> : <Chat />;
 }
-
 export default AdminRoot;

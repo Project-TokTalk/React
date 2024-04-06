@@ -270,23 +270,23 @@ const Members = () => {
 
         <div className="flex flex-row justify-center pt-2">
           <div class="item flex h-full grow items-center justify-center">
-            <div className="ml-40 mt-3 flex h-10 w-40 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
+            <button className="ml-40 mt-3 flex h-10 w-40 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
               추가하기
-            </div>
+            </button>
           </div>
           <div class="flex h-full flex-none items-center justify-center text-center">
             <div class="flex items-center space-x-3 px-3">
               <div class="flex flex-none justify-center"></div>
 
               <div class="md:text-md hidden text-sm text-black md:block dark:text-white">
-                <div className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
+                <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                   삭제하기
-                </div>
+                </button>
               </div>
               <div class="md:text-md hidden text-sm text-black md:block dark:text-white">
-                <div className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
+                <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                   수정하기
-                </div>
+                </button>
               </div>
             </div>
           </div>

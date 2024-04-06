@@ -109,14 +109,14 @@ const Unsolved = () => {
               <div class="flex h-full flex-none items-center justify-center text-center">
                 <div class="flex items-center space-x-3 px-3 pb-2">
                   <div class="text-md block text-black">
-                    <div className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
+                    <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                       삭제하기
-                    </div>
+                    </button>
                   </div>
                   <div class="text-md block text-black">
-                    <div className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-100">
+                    <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                       등록하기
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>

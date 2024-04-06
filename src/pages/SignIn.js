@@ -1,16 +1,35 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import KakaoLogo from '../image/kakao.png'; // 카카오톡 로고 이미지 파일 경로
+import KakaoLogo from "../image/kakao.png"; // 카카오톡 로고 이미지 파일 경로
 
 const SignIn = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
 
+  // -----------
+  // 04/06 세션 저장
+  // sessionStorage에 저장된 phone 값을 가져옴
+  const sessionPhone = window.sessionStorage.getItem("phone");
+
+  // phone input 값이 바뀔때마다 상태 관리
+  const [sendphone, setSendphone] = useState(sessionPhone || "");
+
+  // phone 값이 바뀔 때마다 sessionStorage의 값도 변경하기
+  useEffect(() => {
+    window.sessionStorage.setItem("phone", sendphone);
+  }, [sendphone]);
+  // -----------
+
+  // phone 값이 바뀔 때마다 sendphone 값도 업데이트
+  useEffect(() => {
+    setSendphone(phone);
+  }, [phone]);
+
   const handle_phone = (e) => {
     // 손승아, 입력값 길이 11자 제한, 20240329
-    if(e.target.value.length <=11){
+    if (e.target.value.length <= 11) {
       setPhone(e.target.value);
     }
   };
@@ -33,19 +52,17 @@ const SignIn = () => {
       const response = await axios.post("http://localhost:8081/user/login", {
         phone,
         password,
-      })
+      });
 
-      console.log(response.data);
-
-      if( phone === "ADMIN") {
+      if (phone === "ADMIN") {
         navigate("/admin");
       } else {
         navigate("/chat");
       }
     } catch (error) {
-      console.error("로그인 에러 : ",error);
+      console.error("로그인 에러 : ", error);
 
-      alert("로그인에 실패했습니다. 다시 시도해주세요.")
+      alert("로그인에 실패했습니다. 다시 시도해주세요.");
     }
   };
 
@@ -55,7 +72,7 @@ const SignIn = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
-            src={require('../image/TokTalk4.png')}
+            src={require("../image/TokTalk4.png")}
             alt="logo"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -121,9 +138,14 @@ const SignIn = () => {
               <button
                 type="submit"
                 onClick={handleSignin}
-                className="flex items-center justify-center w-full rounded-md bg-yellow-400 hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm"
+                className="flex w-full items-center justify-center rounded-md bg-yellow-400 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
-                <img src={KakaoLogo} alt="KakaoTalk Logo" className="h-6 mr-2" /> Sign in with KakaoTalk
+                <img
+                  src={KakaoLogo}
+                  alt="KakaoTalk Logo"
+                  className="mr-2 h-6"
+                />{" "}
+                Sign in with KakaoTalk
               </button>
             </div>
           </form>
@@ -138,7 +160,7 @@ const SignIn = () => {
             </Link>
           </div>
           <div className="mt-3 text-center text-sm text-gray-500">
-          {/* 비밀번호 찾기 페이지로 변경 */}
+            {/* 비밀번호 찾기 페이지로 변경 */}
             <Link
               to={"/findpw"}
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
@@ -147,7 +169,7 @@ const SignIn = () => {
             </Link>
           </div>
           <div className="mt-3 text-center text-sm text-gray-500">
-            Don't need signIn? { /* 비회원으로 연결 */}
+            Don't need signIn? {/* 비회원으로 연결 */}
             <Link
               to={"/chat"}
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
