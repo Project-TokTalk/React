@@ -3,7 +3,7 @@ import SenarioHeader from "../layout/SenarioHeader";
 
 const SenarioControl = () => {
   const [CheckList, setCheckList] = useState([]);
-  const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
+  const [setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   // 각각의 아이템에 대한 ID 리스트
   const IdList = [
@@ -35,10 +35,10 @@ const SenarioControl = () => {
 
   // 답안 입력 변경 핸들러
   const onAnswerChange = (e, id_unsolved) => {
-    const { value } = e.target;
+    const { defaultValue } = e.target;
     setAnswers((prevAnswers) => {
       const updatedAnswers = [...prevAnswers];
-      updatedAnswers[id_unsolved - 1] = value;
+      updatedAnswers[id_unsolved - 1] = defaultValue;
       return updatedAnswers;
     });
   };
@@ -47,8 +47,9 @@ const SenarioControl = () => {
     <>
       <div className="container mx-auto flex h-screen w-full flex-col justify-start p-3">
         <SenarioHeader />
-        <div className="flex h-2/3 w-full bg-white shadow" id="unsolved-scroll">
-          <table className="flex h-full min-h-0 w-full flex-col object-center">
+
+        <div className="flex h-2/3 w-full" id="unsolved-scroll">
+          <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300">
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
                 <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
@@ -114,7 +115,7 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        value="**** 확인"
+                        defaultValue="**** 확인"
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>
@@ -124,7 +125,7 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        value=""
+                        defaultValue=""
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>
@@ -134,7 +135,7 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        value=""
+                        defaultValue=""
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>
@@ -144,7 +145,7 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        value=""
+                        defaultValue=""
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>
@@ -154,7 +155,7 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        value=""
+                        defaultValue=""
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>
@@ -164,7 +165,7 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        value=""
+                        defaultValue=""
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>

@@ -5,7 +5,7 @@ const MessageParser = ({ children, actions }) => {
   const [answer, setAnswer] = useState(""); // answer를 state로 정의
 
   const parse = (message) => {
-    if (message.includes("test")) {
+    if (message.includes("123")) {
       actions.createbtn();
     }
 
@@ -34,7 +34,7 @@ const MessageParser = ({ children, actions }) => {
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           parse: parse,
-          actions: actions,
+          actions,
           answer: answer, // answer 값을 props로 전달
         });
       })}

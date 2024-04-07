@@ -305,7 +305,7 @@ const AdminMain = () => {
       >
         <div ref={homeRef}></div>
         <AdminHeader />
-        <div className="grid h-screen max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+        <div className="grid h-screen max-w-full flex-1 grid-cols-1 pb-5 ring-1 ring-inset ring-gray-300">
           <div className="grid h-full">
             <div className="flex flex-row">
               <section className="ml-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">

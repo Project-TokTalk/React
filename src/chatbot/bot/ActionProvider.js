@@ -13,27 +13,31 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  // dog를 입력 시 아래 문자열 출력 및 사진 출력(되야되는데 사진이 안나와 계속 찾아보는데 해결이 안되)
-  // 문자열만 출력되고 widget쪽은 안되는건지 console.log도 안나오고 사진 로드도 안되 (이미지 주소 쳐보면 정상적인거 확인됨)
+  const handleDataFromSelectBtn = (id) => {
+    // SelectBtn으로부터 전달받은 데이터를 Chat.js로 전달
+    setState((prev) => ({
+      ...prev,
+      userInput: id, // 입력란에 반영할 값을 설정
+    }));
+  };
+
   const createbtn = () => {
     const botMessage = createChatBotMessage("테스트합시다.", {
       widget: "SelectBtn",
     });
 
-    // 메시지 출력 후 위젯이 출력되고 그게 모두 마무리 된 후 사용자에게 보여지도록 하는 것 인듯
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
   };
-
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           actions: {
-            handleHello,
             createbtn,
+            onDataFromSelectBtn: handleDataFromSelectBtn,
           },
         });
       })}

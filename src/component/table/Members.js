@@ -51,10 +51,10 @@ const Members = () => {
 
   // 답안 입력 변경 핸들러
   const onAnswerChange = (e, id_unsolved) => {
-    const { value } = e.target;
+    const { defaultValue } = e.target;
     setAnswers((prevAnswers) => {
       const updatedAnswers = [...prevAnswers];
-      updatedAnswers[id_unsolved - 1] = value;
+      updatedAnswers[id_unsolved - 1] = defaultValue;
       return updatedAnswers;
     });
   };
@@ -66,11 +66,9 @@ const Members = () => {
     <>
       <div className="container mx-auto flex h-screen w-full flex-col justify-start overflow-x-auto p-3">
         <MemberControl />
-        <div
-          className="flex h-2/3 w-full overflow-auto bg-white shadow"
-          id="unsolved-scroll"
-        >
-          <table className="flex h-full min-h-0 w-full flex-col object-center">
+
+        <div className="flex h-2/3 w-full" id="unsolved-scroll">
+          <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300">
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
                 <th className="flex w-16 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
@@ -214,49 +212,49 @@ const Members = () => {
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.name}
+                        defaultValue={member.name}
                       />
                     </td>
                     <td className="flex w-28 border">
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.nation}
+                        defaultValue={member.nation}
                       />
                     </td>
                     <td className="flex w-56 justify-center border">
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.phone}
+                        defaultValue={member.phone}
                       />
                     </td>
                     <td className="flex w-56 justify-center border">
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.age}
+                        defaultValue={member.age}
                       />
                     </td>
                     <td className="flex w-28 justify-center border">
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.gender}
+                        defaultValue={member.gender}
                       />
                     </td>
                     <td className="flex w-52 justify-center border">
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.start ? "Yes" : "No"}
+                        defaultValue={member.start ? "Yes" : "No"}
                       />
                     </td>
                     <td className="flex flex-1 justify-center border">
                       <input
                         className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
                         type="input"
-                        value={member.join_dt.join("-")}
+                        defaultValue={member.join_dt.join("-")}
                       />
                     </td>
                   </tr>

@@ -48,12 +48,9 @@ const Unsolved = () => {
     <>
       <div className="container mx-auto flex h-screen w-full flex-col justify-start">
         <UnsolvedHeader />
-        <div className="flex h-2/3 flex-row bg-white shadow shadow-lg">
-          <div
-            className="flex flex-grow flex-col bg-white"
-            id="unsolved-scroll"
-          >
-            <table className="flex h-full min-h-0 w-full flex-col object-center shadow ring-1 ring-inset ring-gray-300">
+        <div className="flex h-2/3 flex-row">
+          <div className="flex flex-grow flex-col" id="unsolved-scroll">
+            <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300">
               <thead className="flex w-full flex-col bg-gray-100">
                 <tr className="flex">
                   <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">

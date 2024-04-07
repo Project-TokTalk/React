@@ -1,4 +1,3 @@
-import React from "react";
 import ChatbotHeader from "../layout/ChatbotHeader";
 
 const ChatRecord = () => {
@@ -20,9 +19,32 @@ const ChatRecord = () => {
       <div className="flex h-screen w-full bg-white text-gray-800 antialiased">
         <div className="flex h-4/5 flex-1 flex-col">
           <main className="flex min-h-0 flex-grow border-t">
-            <section className="flex min-h-0 w-full max-w-sm flex-none flex-col overflow-auto bg-gray-100 p-4">
-              <h1 className="mb-3 pl-3 font-semibold">사용자별 대화내역</h1>
-              <ul>
+            <section className="flex min-h-0 w-full max-w-sm flex-none flex-col bg-gray-100 p-3 shadow-md">
+              <h1 className=" flex flex-row items-center justify-between pb-3">
+                <div className="pl-3 font-semibold">사용자별 대화내역</div>
+                <div className="flex h-8 w-2/5 rounded-md border border-gray-300 bg-white">
+                  <input className="flex w-full rounded-md border border-hidden border-gray-300"></input>
+                  {/* 검색란 추가 */}
+
+                  <button className="pr-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </h1>
+              <ul className="flex flex-col overflow-auto">
                 {user_IdList.map((id_chatuser) => (
                   <li key={id_chatuser} className="flex text-gray-700 ">
                     <article
@@ -30,7 +52,7 @@ const ChatRecord = () => {
                       className="mb-2 flex  cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
                     >
                       <span className="flex-none pr-2 pt-1">
-                        <img
+                        <image
                           className="h-8 w-8 rounded-md"
                           src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
                         />
@@ -116,7 +138,7 @@ const ChatRecord = () => {
                 </div>
               </header>
 
-              <table className="flex h-full min-h-0 w-full flex-col border-t">
+              <table className="flex h-full min-h-0 w-full flex-col border-t shadow-md">
                 <thead className="flex w-full flex-col px-4">
                   <tr className="flex  border-b">
                     <th className="flex w-64 justify-center truncate px-1 py-3 text-left font-semibold">
@@ -138,7 +160,7 @@ const ChatRecord = () => {
                     {/* 04/05
                     그냥 Y/N 보여줄라고 조건식 넣음 ^^ */}
                     {chat_IdList.map((id_chatlist) =>
-                      id_chatlist % 2 == 1 ? (
+                      id_chatlist % 2 === 1 ? (
                         <tr
                           role="row"
                           className="flex border-b hover:bg-blue-100"
