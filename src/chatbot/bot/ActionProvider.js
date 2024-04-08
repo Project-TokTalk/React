@@ -38,6 +38,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           actions: {
             createbtn,
             onDataFromSelectBtn: handleDataFromSelectBtn,
+            handleHello
           },
         });
       })}
