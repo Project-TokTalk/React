@@ -10,7 +10,7 @@ const Members = () => {
   // 이주명(0405) 멤버리스트 불러오기 추가
   useEffect(() => {
     axios
-      .get("http://localhost:8081/admin/member")
+      .get("http://43.201.239.119:8081/admin/member")
       .then((response) => {
         const memberList = response.data;
         setMemberList(memberList);

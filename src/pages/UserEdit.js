@@ -30,7 +30,7 @@ const UserEdit = () => {
         nickname: nickname,
         selectedBusiness: selectedBusiness,
       },
-      baseURL: "http://localhost:8081",
+      baseURL: "http://43.201.239.119:8081",
       //withCredentials: true,
     })
       .then(function (response) {

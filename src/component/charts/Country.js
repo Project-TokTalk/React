@@ -13,7 +13,7 @@ const Country = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/admin/country");
+      const response = await axios.get("http://43.201.239.119:8081/admin/country");
       const data = response.data;
       console.log("백분율 값과 국가 코드:", data);
       const filteredData = data.filter((item) => item.nation !== "ADMIN"); // admin 국가 필터링

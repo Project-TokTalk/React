@@ -12,7 +12,7 @@ const DateGraph = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/admin/date");
+      const response = await axios.get("http://43.201.239.119:8081/admin/date");
       const sortedData = response.data.sort((a, b) => {
         const [aYear, aMonth] = a.year_month.split("-").map(Number);
         const [bYear, bMonth] = b.year_month.split("-").map(Number);

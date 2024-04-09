@@ -39,7 +39,7 @@ const SignUp = () => {
     // 손승아, axios.post를 이용해 Spring Boot와 연결, 20240326
     axios
       .post(
-        "http://localhost:8081/user/signup",
+        "http://43.201.239.119:8081/user/signup",
         {
           password: password,
           phone: phone,

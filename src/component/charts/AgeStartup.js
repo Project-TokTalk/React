@@ -55,7 +55,7 @@ export default function AgeStartup(props) {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/admin/age");
+      const response = await axios.get("http://43.201.239.119:8081/admin/age");
       const data = response.data;
 
       const filteredData = Object.keys(data)
