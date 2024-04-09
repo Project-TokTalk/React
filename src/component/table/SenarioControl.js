@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import "../charts/Font.css";
 import SenarioHeader from "../layout/SenarioHeader";
 
 const SenarioControl = () => {
@@ -49,7 +50,7 @@ const SenarioControl = () => {
         <SenarioHeader />
 
         <div className="flex h-2/3 w-full" id="unsolved-scroll">
-          <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300">
+          <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300" style={{fontFamily: 'Pretendard-Regular'}}>
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
                 <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
@@ -111,7 +112,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 border">
                       <input
-                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -121,7 +122,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 justify-center border">
                       <input
-                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -131,7 +132,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-32 justify-center border">
                       <input
-                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -141,7 +142,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-96 justify-center border">
                       <input
-                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -151,7 +152,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex w-96 justify-center border">
                       <input
-                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -161,7 +162,7 @@ const SenarioControl = () => {
                     </td>
                     <td className="flex flex-1 justify-center border">
                       <input
-                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-green-500 focus:border-green-500 focus:outline-none"
+                        className="flex h-full w-full cursor-default rounded-md border border-white bg-transparent p-2 text-center hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
@@ -176,7 +177,7 @@ const SenarioControl = () => {
           </table>
         </div>
         <div className="flex flex-row justify-center pt-2">
-          <div class="item flex h-full grow items-center justify-center">
+          <div class="item flex h-full grow items-center justify-center" style={{fontFamily: 'Pretendard-Regular'}}>
             <button className="ml-40 mt-3 flex h-10 w-40 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
               추가하기
             </button>
@@ -185,12 +186,12 @@ const SenarioControl = () => {
             <div class="flex items-center space-x-3 px-3">
               <div class="flex flex-none justify-center"></div>
 
-              <div class="md:text-md hidden text-sm text-black md:block dark:text-white">
+              <div class="md:text-md hidden text-black md:block dark:text-white" style={{fontFamily: 'Pretendard-Regular'}}>
                 <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                   삭제하기
                 </button>
               </div>
-              <div class="md:text-md hidden text-sm text-black md:block dark:text-white">
+              <div class="md:text-md hidden text-black md:block dark:text-white" style={{fontFamily: 'Pretendard-Regular'}}>
                 <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                   수정하기
                 </button>

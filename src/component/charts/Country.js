@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import './Font.css'; // CSS 파일을 불러옵니다.
 
@@ -117,7 +117,7 @@ const Country = () => {
         />
       </div>
       <div className="flex flex-col w-1/4 p-4" style={{ width: "35%", paddingLeft:"30px"}}>
-        <div className="text-2xl font-bold mb-4" style={{textAlign:"center", color:"#002267", textDecoration:"underline", textDecorationStyle:"dotted"}}>
+        <div className="text-3xl mb-4" style={{fontFamily: "JalnanGothic",textAlign:"center", color:"#002267"}}>
           국가별 이용자 수
         </div>
         <div className="space-y-2">
@@ -127,7 +127,7 @@ const Country = () => {
                   {index + 1}
               </div>
               <div>
-                <div className="text-lg font-medium" style={{ fontWeight:"bold", fontSize: `${30 - index * 6}px` }}>
+                <div className="text-lg" style={{fontFamily: "JalnanGothic", fontSize: `${30 - index * 6}px` }}>
                   {`${getCountryName(item.nation)}`} {/* 국가 코드를 국가 이름으로 변환 */}
                 </div>
                 <div className="text-sm text-gray-600">

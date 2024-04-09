@@ -8,13 +8,13 @@ const ChatMessageContainer = styled.div`
   justify-content: center;
 
   /* 채팅 메시지 배경색 */
-  background-color: ${(props) => (props.isBot ? "#F8F8FF" : "#F9F871")};
+  background-color: ${(props) => (props.isBot ? "#5c76ff" : "#ffffff")};
   border-radius: ${(props) =>
     props.isBot ? "20px 20px 20px 5px" : "20px 20px 5px 20px"};
   margin-left: 0.4rem;
 
   /* 채팅 텍스트 색상 */
-  color: ${(props) => (props.isBot ? "#3d4f6e" : "#3d4f6e")};
+  color: ${(props) => (props.isBot ? "#ffffff" : "#3d4f6e")};
 
   /* 메시지 상하, 좌우 여백 */
   padding: ${(props) => (props.isBot ? "0.8rem 1.2rem" : "0.7rem 1.1rem")};

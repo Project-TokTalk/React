@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../charts/Font.css";
 
 const AdminHeader = () => {
   const navigate = useNavigate();
@@ -12,9 +13,9 @@ const AdminHeader = () => {
   };
 
   return (
-    <nav id="navbar" className="flex bg-white">
+    <nav id="navbar" className="flex bg-white" style={{fontFamily: "JalnanGothic"}}>
       <div className="flex h-full w-4/5 items-center">
-        <div className="flex p-5 pl-10 text-3xl font-bold">서비스 대시보드</div>
+        <div className="flex p-5 pl-10 text-3xl">서비스 대시보드</div>
       </div>
       <div className="flex w-1/5 items-center justify-end p-4 font-medium">
         {/* 로그아웃 버튼 */}

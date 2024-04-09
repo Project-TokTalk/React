@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import axios from "axios";
 import "./Font.css"; // CSS 파일을 불러옵니다.
 
 export default function Gender(props) {
@@ -94,7 +94,7 @@ export default function Gender(props) {
         />
       </div>
       <div className="flex w-1/3 flex-col p-4">
-        <div className="mb-4 text-center text-2xl font-bold text-color_b underline decoration-dotted">
+        <div className="mb-4 text-center text-3xl text-color_b" style={{fontFamily:"JalnanGothic"}}>
           남녀 이용자 수
         </div>
         <div className="space-y-2">
@@ -110,8 +110,9 @@ export default function Gender(props) {
               </div>
               <div>
                 <div
-                  className="text-lg font-bold"
+                  className="text-lg"
                   style={{
+                    fontFamily: "JalnanGothic",
                     fontSize: `${30 - index * 7}px`,
                   }}
                 >

@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import axios from "axios";
 import "./Font.css"; // CSS 파일을 불러옵니다.
 
 export default function AgeStartup(props) {
@@ -102,7 +102,7 @@ export default function AgeStartup(props) {
         />
       </div>
       <div className="flex w-1/3 flex-col p-2">
-        <div className="mb-4 text-center text-2xl font-bold text-color_b underline decoration-dotted">
+        <div className="mb-4 text-center text-3xl text-color_b" style={{fontFamily:"JalnanGothic"}}>
           연령대별 창업유무
         </div>
         {series.length > 0 && series[0].data ? (
@@ -131,8 +131,9 @@ export default function AgeStartup(props) {
                 </div>
                 <div>
                   <div
-                    className="text-lg font-bold"
+                    className="text-lg"
                     style={{
+                      fontFamily: "JalnanGothic",
                       fontSize: `${30 - index * 6}px`,
                     }}
                   >

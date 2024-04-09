@@ -1,3 +1,4 @@
+import "../charts/Font.css";
 import ChatbotHeader from "../layout/ChatbotHeader";
 
 const ChatRecord = () => {
@@ -16,7 +17,7 @@ const ChatRecord = () => {
   return (
     <>
       <ChatbotHeader />
-      <div className="flex h-screen w-full bg-white text-gray-800 antialiased">
+      <div className="flex h-screen w-full bg-white text-gray-800 antialiased" style={{fontFamily: 'Pretendard-Regular'}}>
         <div className="flex h-4/5 flex-1 flex-col">
           <main className="flex min-h-0 flex-grow border-t">
             <section className="flex min-h-0 w-full max-w-sm flex-none flex-col bg-gray-100 p-3 shadow-md">
@@ -49,7 +50,7 @@ const ChatRecord = () => {
                   <li key={id_chatuser} className="flex text-gray-700 ">
                     <article
                       tabindex="0"
-                      className="mb-2 flex  cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
+                      className="mb-2 flex  cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-blue-300 focus:border-blue-500 focus:outline-none"
                     >
                       <span className="flex-none pr-2 pt-1">
                         <image

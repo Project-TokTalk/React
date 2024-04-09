@@ -1,8 +1,7 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-import DogPicture from "../DogPicture";
+import TokTalk from "../../image/TokTalk.png";
 import SelectBtn from "../SelectBtn";
 import ChatMessage from "../component/ChatMessage";
-import TokTalk from "../../image/TokTalk.png";
 
 const botName = "ExcitementBot";
 const message = createChatBotMessage("Hello world!");
@@ -35,7 +34,7 @@ const getConfig = () => {
     customStyles: {},
 
     initialMessages: [
-      createChatBotMessage("Would you like to see a picture of a dog?"),
+      createChatBotMessage("Hello. This is TokTalk. We provide consultation on start-up-related complaints . Please ask a question using keywords in the chat window."),
     ],
 
     state: {
@@ -79,7 +78,7 @@ const getConfig = () => {
             </svg>
           </button>
           <div className="flex w-full items-center justify-center text-2xl text-white">
-            <div className="mr-2 font-semibold">TokTalk</div>
+            <div className="mr-2" style={{fontFamily:"JalnanGothic"}}>TokTalk</div>
             <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
           </div>
           <button className="close-button flex justify-end">

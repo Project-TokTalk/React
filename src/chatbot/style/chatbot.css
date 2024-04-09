@@ -33,7 +33,7 @@
 .react-chatbot-kit-chat-inner-container {
   height: 667px;
   width: auto;
-  background-color: #7589f3;
+  background-color: #e5ebff;
 }
 
 /* 입력란 속성, 여기서 가운데 정렬함 */
@@ -46,6 +46,7 @@
 
 /* 메시지가 나오는 공간 속성 */
 .react-chatbot-kit-chat-message-container {
+  background-color: #e5ebff;
   height: 555px;
   padding: 0.5rem 1.1rem;
   -ms-overflow-style: none;

@@ -2,7 +2,7 @@ const SenarioHeader = () => {
   return (
     <nav id="navbar2" className="flex">
       <div className="flex h-full w-full justify-between pt-3">
-        <div className="flex items-center p-10 pb-6 text-3xl font-bold">
+        <div className="flex items-center p-10 pb-6 text-3xl" style={{fontFamily: "JalnanGothic"}}>
           시나리오 관리
         </div>
         <div className="flex h-full w-1/6 items-end pb-3">
