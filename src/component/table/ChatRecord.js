@@ -50,7 +50,7 @@ const ChatRecord = () => {
                   <li key={id_chatuser} className="flex text-gray-700 ">
                     <article
                       tabindex="0"
-                      className="mb-2 flex  cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-blue-300 focus:border-blue-500 focus:outline-none"
+                      className="mb-2 flex w-full cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-blue-300 focus:border-blue-500 focus:outline-none"
                     >
                       <span className="flex-none pr-2 pt-1">
                         <image
@@ -59,7 +59,7 @@ const ChatRecord = () => {
                         />
                       </span>
 
-                      <div className="flex-1">
+                      <div className="flex-1 w-full">
                         <header className="mb-1">
                           사용자 아이디 {id_chatuser}
                         </header>
