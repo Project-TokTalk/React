@@ -9,9 +9,11 @@ const MessageParser = ({ children, actions }) => {
       actions.createbtn();
     }
 
+    const sessionPhone = window.sessionStorage.getItem("phone");
+
     const dataToSend = {
       chat: message,
-      phone: "01000000000",
+      phone: sessionPhone,
     };
 
     axios
