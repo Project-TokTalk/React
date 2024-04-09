@@ -18,15 +18,14 @@ export default function Gender(props) {
     xaxis: {
       categories: ["Female", "Male"],
     },
-    colors: ["#4F94CD", "#78C7E3"], // 여러 색상으로 변경
+    colors: ["#155DDB", "#7BBEEB"], // 여러 색상으로 변경
     tooltip: {
       custom: function ({ series, seriesIndex, dataPointIndex, w }) {
         const gender = w.globals.labels[dataPointIndex];
         const percent = series[seriesIndex][dataPointIndex];
         return `
-          <div style="font-family: Arial, sans-serif; font-size: 14px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-            <div style="font-weight: normal; margin-bottom: 8px;">Gender: ${gender}</div>
-            <div>Percent: ${percent}%</div>
+          <div style="font-family: Arial, sans-serif; font-size: 13px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <div style="font-weight: normal;">${gender}: ${percent}%</div>
           </div>
         `;
       },
@@ -94,7 +93,7 @@ export default function Gender(props) {
         />
       </div>
       <div className="flex w-1/3 flex-col p-4">
-        <div className="mb-4 text-center text-3xl text-color_b" style={{fontFamily:"JalnanGothic"}}>
+        <div className="mb-4 text-center text-color_b" style={{fontFamily:"JalnanGothic", fontSize: "30px"}}>
           남녀 이용자 수
         </div>
         <div className="space-y-2">

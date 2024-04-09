@@ -48,7 +48,7 @@ const Country = () => {
       type: "donut",
       animations: { enabled: true, easing: 'easeinout', speed: 800 }, // Enable animations with easeinout easing and a speed of 1000ms
     },
-    labels: chartData.slice(0, 7).map((item) => getCountryName(item.nation)), // 상위 7개 국가만 라벨로 사용
+    labels: chartData.slice(0, 6).map((item) => getCountryName(item.nation)), // 상위 6개 국가만 라벨로 사용
     dataLabels: {
       enabled: true,
       formatter: function (val, opts) {
@@ -58,10 +58,13 @@ const Country = () => {
       position: "center",
     },
     colors: [
-      "#5CACEE",
-      "#3A5FCD",
-      "#4F94CD",
-      "#78C7E3",
+      "#004DC8",
+      "#155DDB",
+      "#267DEE",
+      "#3A9DF3",
+      "#55AEEF",
+      "#7BBEEB",
+      "#AFD5EE"
     ], // 색상 설정
     legend: {
       show: false,
@@ -93,8 +96,8 @@ const Country = () => {
     }
   };  
 
-  // 상위 7개 국가 이외의 국가들의 이용자 수를 합산
-  const sumOfOtherCountries = chartData.slice(7).reduce((total, item) => total + item.userCount, 0);
+  // 상위 6개 국가 이외의 국가들의 이용자 수를 합산
+  const sumOfOtherCountries = chartData.slice(6).reduce((total, item) => total + item.userCount, 0);
 
   // "기타" 항목을 추가하여 이용자 수를 삽입
   const otherCountriesData = {
@@ -103,7 +106,7 @@ const Country = () => {
   };
 
   // 데이터 라벨 배열에서 "기타" 항목을 "Other"로 변경
-  const modifiedLabels = [...chartData.slice(0, 7).map((item) => getCountryName(item.nation)), "Other"];
+  const modifiedLabels = [...chartData.slice(0, 6).map((item) => getCountryName(item.nation)), "Other"];
 
   return (
     <div className="flex items-center" style={{ marginTop: "60px" }}>
@@ -111,13 +114,13 @@ const Country = () => {
         <ReactApexChart
           key={refreshKey} // Unique key to force re-render
           options={{ ...chartOptions, labels: modifiedLabels }} // 수정된 데이터 라벨 적용
-          series={[...chartData.slice(0, 7).map((item) => item.userCount), otherCountriesData.userCount]}
+          series={[...chartData.slice(0, 6).map((item) => item.userCount), otherCountriesData.userCount]}
           type="donut"
           height={400}
         />
       </div>
       <div className="flex flex-col w-1/4 p-4" style={{ width: "35%", paddingLeft:"30px"}}>
-        <div className="text-3xl mb-4" style={{fontFamily: "JalnanGothic",textAlign:"center", color:"#002267"}}>
+        <div className="mb-4" style={{fontFamily: "JalnanGothic",textAlign:"center", color:"#002267", fontSize: "30px"}}>
           국가별 이용자 수
         </div>
         <div className="space-y-2">
