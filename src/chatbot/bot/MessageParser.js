@@ -22,7 +22,7 @@ class MessageParser extends Component {
     };
 
     axios
-      .post("http://43,202.224.188:8089/send_data", dataToSend)
+      .post("http://43.202.224.188:8089/send_data", dataToSend)
       .then((response) => {
         console.log(message);
         console.log("여기까진 도착");
