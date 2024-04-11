@@ -47,10 +47,11 @@
 /* 메시지가 나오는 공간 속성 */
 .react-chatbot-kit-chat-message-container {
   background-color: #e5ebff;
-  height: 555px;
+  height: 525px;
   padding: 0.5rem 1.1rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  border: none;
 }
 
 .react-chatbot-kit-chat-message-container::-webkit-scrollbar {
@@ -61,17 +62,19 @@
 .react-chatbot-kit-chat-input {
   height: 50px;
   width: 270px;
-  border: none;
-  border-radius: 20px;
   padding: 1.3rem 1.2rem;
   font-weight: 300;
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 20px;
 }
 
-.react-chatbot-kit-chat-input:focus-visible {
-  outline: none;
+.react-chatbot-kit-chat-input:focus {
+  outline: none !important;
+  border: none !important;
 }
 
 /* 입력란 전체 크기 및 속성 */

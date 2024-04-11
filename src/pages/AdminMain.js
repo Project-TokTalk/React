@@ -3,7 +3,6 @@ import { useState, useRef } from "react";
 import AdminHeader from "../component/layout/AdminHeader";
 import AgeStartup from "../component/charts/AgeStartup";
 import Country from "../component/charts/Country";
-import FAQ from "../component/table/FAQ";
 import Unsolved from "../component/table/Unsolved";
 import Chat from "../chatbot/Chat";
 import SenarioControl from "../component/table/SenarioControl";

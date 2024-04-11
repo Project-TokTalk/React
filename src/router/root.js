@@ -7,7 +7,6 @@ const Loading = <div>Loading....</div>;
 const SignIn = lazy(() => import("../pages/SignIn"));
 const SignUp = lazy(() => import("../pages/SignUp"));
 const UserEdit = lazy(() => import("../pages/UserEdit"));
-const AdminMain = lazy(() => import("../pages/AdminMain"));
 const Chat = lazy(() => import("../chatbot/Chat"));
 const AdminRoot = lazy(() => import("./AdminRoot"));
 

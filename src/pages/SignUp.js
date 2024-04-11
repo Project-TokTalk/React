@@ -125,8 +125,8 @@ const SignUp = () => {
     { value: "TH", name: "Thailand" },
     { value: "US", name: "United States" },
     { value: "UZ", name: "Uzbekistan" },
-    { value: "VN", name: "Vietnam" }
-];
+    { value: "VN", name: "Vietnam" },
+  ];
 
   const ageRange = [
     { value: "20", name: "20~29" },
@@ -196,7 +196,7 @@ const SignUp = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
-            src={require('../image/TokTalk4.png')}
+            src={require("../image/TokTalk4.png")}
             alt="logo"
           />
         </div>

@@ -1,10 +1,25 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import TokTalk from "../../image/TokTalk.png";
-import SelectBtn from "../SelectBtn";
 import ChatMessage from "../component/ChatMessage";
 
+import Initial from "../component/Initial";
+import Answer from "../component/Answer";
+import Choose_1 from "../component/Choose_1/Choose_1";
+import Choose_1_2 from "../component/Choose_1/Choose_1_2";
+import Choose_1_3 from "../component/Choose_1/Choose_1_3";
+import Choose_2 from "../component/Choose_2/Choose_2";
+import Choose_2_1 from "../component/Choose_2/Choose_2_1";
+import Choose_2_2 from "../component/Choose_2/Choose_2_2";
+import Choose_2_3 from "../component/Choose_2/Choose_2_3";
+import Choose_2_4 from "../component/Choose_2/Choose_2_4";
+import Choose_2_5 from "../component/Choose_2/Choose_2_5";
+import Choose_3 from "../component/Choose_3/Choose_3";
+import Choose_3_1 from "../component/Choose_3/Choose_3_1";
+import Choose_3_2 from "../component/Choose_3/Choose_3_2";
+import Choose_3_3 from "../component/Choose_3/Choose_3_3";
+import Choose_3_4 from "../component/Choose_3/Choose_3_4";
+
 const botName = "ExcitementBot";
-const message = createChatBotMessage("Hello world!");
 
 const getConfig = () => {
   // 이건 챗봇측 아바타
@@ -34,27 +49,78 @@ const getConfig = () => {
     customStyles: {},
 
     initialMessages: [
-      createChatBotMessage("Hello. This is TokTalk. We provide consultation on start-up-related complaints . Please ask a question using keywords in the chat window."),
+      createChatBotMessage(
+        "Hello. This is TokTalk. We provide consultation on start-up-related complaints . Please ask a question using keywords in the chat window.",
+        {
+          widget: "initial",
+        },
+      ),
     ],
-
-    state: {
-      // 나도 모르겟다. 현재 위젯의 상태를 정의한다는데
-      // myCustomProperty: "Bikershorts",
-    },
 
     widgets: [
       {
-        // 위젯 이름
-        widgetName: "SelectBtn",
-
-        // 따로 위젯을 생성하는 함수
-        widgetFunc: (props) => <SelectBtn {...props} />,
-
-        // 위젯에 추가적으로 전달되는 속성
-        // props: {},
-
-        // 위젯에 전달되는 상태
-        // mapStateToProps: ["selectedFlightId", "selectedFlight"],
+        widgetName: "initial",
+        widgetFunc: (props) => <Initial {...props} />,
+      },
+      {
+        widgetName: "answer",
+        widgetFunc: (props) => <Answer {...props} />,
+      },
+      {
+        widgetName: "Choose_1",
+        widgetFunc: (props) => <Choose_1 {...props} />,
+      },
+      {
+        widgetName: "Choose_1_2",
+        widgetFunc: (props) => <Choose_1_2 {...props} />,
+      },
+      {
+        widgetName: "Choose_1_3",
+        widgetFunc: (props) => <Choose_1_3 {...props} />,
+      },
+      {
+        widgetName: "Choose_2",
+        widgetFunc: (props) => <Choose_2 {...props} />,
+      },
+      {
+        widgetName: "Choose_2_1",
+        widgetFunc: (props) => <Choose_2_1 {...props} />,
+      },
+      {
+        widgetName: "Choose_2_2",
+        widgetFunc: (props) => <Choose_2_2 {...props} />,
+      },
+      {
+        widgetName: "Choose_2_3",
+        widgetFunc: (props) => <Choose_2_3 {...props} />,
+      },
+      {
+        widgetName: "Choose_2_4",
+        widgetFunc: (props) => <Choose_2_4 {...props} />,
+      },
+      {
+        widgetName: "Choose_2_5",
+        widgetFunc: (props) => <Choose_2_5 {...props} />,
+      },
+      {
+        widgetName: "Choose_3",
+        widgetFunc: (props) => <Choose_3 {...props} />,
+      },
+      {
+        widgetName: "Choose_3_1",
+        widgetFunc: (props) => <Choose_3_1 {...props} />,
+      },
+      {
+        widgetName: "Choose_3_2",
+        widgetFunc: (props) => <Choose_3_2 {...props} />,
+      },
+      {
+        widgetName: "Choose_3_3",
+        widgetFunc: (props) => <Choose_3_3 {...props} />,
+      },
+      {
+        widgetName: "Choose_3_4",
+        widgetFunc: (props) => <Choose_3_4 {...props} />,
       },
     ],
     customComponents: {
@@ -78,7 +144,9 @@ const getConfig = () => {
             </svg>
           </button>
           <div className="flex w-full items-center justify-center text-2xl text-white">
-            <div className="mr-2" style={{fontFamily:"JalnanGothic"}}>TokTalk</div>
+            <div className="mr-2" style={{ fontFamily: "JalnanGothic" }}>
+              TokTalk
+            </div>
             <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
           </div>
           <button className="close-button flex justify-end">
@@ -118,5 +186,3 @@ const getConfig = () => {
 };
 
 export default getConfig;
-
-// export default config

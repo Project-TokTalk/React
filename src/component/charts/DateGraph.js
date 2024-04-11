@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
-import './Font.css'; // CSS 파일을 불러옵니다.
+import "./Font.css"; // CSS 파일을 불러옵니다.
 
 const DateGraph = () => {
   const [data, setData] = useState([]);
@@ -71,7 +71,10 @@ const DateGraph = () => {
   return (
     <div style={{ width: "90%", margin: "0 auto", marginTop: "50px" }}>
       {/* 80%의 너비를 가지고 중앙 정렬 */}
-      <div className="mb-4 text-center text-color_b" style={{fontFamily: "JalnanGothic", fontSize: "30px"}}>
+      <div
+        className="mb-4 text-center text-3xl text-color_b"
+        style={{ fontFamily: "JalnanGothic" }}
+      >
         월별 사용자 증가 추이
       </div>
       <Chart options={options} series={series} type="area" height={300} />

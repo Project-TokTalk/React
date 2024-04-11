@@ -8,7 +8,6 @@ import ActionProvider from "./bot/ActionProvider.js";
 import TokTalk from "../image/TokTalk.png";
 
 const Chat = () => {
-  const [userInput, setUserInput] = useState(""); // 사용자 입력 값 상태
   const [show, toggleShow] = useState(
     // /chat으로 접속시에만 켜진상태로 나옴
     window.location.pathname.includes("/chat"),
@@ -45,6 +44,7 @@ const Chat = () => {
         actionProvider={ActionProvider}
         config={getConfig(onClick)}
         validator={validator}
+        disableScrollToBottom={true}
       />
     </div>
   ) : (

@@ -49,10 +49,13 @@ const SignIn = () => {
 
     // 손승아, DB에 사용자 정보 있을 때만 로그인, 20240327
     try {
-      const response = await axios.post("http://43.201.239.119:8081/user/login", {
-        phone,
-        password,
-      });
+      const response = await axios.post(
+        "http://43.201.239.119:8081/user/login",
+        {
+          phone,
+          password,
+        },
+      );
 
       if (phone === "ADMIN") {
         navigate("/admin");

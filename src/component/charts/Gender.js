@@ -80,7 +80,7 @@ export default function Gender(props) {
       .catch((error) => {
         console.error("에러가 발생했습니다:", error);
       });
-  }, []);
+  }, [options.colors]);
 
   return (
     <div className="flex items-center">
@@ -93,14 +93,17 @@ export default function Gender(props) {
         />
       </div>
       <div className="flex w-1/3 flex-col p-4">
-        <div className="mb-4 text-center text-color_b" style={{fontFamily:"JalnanGothic", fontSize: "30px"}}>
+        <div
+          className="texl-3xl mb-4 text-center text-color_b"
+          style={{ fontFamily: "JalnanGothic" }}
+        >
           남녀 이용자 수
         </div>
         <div className="space-y-2">
           {genderTexts.map((text, index) => (
             <div key={index} className="flex items-center">
               <div
-                className="bg-color_c mr-3 flex h-6 w-6 items-center justify-center rounded-full text-lg font-bold text-white"
+                className="mr-3 flex h-6 w-6 items-center justify-center rounded-full bg-color_c text-lg font-bold text-white"
                 style={{
                   fontFamily: "Noto Sans",
                 }}

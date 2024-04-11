@@ -21,12 +21,7 @@ const Members = () => {
   }, []);
   console.log(memberList);
   // 이주명(0405) 여기까지
-  const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
-
-  const IdList = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30,
-  ];
+  const [setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   const onChangeEach = (e, id_mem) => {
     if (e.target.checked) {
@@ -69,7 +64,10 @@ const Members = () => {
         <MemberControl />
 
         <div className="flex h-2/3 w-full" id="unsolved-scroll">
-          <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300" style={{fontFamily: 'Pretendard-Regular'}}>
+          <table
+            className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300"
+            style={{ fontFamily: "Pretendard-Regular" }}
+          >
             <thead className="flex w-full flex-col bg-gray-100">
               <tr className="flex">
                 <th className="flex w-16 cursor-default justify-center whitespace-nowrap border p-2 text-xl font-bold leading-6 text-gray-900">
@@ -268,7 +266,10 @@ const Members = () => {
         {/* 테이블 하단 우측에 수정 완료 버튼 배치중 */}
 
         <div className="flex flex-row justify-center pt-2">
-          <div class="item flex h-full grow items-center justify-center" style={{fontFamily: 'Pretendard-Regular'}}>
+          <div
+            class="item flex h-full grow items-center justify-center"
+            style={{ fontFamily: "Pretendard-Regular" }}
+          >
             <button className="ml-40 mt-3 flex h-10 w-40 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
               추가하기
             </button>
@@ -277,12 +278,18 @@ const Members = () => {
             <div class="flex items-center space-x-3 px-3">
               <div class="flex flex-none justify-center"></div>
 
-              <div class="md:text-md hidden text-black md:block dark:text-white" style={{fontFamily: 'Pretendard-Regular'}}>
+              <div
+                class="md:text-md hidden text-black md:block dark:text-white"
+                style={{ fontFamily: "Pretendard-Regular" }}
+              >
                 <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                   삭제하기
                 </button>
               </div>
-              <div class="md:text-md hidden text-black md:block dark:text-white" style={{fontFamily: 'Pretendard-Regular'}}>
+              <div
+                class="md:text-md hidden text-black md:block dark:text-white"
+                style={{ fontFamily: "Pretendard-Regular" }}
+              >
                 <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300">
                   수정하기
                 </button>

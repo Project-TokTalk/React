@@ -4,7 +4,7 @@ import UnsolvedHeader from "../layout/UnsolveHeader";
 
 const Unsolved = () => {
   const [CheckList, setCheckList] = useState([]);
-  const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
+  const [setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   // 각각의 아이템에 대한 ID 리스트
   const IdList = [
@@ -50,7 +50,10 @@ const Unsolved = () => {
         <UnsolvedHeader />
         <div className="flex h-2/3 flex-row">
           <div className="flex flex-grow flex-col" id="unsolved-scroll">
-            <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300" style={{fontFamily: 'Pretendard-Regular'}}>
+            <table
+              className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300"
+              style={{ fontFamily: "Pretendard-Regular" }}
+            >
               <thead className="flex w-full flex-col bg-gray-100">
                 <tr className="flex">
                   <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
@@ -106,12 +109,18 @@ const Unsolved = () => {
               <div class="flex h-full flex-none items-center justify-center text-center">
                 <div class="flex items-center space-x-3 px-3 pb-2">
                   <div class="text-md block text-black">
-                    <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300" style={{fontFamily: 'Pretendard-Regular'}}>
+                    <button
+                      className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
+                      style={{ fontFamily: "Pretendard-Regular" }}
+                    >
                       삭제하기
                     </button>
                   </div>
                   <div class="text-md block text-black">
-                    <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300" style={{fontFamily: 'Pretendard-Regular'}}>
+                    <button
+                      className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
+                      style={{ fontFamily: "Pretendard-Regular" }}
+                    >
                       등록하기
                     </button>
                   </div>

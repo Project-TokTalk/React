@@ -2,7 +2,10 @@ const SenarioHeader = () => {
   return (
     <nav id="navbar2" className="flex">
       <div className="flex h-full w-full justify-between pt-3">
-        <div className="flex items-center p-10 pb-6 text-3xl" style={{fontFamily: "JalnanGothic"}}>
+        <div
+          className="flex items-center p-10 pb-6 text-3xl"
+          style={{ fontFamily: "JalnanGothic" }}
+        >
           시나리오 관리
         </div>
         <div className="flex h-full w-1/6 items-end pb-3">
@@ -10,7 +13,8 @@ const SenarioHeader = () => {
             {/* 검색란 추가 */}
 
             <input
-              className="flex h-full w-full rounded-md border border-hidden border-gray-300 pl-5"
+              className="flex h-full w-full rounded-md border border-hidden border-gray-300 pl-5 focus:outline-none"
+              type="input"
               placeholder="Enter"
             ></input>
             <button className="pl-1">
