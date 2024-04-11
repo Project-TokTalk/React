@@ -10,10 +10,6 @@ class MessageParser extends Component {
   }
 
   parse = (message) => {
-    if (message.includes("123")) {
-      this.props.actions.createbtn();
-    }
-
     const sessionPhone = window.sessionStorage.getItem("phone");
 
     const dataToSend = {
