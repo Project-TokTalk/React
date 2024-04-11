@@ -42,7 +42,7 @@ export default function Gender(props) {
 
   useEffect(() => {
     axios
-      .get("http://43.201.239.119:8081/admin/gender")
+      .get("http://13.125.89.127:8081/admin/gender")
       .then((response) => {
         const genderDataList = response.data.filter(
           (genderData) => genderData.gender !== "ADMIN",
@@ -94,7 +94,7 @@ export default function Gender(props) {
       </div>
       <div className="flex w-1/3 flex-col p-4">
         <div
-          className="texl-3xl mb-4 text-center text-color_b"
+          className="mb-4 text-center text-3xl text-color_b"
           style={{ fontFamily: "JalnanGothic" }}
         >
           남녀 이용자 수
