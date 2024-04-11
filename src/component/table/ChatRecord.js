@@ -163,9 +163,6 @@ const ChatRecord = () => {
                         <p className="text-gray-600">
                           {/* Additional content here */}
                         </p>
-                        <footer className="mt-2 text-sm text-gray-500">
-                          Friday 22:16
-                        </footer>
                       </div>
                     </article>
                   </li>
