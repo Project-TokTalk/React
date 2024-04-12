@@ -18,7 +18,7 @@ class Answer extends Component {
     console.log(message);
     console.log("test1");
 
-    fetch("http://127.0.0.1:8089/send_data", {
+    fetch("http://43.202.224.188:8089/send_data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
