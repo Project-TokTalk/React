@@ -1,48 +1,65 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Choose_3 = (props) => {
-  const choose_3_btn = [
-    {
-      text: "회원가입",
-      handler: props.actionProvider.choose_3_1,
-      id: "회원가입",
-    },
-    {
-      text: "창업이력",
-      handler: props.actionProvider.choose_3_2,
-      id: "창업이력",
-    },
-    {
-      text: "시스템 오류",
-      handler: props.actionProvider.choose_3_3,
-      id: "시스템 오류",
-    },
-    {
-      text: "기업정보등록",
-      handler: props.actionProvider.choose_3_4,
-      id: "기업정보등록",
-    },
-  ];
+class Answer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      answer: "", // 응답 메시지 상태
+    };
+    this.chatWindowRef = React.createRef(); // chatWindow 요소에 대한 참조 생성
+  }
 
-  const handleClick = (handler, id) => {
-    handler(id);
-  };
+  componentDidMount() {
+    // 컴포넌트가 마운트될 때 초기화 작업 수행
+    const sessionPhone = window.sessionStorage.getItem("phone");
+    const message = this.props.payload.id;
+    const dataToSend = { chat: message, phone: sessionPhone };
 
-  const makeBtn = choose_3_btn.map((btn) => (
-    <button
-      key={btn.id}
-      onClick={() => handleClick(btn.handler, btn.id)}
-      className="m-1 flex rounded-full border bg-white p-2 text-center text-sm"
-    >
-      {btn.text}
-    </button>
-  ));
+    fetch("http://127.0.0.1:8089/send_data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSend),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Initial response:", data);
+        this.setState({ answer: data.message }, () => {
+          this.scrollToBottom(); // 응답을 받은 후 스크롤 아래로 이동
+        });
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  }
 
-  return (
-    <div className="w-full overflow-x-hidden whitespace-nowrap">
-      <div className="z-30 flex flex-row overflow-x-auto">{makeBtn}</div>
-    </div>
-  );
-};
+  componentDidUpdate() {
+    this.scrollToBottom(); // 컴포넌트 업데이트 시 스크롤 아래로 이동
+  }
 
-export default Choose_3;
+  scrollToBottom() {
+    if (this.chatWindowRef.current) {
+      this.chatWindowRef.current.scrollTop =
+        this.chatWindowRef.current.scrollHeight;
+    }
+  }
+
+  render() {
+    return (
+      <div
+        className="chat-window flex flex-wrap items-center rounded-3xl border bg-color_d text-white"
+        ref={this.chatWindowRef} // ref를 chatWindowRef로 설정
+      >
+        <div className="mx-4 my-2">
+          {this.state.answer}
+          {this.props.widget && (
+            <input type="hidden" name="widget" value={this.props.widget} />
+          )}
+        </div>
+      </div>
+    ); // answer 상태를 출력하도록 수정
+  }
+}
+
+export default Answer;

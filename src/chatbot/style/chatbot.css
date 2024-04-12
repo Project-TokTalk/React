@@ -31,7 +31,7 @@
 
 /* 그냥 범위 구분하려고 색 넣은거임 입력란은 색이 안들어가 */
 .react-chatbot-kit-chat-inner-container {
-  height: 667px;
+  height: calc(var(--vh, 1vh) * 100);
   width: auto;
   background-color: #e5ebff;
 }

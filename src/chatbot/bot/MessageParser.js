@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class MessageParser extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      answer: "",
-    };
+  constructor(actionProvider, state) {
+    super();
+    this.actionProvider = actionProvider;
+    this.state = state;
   }
 
   parse = (message) => {
@@ -24,8 +23,7 @@ class MessageParser extends Component {
         console.log("여기까진 도착");
         const answer = response.data.message;
         console.log("Answer:", answer);
-        this.setState({ answer }); // 응답 받은 후에 answer 값을 설정
-        this.props.actions.handleHello(answer);
+        this.actionProvider.handleHello(answer);
       })
       .catch((error) => {
         console.error("Error sending data:", error);
@@ -38,7 +36,9 @@ class MessageParser extends Component {
         {React.Children.map(this.props.children, (child) => {
           return React.cloneElement(child, {
             parse: this.parse,
-            actions: this.props.actions,
+            actions: {
+              handleHello: this.props.actions.handleHello,
+            },
             answer: this.state.answer, // answer 값을 props로 전달
           });
         })}

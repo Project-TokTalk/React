@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Initial = (props) => {
+  const sessionPhone = window.sessionStorage.getItem("phone");
   const initial = [
     {
       text: "창업기업 확인",
@@ -33,19 +34,29 @@ const Initial = (props) => {
     </button>
   ));
 
-  const scrollRef = useRef(null);
+  const widgetRef = useRef(null); // widgetRef 선언 및 초기화
 
-  const scrollToBottom = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  useEffect(() => {
+    // 위젯이 마운트될 때마다 최 하단으로 스크롤 이동
+    if (widgetRef.current) {
+      widgetRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
     }
-  };
+  }, []);
 
   return (
     <>
-      <div className="flex flex-wrap items-center">{makeBtn}</div>
+      <div ref={widgetRef} className="flex flex-wrap items-center">
+        {makeBtn}
+      </div>
       <button
-        className="fixed bottom-20 right-6 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500"
+        className={
+          // `${sessionPhone === "ADMIN" ? " right-2" : " right-10"}
+          `fixed bottom-24 right-10 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500`
+        }
         onClick={props.actionProvider.Initial}
       >
         <svg
