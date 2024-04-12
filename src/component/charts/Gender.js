@@ -42,7 +42,7 @@ export default function Gender(props) {
 
   useEffect(() => {
     axios
-      .get("http://13.125.89.127:8081/admin/gender")
+      .get("http://43.201.239.119:8081/admin/gender")
       .then((response) => {
         const genderDataList = response.data.filter(
           (genderData) => genderData.gender !== "ADMIN",
