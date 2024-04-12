@@ -116,7 +116,7 @@ const Country = () => {
   ];
 
   return (
-    <div className="flex items-center" style={{ marginTop: "60px" }}>
+    <div className="mt-12 flex h-3/4 items-center">
       <div className="w-3/4">
         <ReactApexChart
           key={refreshKey} // Unique key to force re-render
@@ -136,7 +136,8 @@ const Country = () => {
             fontFamily: "JalnanGothic",
           }}
         >
-          국가별 이용자 수
+          국가별
+          <br /> 이용자 수
         </div>
         <div className="space-y-2">
           {chartData.slice(0, 3).map((item, index) => (

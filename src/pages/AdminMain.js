@@ -113,26 +113,7 @@ const AdminMain = () => {
             </svg>
             <div>서비스 대시보드</div>
           </button>
-          <button
-            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
-            onClick={() => onMoveToElement(unsolvedRef)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="#ffffff"
-              fill="none"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-              <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-              <path d="M10 18l5 -5a1.414 1.414 0 0 0 -2 -2l-5 5v2h2z" />
-            </svg>
-            <div>미응답 질문</div>
-          </button>
+
           <button
             className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(chatRef)}
@@ -151,6 +132,26 @@ const AdminMain = () => {
               <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
             </svg>
             <div>챗봇 사용 이력</div>
+          </button>
+          <button
+            className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
+            onClick={() => onMoveToElement(unsolvedRef)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="#ffffff"
+              fill="none"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+              <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+              <path d="M10 18l5 -5a1.414 1.414 0 0 0 -2 -2l-5 5v2h2z" />
+            </svg>
+            <div>응답 불가 질문</div>
           </button>
           <button
             className="flex w-full transform flex-row items-center space-x-3 rounded-full bg-[#1E293B] p-2 pl-8 text-white duration-300 ease-in-out hover:ml-4 hover:text-purple-500 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
@@ -219,6 +220,25 @@ const AdminMain = () => {
               <path d="M10 12h4v4h-4z" />
             </svg>
           </button>
+
+          <button
+            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
+            onClick={() => onMoveToElement(chatRef)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="#ffffff"
+              fill="none"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+              <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
+            </svg>
+          </button>
           <button
             className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
             onClick={() => onMoveToElement(unsolvedRef)}
@@ -236,24 +256,6 @@ const AdminMain = () => {
               <path d="M14 3v4a1 1 0 0 0 1 1h4" />
               <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
               <path d="M10 18l5 -5a1.414 1.414 0 0 0 -2 -2l-5 5v2h2z" />
-            </svg>
-          </button>
-          <button
-            className="flex w-full transform justify-end rounded-full bg-[#1E293B] p-3 pr-4 text-white duration-300 ease-in-out hover:ml-4 hover:ring-2 hover:ring-inset hover:ring-purple-500 "
-            onClick={() => onMoveToElement(chatRef)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="#ffffff"
-              fill="none"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
-              <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
             </svg>
           </button>
           <button
@@ -302,36 +304,27 @@ const AdminMain = () => {
           isSidebarOpen ? "ml-60" : "ml-12"
         } transform bg-slate-50 pb-4 duration-500 ease-in-out`}
       >
-        <div ref={homeRef}></div>
-        <AdminHeader />
-        <div className="grid h-screen max-w-full flex-1 grid-cols-1 pb-5 ring-1 ring-inset ring-gray-300">
-          <div className="grid h-full">
+        <div className="flex h-screen max-w-full pb-5 ring-1 ring-inset ring-gray-300">
+          <div className="flex h-full w-full flex-col px-16">
+            <div ref={homeRef}></div>
+            <AdminHeader />
+
             <div className="flex flex-row">
-              <section className="ml-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
+              <section className="ml-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
                 <AgeStartup />
               </section>
-              <section className="ml-5 mr-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
+              <section className="ml-5 mr-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
                 <Gender />
               </section>
             </div>
-            <div className="grid h-full">
-              <div className="flex flex-row ">
-                <section className="ml-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
-                  <Country />
-                </section>
-                <section className="ml-5 mr-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
-                  <DateGraph />
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
-          <div ref={unsolvedRef}></div>
-          <div className="grid h-full">
-            <div className="mx-5 flex h-4/5 w-full justify-center">
-              <Unsolved />
+            <div className="flex flex-row">
+              <section className="ml-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
+                <Country />
+              </section>
+              <section className="ml-5 mr-5 mt-5 w-1/2 bg-white ring-1 ring-inset ring-gray-300">
+                <DateGraph />
+              </section>
             </div>
           </div>
         </div>
@@ -344,10 +337,19 @@ const AdminMain = () => {
         </div>
 
         <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
+          <div ref={unsolvedRef}></div>
+          <div className="flex h-full w-full flex-col">
+            <div className="flex h-4/5 w-full justify-center">
+              <Unsolved />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid max-h-full max-w-full flex-1 grid-cols-1 ring-1 ring-inset ring-gray-300">
           <div ref={humanRef}></div>
 
           <div className="grid h-full">
-            <div className="mx-5 flex h-4/5 w-full justify-center">
+            <div className="flex h-4/5 w-full justify-center">
               <Members />
             </div>
           </div>
@@ -357,7 +359,7 @@ const AdminMain = () => {
           <div ref={scenarioRef}></div>
 
           <div className="grid h-full">
-            <div className="mx-5 flex h-4/5 w-full justify-center">
+            <div className="flex h-4/5 w-full justify-center">
               <SenarioControl />
             </div>
           </div>

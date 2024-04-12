@@ -106,7 +106,8 @@ export default function AgeStartup(props) {
           className="mb-4 text-center text-3xl text-color_b"
           style={{ fontFamily: "JalnanGothic" }}
         >
-          연령대별 창업유무
+          연령대별
+          <br /> 창업유무
         </div>
         {series.length > 0 && series[0].data ? (
           series[0].data

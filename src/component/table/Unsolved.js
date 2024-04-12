@@ -16,11 +16,9 @@ const Unsolved = () => {
     try {
       const response = await axios.get("http://43.201.239.119:8081/admin/unsolve");
       setUnsolve(response.data);
-
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-
   };
 
   const ChatK = Unsolve["chatListK"];
@@ -64,14 +62,17 @@ const Unsolved = () => {
 
   return (
     <>
-    {console.log("UNSOLVING")}
-    {console.log(Unsolve)}
-    {console.log(ChatK)}
-      <div className="container mx-auto flex h-screen w-full flex-col justify-start">
+      {console.log("UNSOLVING")}
+      {console.log(Unsolve)}
+      {console.log(ChatK)}
+      <div className="mx-auto flex h-screen w-full flex-col justify-start px-16">
         <UnsolvedHeader />
-        <div className="flex h-2/3 flex-row">
+        <div className="flex h-3/4 flex-row">
           <div className="flex flex-grow flex-col" id="unsolved-scroll">
-            <table className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300" style={{fontFamily: 'Pretendard-Regular'}}>
+            <table
+              className="flex h-full min-h-0 w-full flex-col object-center shadow-lg ring-1 ring-inset ring-gray-300"
+              style={{ fontFamily: "Pretendard-Regular" }}
+            >
               <thead className="flex w-full flex-col bg-gray-100">
                 <tr className="flex">
                   <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
@@ -81,7 +82,7 @@ const Unsolved = () => {
                     No
                   </th>
                   <th className="flex flex-1 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
-                    미해결 질문
+                    질문
                   </th>
                   <th className="flex flex-1 cursor-default justify-center   border p-2 pr-3 text-xl font-bold leading-6 text-gray-900">
                     추가할 답안
@@ -91,62 +92,67 @@ const Unsolved = () => {
               <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
                 <div className="flex h-full w-full flex-col overflow-auto">
                   {/* 여기서 데이터 삽입하면 됩니다. */}
-                  {ChatK && ChatK.map((value, idx) => (
-                    <tr key={idx} className="flex text-gray-700">
-                      <td className="flex w-16 items-center justify-center border">
-                        <input
-                          type="checkbox"
-                          id={`checkbox-${value.id}`}
-                          onChange={(e) => onChangeEach(e, value.id)}
-                          checked={CheckList.includes(value.id)}
-                        />
-                      </td>
-                      <td className="flex w-16 cursor-default items-center justify-center border">
-                        {idx}
-                      </td>
-                      <td className="flex flex-1 cursor-default items-center border p-2">
-                        {value.question}
-                      </td>
-                      <td className="flex flex-1 items-center border">
-                        <input
-                          className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
-                          type="input"
-                          id={`answer-${value.id}`}
-                          onChange={(e) => onAnswerChange(e, value.id)}
-                          placeholder="Type Answer"
-                          style={{ width: "90%", flex: 1 }}
-                        />
-                      </td>
-                    </tr>
-                  ))}
-                  {ChatE && ChatE.map((value, idx) => (
-                    <tr key={idx + ChatK.length} className="flex text-gray-700">
-                      <td className="flex w-16 items-center justify-center border">
-                        <input
-                          type="checkbox"
-                          id={`checkbox-${value.id}`}
-                          onChange={(e) => onChangeEach(e, value.id)}
-                          checked={CheckList.includes(value.id)}
-                        />
-                      </td>
-                      <td className="flex w-16 cursor-default items-center justify-center border">
-                        {idx  + ChatK.length}
-                      </td>
-                      <td className="flex flex-1 cursor-default items-center border p-2">
-                        {value.question}
-                      </td>
-                      <td className="flex flex-1 items-center border">
-                        <input
-                          className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
-                          type="input"
-                          id={`answer-${value.id}`}
-                          onChange={(e) => onAnswerChange(e, value.id)}
-                          placeholder="Type Answer"
-                          style={{ width: "90%", flex: 1 }}
-                        />
-                      </td>
-                    </tr>
-                  ))}
+                  {ChatK &&
+                    ChatK.map((value, idx) => (
+                      <tr key={idx} className="flex text-gray-700">
+                        <td className="flex w-16 items-center justify-center border">
+                          <input
+                            type="checkbox"
+                            id={`checkbox-${value.id}`}
+                            onChange={(e) => onChangeEach(e, value.id)}
+                            checked={CheckList.includes(value.id)}
+                          />
+                        </td>
+                        <td className="flex w-16 cursor-default items-center justify-center border">
+                          {idx}
+                        </td>
+                        <td className="flex flex-1 cursor-default items-center border p-2">
+                          {value.question}
+                        </td>
+                        <td className="flex flex-1 items-center border">
+                          <input
+                            className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
+                            type="input"
+                            id={`answer-${value.id}`}
+                            onChange={(e) => onAnswerChange(e, value.id)}
+                            placeholder="Type Answer"
+                            style={{ width: "90%", flex: 1 }}
+                          />
+                        </td>
+                      </tr>
+                    ))}
+                  {ChatE &&
+                    ChatE.map((value, idx) => (
+                      <tr
+                        key={idx + ChatK.length}
+                        className="flex text-gray-700"
+                      >
+                        <td className="flex w-16 items-center justify-center border">
+                          <input
+                            type="checkbox"
+                            id={`checkbox-${value.id}`}
+                            onChange={(e) => onChangeEach(e, value.id)}
+                            checked={CheckList.includes(value.id)}
+                          />
+                        </td>
+                        <td className="flex w-16 cursor-default items-center justify-center border">
+                          {idx + ChatK.length}
+                        </td>
+                        <td className="flex flex-1 cursor-default items-center border p-2">
+                          {value.question}
+                        </td>
+                        <td className="flex flex-1 items-center border">
+                          <input
+                            className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
+                            type="input"
+                            id={`answer-${value.id}`}
+                            onChange={(e) => onAnswerChange(e, value.id)}
+                            placeholder="Type Answer"
+                            style={{ width: "90%", flex: 1 }}
+                          />
+                        </td>
+                      </tr>
+                    ))}
                 </div>
               </tbody>
             </table>
@@ -155,15 +161,29 @@ const Unsolved = () => {
               <div class="flex h-full flex-none items-center justify-center text-center">
                 <div class="flex items-center space-x-3 px-3 pb-2">
                   <div class="text-md block text-black">
-                    <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300" style={{fontFamily: 'Pretendard-Regular'}}>
-                      삭제하기
+                    <button
+                      className="mx-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
+                      style={{ fontFamily: "Pretendard-Regular" }}
+                    >
+                      추가하기
                     </button>
                   </div>
                   <div class="text-md block text-black">
-                    <button className="mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300" 
-                    style={{fontFamily: 'Pretendard-Regular'}}
-                    onClick={handleRegister}>
-                      등록하기
+                    <button
+                      className="mx-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
+                      style={{ fontFamily: "Pretendard-Regular" }}
+                      onClick={handleRegister}
+                    >
+                      수정하기
+                    </button>
+                  </div>
+                  <div class="text-md block text-black">
+                    <button
+                      className="ml-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
+                      style={{ fontFamily: "Pretendard-Regular" }}
+                      onClick={handleRegister}
+                    >
+                      삭제하기
                     </button>
                   </div>
                 </div>

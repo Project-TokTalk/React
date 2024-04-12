@@ -13,8 +13,8 @@ const AdminHeader = () => {
   };
 
   return (
-    <nav id="navbar" className="flex bg-white" style={{fontFamily: "JalnanGothic"}}>
-      <div className="flex h-full w-4/5 items-center">
+    <nav id="navbar2" className="flex" style={{ fontFamily: "JalnanGothic" }}>
+      <div className="flex h-full w-full items-center">
         <div className="flex p-5 pl-10 text-3xl">서비스 대시보드</div>
       </div>
       <div className="flex w-1/5 items-center justify-end p-4 font-medium">

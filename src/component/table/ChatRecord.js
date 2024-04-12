@@ -16,6 +16,10 @@ const ChatRecord = () => {
     if (elementRef.current) {
       elementRef.current.scrollTop = elementRef.current.scrollHeight;
     }
+    // 화면 로딩 후 첫 번째 항목 클릭
+    if (allKeys.length > 0) {
+      handleUserClick(allKeys[0]);
+    }
   }, []);
 
   const fetchData = async () => {
@@ -106,14 +110,14 @@ const ChatRecord = () => {
       {console.log(Endata)} */}
       {console.log(sortedChats)}
       {console.log(allKeys)}
-      <ChatbotHeader />
       <div
-        className="flex h-screen w-full bg-white text-gray-800 antialiased"
+        className="flex h-screen w-full justify-center bg-white text-gray-800 antialiased"
         style={{ fontFamily: "Pretendard-Regular" }}
       >
-        <div className="flex h-4/5 flex-1 flex-col">
+        <div className="flex h-full w-full flex-col px-16 pb-16">
+          <ChatbotHeader />
           <main className="flex min-h-0 flex-grow border-t">
-            <section className="flex min-h-0 w-full max-w-sm flex-none flex-col bg-gray-100 p-3 shadow-md">
+            <section className="flex min-h-0 w-1/5 max-w-sm flex-none flex-col bg-gray-100 p-3 shadow-md">
               <h1 className=" flex flex-row items-center justify-between pb-3">
                 <div className="pl-3 font-semibold">사용자별 대화내역</div>
                 <div className="flex h-8 w-2/5 rounded-md border border-gray-300 bg-white">
@@ -212,7 +216,9 @@ const ChatRecord = () => {
                         <p className="text-lg font-semibold">
                           {countAllMap() - CountWrongAnswer()}
                         </p>
-                        <p className="text-sm uppercase text-gray-600">Good</p>
+                        <p className="text-sm uppercase text-gray-600">
+                          success
+                        </p>
                       </button>
                     </li>
 
@@ -221,7 +227,7 @@ const ChatRecord = () => {
                         <p className="text-lg font-semibold">
                           {CountWrongAnswer()}
                         </p>
-                        <p className="text-sm uppercase text-gray-600">Bad</p>
+                        <p className="text-sm uppercase text-gray-600">fail</p>
                       </button>
                     </li>
                   </ul>
@@ -263,19 +269,20 @@ const ChatRecord = () => {
                       <tr
                         key={index}
                         role="row"
+                        ref={elementRef}
                         className="flex cursor-pointer border-b hover:bg-blue-100"
                         style={{ height: "auto" }}
                       >
-                        <td className="flex w-64 justify-center px-1 py-3">
+                        <td className="flex w-64 items-center justify-center whitespace-normal px-1 py-3">
                           {value.time[0]}-{value.time[1]}-{value.time[2]}
                         </td>
-                        <td className="flex w-40 justify-center px-1 py-3">
+                        <td className="flex w-40 items-center justify-center whitespace-normal px-1 py-3">
                           {value.user}
                         </td>
-                        <td className="flex-1 truncate px-1 py-3">
+                        <td className="flex-1 items-center truncate whitespace-normal px-1 py-3">
                           {value.question} / {value.answer}
                         </td>
-                        <td className="flex w-24 justify-center truncate px-1 py-3">
+                        <td className="flex w-24 items-center justify-center truncate whitespace-normal px-1 py-3">
                           {value.answer !== WrongAnswerK &&
                           value.answer !== WrongAnswerE
                             ? "Y"

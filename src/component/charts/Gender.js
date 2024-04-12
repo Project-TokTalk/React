@@ -97,7 +97,8 @@ export default function Gender(props) {
           className="mb-4 text-center text-3xl text-color_b"
           style={{ fontFamily: "JalnanGothic" }}
         >
-          남녀 이용자 수
+          남녀
+          <br /> 이용자 수
         </div>
         <div className="space-y-2">
           {genderTexts.map((text, index) => (
