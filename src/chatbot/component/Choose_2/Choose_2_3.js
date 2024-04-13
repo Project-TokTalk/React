@@ -3,30 +3,24 @@ import React, { useEffect, useRef } from "react";
 const Choose_2_3 = (props) => {
   const choose_2_3 = [
     {
-      text: "기업명 변경",
+      text: "Change of company name",
       handler: props.actionProvider.choose_2_3_1,
-      id: "창업기업 확인서 기업명 변경이 필요합니다.",
+      id: "It is necessary to change the company name of the start-up company confirmation.",
     },
     {
-      text: "주소변경",
+      text: "Change of address",
       handler: props.actionProvider.choose_2_3_2,
-      id: "사업장 주소지가 변경되었습니다.",
+      id: "I request to change the address of the issued confirmation.",
     },
     {
-      text: "제출 신청서 수정",
-      handler: props.actionProvider.choose_2_3_3,
-      id: "창업기업 심사 중 수정이 가능한가요?",
-    },
-    {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_2,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 
   const handleClick = (handler, id) => {
     handler(id);
-    window.scrollTo(0, document.body.scrollHeight);
   };
 
   const makeBtn = choose_2_3.map((btn) => (

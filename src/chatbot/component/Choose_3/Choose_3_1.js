@@ -3,24 +3,24 @@ import React, { useEffect, useRef } from "react";
 const Choose_3_1 = (props) => {
   const choose_3_1 = [
     {
-      text: "사업개시일 확인",
+      text: "Confirmation of business start date",
       handler: props.actionProvider.choose_3_1_1,
-      id: "사업개시일은 어디서 확인할 수 있나요?",
+      id: "Where can I check the start date of the business?",
     },
     {
-      text: "회원탈퇴",
+      text: "How to leave the membership",
       handler: props.actionProvider.choose_3_1_2,
-      id: "회원탈퇴 방법이 궁금합니다.",
+      id: "I'm curious about how to leave the membership.",
     },
     {
-      text: "공공기관",
+      text: "a public institution",
       handler: props.actionProvider.choose_3_1_3,
-      id: "공공기관 담당자인데 별도의 가입방법이 있나요?",
+      id: "I'm in charge of a public institution, is there a separate way to join?",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_3,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 

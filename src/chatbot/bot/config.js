@@ -15,9 +15,9 @@ import Choose_2_4 from "../component/Choose_2/Choose_2_4";
 import Choose_2_5 from "../component/Choose_2/Choose_2_5";
 import Choose_3 from "../component/Choose_3/Choose_3";
 import Choose_3_1 from "../component/Choose_3/Choose_3_1";
-import Choose_3_2 from "../component/Choose_3/Choose_3_2";
 import Choose_3_3 from "../component/Choose_3/Choose_3_3";
 import Choose_3_4 from "../component/Choose_3/Choose_3_4";
+import ChatHistory from "../ChatHistory";
 
 const botName = "ExcitementBot";
 
@@ -43,6 +43,20 @@ const getConfig = () => {
     return <div className="react-chatbot-kit-chat-bot-avatar"></div>;
   };
 
+  const close =
+    window.location.pathname.includes("/admin") ||
+    window.location.pathname.includes("/history");
+
+  const returnChat = !window.location.pathname.includes("/admin");
+
+  const handleViewHistory = () => {
+    window.location.href = "/history";
+  };
+
+  const handleReturnChat = () => {
+    window.location.href = "/chat";
+  };
+
   const config = {
     // 초기 메시지
     botName: botName,
@@ -61,6 +75,10 @@ const getConfig = () => {
       {
         widgetName: "initial",
         widgetFunc: (props) => <Initial {...props} />,
+      },
+      {
+        widgetName: "ChatHistory",
+        widgetFunc: (props) => <ChatHistory {...props} />,
       },
       {
         widgetName: "answer",
@@ -111,10 +129,6 @@ const getConfig = () => {
         widgetFunc: (props) => <Choose_3_1 {...props} />,
       },
       {
-        widgetName: "Choose_3_2",
-        widgetFunc: (props) => <Choose_3_2 {...props} />,
-      },
-      {
         widgetName: "Choose_3_3",
         widgetFunc: (props) => <Choose_3_3 {...props} />,
       },
@@ -128,43 +142,61 @@ const getConfig = () => {
         // 헤더 색 적용 완료
         <div className="flex w-full items-center bg-top_color p-5">
           {/* 여기 버튼이 회원정보로 가는 버튼 */}
-          <button className="flex h-5 w-5 justify-start rounded-full ring-1 ring-inset ring-gray-100">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#ffffff"
-              fill="none"
+          {!close && (
+            <button
+              onClick={handleViewHistory}
+              className="chat-history flex h-5 w-5 justify-start"
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-article"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#ffffff"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                <path d="M7 8h10" />
+                <path d="M7 12h10" />
+                <path d="M7 16h10" />
+              </svg>
+            </button>
+          )}
           <div className="flex w-full items-center justify-center text-2xl text-white">
-            <div className="mr-2" style={{ fontFamily: "JalnanGothic" }}>
+            <div
+              className={`${close ? "ml-10" : ""} mr-2`}
+              style={{ fontFamily: "JalnanGothic" }}
+            >
               TokTalk
             </div>
             <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
           </div>
-          <button className="close-button flex justify-end">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="white"
-              class="h-6 w-6"
+          {close && (
+            <button
+              onClick={returnChat ? handleReturnChat : null}
+              className="close-button flex justify-end"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       ),
 

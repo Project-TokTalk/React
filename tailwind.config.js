@@ -13,6 +13,7 @@ module.exports = {
         color_b: "#002267",
         color_c: "#4D8FD3",
         color_d: "#5c76ff",
+        color_e: "#e5ebff",
         white: colors.white,
         red: colors.red,
         blue: colors.blue,

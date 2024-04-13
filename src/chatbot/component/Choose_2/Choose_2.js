@@ -3,35 +3,29 @@ import React, { useEffect, useRef } from "react";
 const Choose_2 = (props) => {
   const choose_2_btn = [
     {
-      text: "발급방법",
+      id: "Issuance method",
       handler: props.actionProvider.choose_2_1,
-      id: "발급방법",
     },
     {
-      text: "문의사항",
+      id: "Questions",
       handler: props.actionProvider.choose_2_2,
-      id: "문의사항",
     },
     {
-      text: "확인서 수정",
+      id: "Modify Confirmation",
       handler: props.actionProvider.choose_2_3,
-      id: "확인서 수정",
     },
     {
-      text: "확인서 반납",
+      id: "Return Confirmation",
       handler: props.actionProvider.choose_2_4,
-      id: "확인서 반납",
     },
     {
-      text: "신청서 작성",
+      id: "Completion of the application form",
       handler: props.actionProvider.choose_2_5,
-      id: "신청서 작성",
     },
   ];
 
   const handleClick = (handler, id) => {
     handler(id);
-    window.scrollTo(0, document.body.scrollHeight);
   };
 
   const makeBtn = choose_2_btn.map((btn) => (
@@ -40,7 +34,7 @@ const Choose_2 = (props) => {
       onClick={() => handleClick(btn.handler, btn.id)}
       className="m-1 flex rounded-full border bg-white p-2 text-center text-sm"
     >
-      {btn.text}
+      {btn.id}
     </button>
   ));
 

@@ -90,7 +90,6 @@ const SignUp = () => {
 
     Send();
     navigate("/signin"); // 라우팅 처리
-    // navigate("/chat"); // 라우팅 처리
   };
 
   const handle_pw = (e) => {

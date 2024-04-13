@@ -3,25 +3,24 @@ import React, { useEffect, useRef } from "react";
 const Choose_2_4 = (props) => {
   const choose_2_4 = [
     {
-      text: "업종변경",
+      text: "Change of business type",
       handler: props.actionProvider.choose_2_4_1,
-      id: "업종변경이 되었습니다.",
+      id: "The industry has been changed.",
     },
     {
-      text: "대표자 변경",
+      text: "Change of Representative",
       handler: props.actionProvider.choose_2_4_2,
-      id: "대표자가 변경되었습니다.",
+      id: "Representative has been changed.",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_2,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 
   const handleClick = (handler, id) => {
     handler(id);
-    window.scrollTo(0, document.body.scrollHeight);
   };
 
   const makeBtn = choose_2_4.map((btn) => (

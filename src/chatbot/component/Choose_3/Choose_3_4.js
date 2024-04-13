@@ -3,19 +3,19 @@ import React, { useEffect, useRef } from "react";
 const Choose_3_4 = (props) => {
   const Choose_3_4 = [
     {
-      text: "정보 수정",
+      text: "Modifying Information",
       handler: props.actionProvider.choose_3_4_1,
-      id: "기업정보 수정방법이 궁금합니다.",
+      id: "I'm curious about how to modify corporate information.",
     },
     {
-      text: "제품정보",
+      text: "Product Information",
       handler: props.actionProvider.choose_3_4_2,
-      id: "제품등록은 어떻게 하나요.",
+      id: "How do I register the product?",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_3,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 

@@ -3,14 +3,14 @@ import React, { useEffect, useRef } from "react";
 const Choose_3_3 = (props) => {
   const choose_3_3 = [
     {
-      text: "기업정보 입력 오류",
+      text: "Enter company information input error",
       handler: props.actionProvider.choose_3_3_1,
-      id: "기업정보 입력이 안됩니다.",
+      id: "Enter company information cannot be entered.",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_3,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 

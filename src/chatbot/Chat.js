@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Chatbot from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
 import "./style/chatbot.css";
@@ -6,10 +6,11 @@ import getConfig from "./bot/config.js";
 import MessageParser from "./bot/MessageParser.js";
 import ActionProvider from "./bot/ActionProvider.js";
 import TokTalk from "../image/TokTalk.png";
+import axios from "axios";
 
 const Chat = () => {
+  const [history, toggleHistory] = useState(false);
   const [show, toggleShow] = useState(
-    // /chat으로 접속시에만 켜진상태로 나옴
     window.location.pathname.includes("/chat"),
   );
 
@@ -31,7 +32,7 @@ const Chat = () => {
 
   const onClick = () => toggleShow(!show);
 
-  // 입력이 없는 경우 보내기버튼 비활성화
+  // 입력이 없을때 전송버튼 비활성화
   const validator = (input) => {
     if (input.length > 0) return true;
     return false;
@@ -44,6 +45,7 @@ const Chat = () => {
         actionProvider={ActionProvider}
         config={getConfig(onClick)}
         validator={validator}
+        // messageHistory={chatHistory} // 문자열로 설정
         disableScrollToBottom={true}
       />
     </div>

@@ -3,14 +3,14 @@ import React, { useEffect, useRef } from "react";
 const Choose_1_2 = (props) => {
   const choose_1_2 = [
     {
-      text: "이의신청방법",
+      text: "How to file an objection",
       handler: props.actionProvider.choose_1_2_1,
-      id: "창업기업 확인 통보에 대해 이의신청을 하고싶은데, 신청방법은 어떻게 되나요?",
+      id: "How to file an objection",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_1,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 

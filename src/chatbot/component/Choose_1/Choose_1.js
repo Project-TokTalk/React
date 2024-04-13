@@ -3,19 +3,12 @@ import React, { useEffect, useRef } from "react";
 const Choose_1 = (props) => {
   const choose_1 = [
     {
-      text: "관련 법령",
-      handler: props.actionProvider.choose_1_1,
-      id: "창업기업에 해당하는지 알고 싶습니다.",
-    },
-    {
-      text: "이의신청",
+      id: "an objection",
       handler: props.actionProvider.choose_1_2,
-      id: "이의신청",
     },
     {
-      text: "증빙서류 발급",
+      id: "Issuance of evidentiary documents",
       handler: props.actionProvider.choose_1_3,
-      id: "증빙서류 발급",
     },
   ];
 
@@ -42,7 +35,7 @@ const Choose_1 = (props) => {
       onClick={() => handleClick(btn.handler, btn.id)}
       className="m-1 flex rounded-full border bg-white p-2 text-center text-sm"
     >
-      {btn.text}
+      {btn.id}
     </button>
   ));
 

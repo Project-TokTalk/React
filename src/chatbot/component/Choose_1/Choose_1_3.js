@@ -3,19 +3,19 @@ import React, { useEffect, useRef } from "react";
 const Choose_1_3 = (props) => {
   const choose_1_3 = [
     {
-      text: "발급기한",
+      text: "Due date of issuance",
       handler: props.actionProvider.choose_1_3_1,
-      id: "모든 제출서류는 3개월 이내여야 하나요?",
+      id: "Should all submissions be within three months?",
     },
     {
-      text: "사업자등록증",
+      text: "Business license",
       handler: props.actionProvider.choose_1_3_2,
-      id: "사업자등록증과 사업자등록증명은 다른가요?",
+      id: "Is the business license different from the business registration certificate?",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_1,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 

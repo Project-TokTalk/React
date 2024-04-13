@@ -3,25 +3,24 @@ import React, { useEffect, useRef } from "react";
 const Choose_2_2 = (props) => {
   const choose_2_2 = [
     {
-      text: "발급일",
+      text: "Date of issuance",
       handler: props.actionProvider.choose_2_2_1,
-      id: "신청서를 작성했는데 아직 발급이 안되고 있습니다.",
+      id: " I filled out the application form, but it hasn't been issued yet.",
     },
     {
-      text: "보완요청",
+      text: "Request for supplementation",
       handler: props.actionProvider.choose_2_2_2,
-      id: "제출한 신청서가 보완요청되었는데 자세한 내용이 알고싶습니다.",
+      id: " The submitted application has been requested to be supplemented, but I would like to know more details.",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_2,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 
   const handleClick = (handler, id) => {
     handler(id);
-    window.scrollTo(0, document.body.scrollHeight);
   };
 
   const makeBtn = choose_2_2.map((btn) => (

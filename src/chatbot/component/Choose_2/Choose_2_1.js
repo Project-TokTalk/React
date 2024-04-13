@@ -3,35 +3,24 @@ import React, { useEffect, useRef } from "react";
 const Choose_2_1 = (props) => {
   const choose_2_1 = [
     {
-      text: "지점 확인서",
-      handler: props.actionProvider.choose_2_1_1,
-      id: "지점도 확인서 발급이 가능한가요?",
-    },
-    {
-      text: "중소기업 확인서",
+      text: "Small and Medium Business Confirmation Letter",
       handler: props.actionProvider.choose_2_1_2,
-      id: "중기확인 수신대기에 대한 질문입니다.",
+      id: `What is the SME confirmation waiting status?`,
     },
     {
-      text: "포괄양도양수",
-      handler: props.actionProvider.choose_2_1_3,
-      id: "포괄양도양수를 통해 법인전환을 했는데 창업기업에 해당하나요?",
-    },
-    {
-      text: "비영리법인",
+      text: "a non-profit corporation",
       handler: props.actionProvider.choose_2_1_4,
-      id: "비영리법인도 확인서 발급이 가능한가요?",
+      id: "Is it possible for non-profit corporations to issue confirmations?",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_2,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 
   const handleClick = (handler, id) => {
     handler(id);
-    window.scrollTo(0, document.body.scrollHeight);
   };
 
   const makeBtn = choose_2_1.map((btn) => (

@@ -1,22 +1,21 @@
 import React, { useEffect, useRef } from "react";
 
 const Initial = (props) => {
-  const sessionPhone = window.sessionStorage.getItem("phone");
   const initial = [
     {
-      text: "창업기업 확인",
+      text: "Confirmation of start-up companies",
       handler: props.actionProvider.choose_1,
-      id: "창업기업 확인",
+      id: "Confirmation of start-up companies",
     },
     {
-      text: "확인서 발급",
+      text: "Issuance of Confirmation",
       handler: props.actionProvider.choose_2,
-      id: "확인서 발급",
+      id: "Issuance of Confirmation",
     },
     {
-      text: "확인시스템",
+      text: "Verification system",
       handler: props.actionProvider.choose_3,
-      id: "확인시스템",
+      id: "Verification system",
     },
   ];
 
@@ -49,14 +48,13 @@ const Initial = (props) => {
 
   return (
     <>
-      <div ref={widgetRef} className="flex flex-wrap items-center">
-        {makeBtn}
+      <div className="w-full overflow-x-hidden whitespace-nowrap">
+        <div ref={widgetRef} className="z-30 flex flex-row overflow-x-auto">
+          {makeBtn}
+        </div>
       </div>
       <button
-        className={
-          // `${sessionPhone === "ADMIN" ? " right-2" : " right-10"}
-          `fixed bottom-24 right-10 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500`
-        }
+        className={`fixed bottom-24 right-10 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500`}
         onClick={props.actionProvider.Initial}
       >
         <svg

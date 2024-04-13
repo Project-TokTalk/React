@@ -3,50 +3,39 @@ import React, { useEffect, useRef } from "react";
 const Choose_2_5 = (props) => {
   const choose_2_5 = [
     {
-      text: "창업이력 작성",
-      handler: props.actionProvider.choose_2_5_1,
-      id: "창업이력에는 무엇을 써야하나요?",
-    },
-    {
-      text: "창업이력 변경사항",
+      text: "Changes in start-up history",
       handler: props.actionProvider.choose_2_5_2,
-      id: "창업이력 중 공동사업자 탈퇴한 내역이 있습니다.",
+      id: "There is a history of withdrawing from a joint business among the start-up history.",
     },
     {
-      text: "상호명 없음",
+      text: "If there is no trade name",
       handler: props.actionProvider.choose_2_5_3,
-      id: "창업이력 중 상호명이 없는 사업장 기입은 어떻게 하나요?",
+      id: "How do I fill out a business that does not have a business name in my start-up history?",
     },
     {
-      text: "공동대표",
+      text: "In the case of a co-representative",
       handler: props.actionProvider.choose_2_5_4,
-      id: "대표자가 두명인데 한명만 입력하면 되나요?",
+      id: "There are two representatives, so do I only need to input one?",
     },
     {
-      text: "공공마이데이터",
-      handler: props.actionProvider.choose_2_5_5,
-      id: "공공마이데이터 방식에 대해 문의드립니다.",
-    },
-    {
-      text: "수기제출",
+      text: "Handwritten submission method",
       handler: props.actionProvider.choose_2_5_6,
-      id: "수기제출 방식에 대해 문의드립니다.",
+      id: "I would like to inquire about the method of hand-submission.",
     },
     {
-      text: "업종코드 확인방법",
+      text: "How to check the industry code",
       handler: props.actionProvider.choose_2_5_7,
-      id: "업종코드는 어떻게 확인하나요?",
+      id: "How do I check the industry code?",
     },
     {
-      text: "이전 단계",
+      text: "Previous step",
       handler: props.actionProvider.choose_2,
-      id: "이전 단계",
+      id: "Previous step",
     },
   ];
 
   const handleClick = (handler, id) => {
     handler(id);
-    window.scrollTo(0, document.body.scrollHeight); // 화면 하단으로 스크롤 이동
   };
 
   const makeBtn = choose_2_5.map((btn) => (

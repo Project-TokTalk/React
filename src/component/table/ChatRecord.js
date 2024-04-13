@@ -17,9 +17,6 @@ const ChatRecord = () => {
       elementRef.current.scrollTop = elementRef.current.scrollHeight;
     }
     // 화면 로딩 후 첫 번째 항목 클릭
-    if (allKeys.length > 0) {
-      handleUserClick(allKeys[0]);
-    }
   }, []);
 
   const fetchData = async () => {
@@ -37,6 +34,17 @@ const ChatRecord = () => {
     }
   };
 
+  useEffect(() => {
+    // 데이터가 변경될 때마다 실행되는 함수
+    if (allKeys.length > 0) {
+      handleUserClick(allKeys[0]);
+    }
+  }, [Kodata, Endata]); // Kodata나 Endata가 변경될 때마다 실행
+
+  const allKeys = [
+    ...new Set([...Object.keys(Kodata), ...Object.keys(Endata)]),
+  ];
+
   function countValuesInMap(map) {
     return Object.keys(map).reduce((totalCount, key) => {
       // 현재 키의 배열의 길이를 합산, count에 추가
@@ -51,9 +59,9 @@ const ChatRecord = () => {
   const WrongAnswerK =
     "죄송합니다. 이해하지 못했습니다. 키워드로 질문하거나 좀 더 정확하게 말씀해주세요. 예 : 제품 등록";
   const WrongAnswerE =
-    "I'm sorry. I didn't understand. Please ask me a ke…e more accurately. Example : Product Registration";
+    "I'm sorry. I didn't understand. Please ask me a keyword or tell me more accurately. Example : Product Registration";
 
-  function countAnswersWithSpecificValue(map, specificValue) {
+  function countAnswersFail(map, specificValue) {
     let count = 0;
 
     // 맵의 각 키에 해당하는 값을 순회하면서 조건을 확인합니다.
@@ -71,14 +79,13 @@ const ChatRecord = () => {
 
   const CountWrongAnswer = () => {
     const Answer =
-      countAnswersWithSpecificValue(Kodata, WrongAnswerK) +
-      countAnswersWithSpecificValue(Endata, WrongAnswerE);
+      countAnswersFail(Kodata, WrongAnswerK) +
+      countAnswersFail(Endata, WrongAnswerE);
     return Answer;
   };
 
   const handleUserClick = (user) => {
     setSelectedUser(user); // 사용자를 선택한 상태로 변경
-
     let userChats = [];
 
     // Kodata[user]와 Endata[user]가 모두 존재하는 경우
@@ -93,23 +100,22 @@ const ChatRecord = () => {
     else if (Endata[user]) {
       userChats = [...Endata[user]]; // Endata[user]만 사용
     }
-
     setSortedChats(userChats); // 선택된 사용자의 채팅 기록을 설정
   };
 
-  const allKeys = [
-    ...new Set([...Object.keys(Kodata), ...Object.keys(Endata)]),
-  ];
+  function getValueCount(map, key) {
+    return map[key] ? map[key].length : 0;
+  }
 
   // 04/05
   // 각각 반복문으로 바꿔서 전체 코드 길이 줄임
 
   return (
     <>
-      {/* {console.log(Kodata)}
-      {console.log(Endata)} */}
+      {console.log(Kodata)}
+      {/* {console.log(Endata)}
       {console.log(sortedChats)}
-      {console.log(allKeys)}
+      {console.log(allKeys)} */}
       <div
         className="flex h-screen w-full justify-center bg-white text-gray-800 antialiased"
         style={{ fontFamily: "Pretendard-Regular" }}
@@ -146,7 +152,73 @@ const ChatRecord = () => {
                 </div>
               </h1>
               <ul className="flex flex-col overflow-auto">
-                {allKeys.map((key, index) => (
+                {Object.keys(Kodata).map((key, index) => (
+                  <li key={index} onClick={() => handleUserClick(key)}>
+                    <article
+                      tabIndex="0"
+                      className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
+                    >
+                      <span className="flex-none pr-2 pt-1">
+                        <img
+                          className="h-8 w-8 rounded-md"
+                          src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
+                          alt="User Avatar"
+                        />
+                      </span>
+                      <div className="flex-1">
+                        <header className="mb-1 mt-1 flex text-lg font-medium">
+                          <div className="rounded-md bg-gray-200 px-2">
+                            <span>User </span>
+                            {key}
+                          </div>
+                        </header>
+                        <p className="pl-1 text-gray-600">
+                          Q :{" "}
+                          {Kodata[key][getValueCount(Kodata, key) - 1].question}
+                        </p>
+                        <footer className="mt-2 flex justify-end text-sm text-gray-500">
+                          {Kodata[key][
+                            getValueCount(Kodata, key) - 1
+                          ].time.join("-")}
+                        </footer>
+                      </div>
+                    </article>
+                  </li>
+                ))}
+                {Object.keys(Endata).map((key, index) => (
+                  <li key={index} onClick={() => handleUserClick(key)}>
+                    <article
+                      tabIndex="0"
+                      className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
+                    >
+                      <span className="flex-none pr-2 pt-1">
+                        <img
+                          className="h-8 w-8 rounded-md"
+                          src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
+                          alt="User Avatar"
+                        />
+                      </span>
+                      <div className="flex-1">
+                        <header className="mb-1 mt-1 flex text-lg font-medium">
+                          <div className="rounded-md bg-gray-200 px-2">
+                            <span>User </span>
+                            {key}
+                          </div>
+                        </header>
+                        <p className="pl-1 text-gray-600">
+                          Q :{" "}
+                          {Endata[key][getValueCount(Endata, key) - 1].question}
+                        </p>
+                        <footer className="mt-2 flex justify-end text-sm text-gray-500">
+                          {Endata[key][
+                            getValueCount(Endata, key) - 1
+                          ].time.join("-")}
+                        </footer>
+                      </div>
+                    </article>
+                  </li>
+                ))}
+                {/* {allKeys.map((key, index) => (
                   <li key={index} onClick={() => handleUserClick(key)}>
                     <article
                       tabIndex="0"
@@ -165,12 +237,12 @@ const ChatRecord = () => {
                           {key} <span className="font-semibold">Chat</span> on
                         </header>
                         <p className="text-gray-600">
-                          {/* Additional content here */}
+                          {}
                         </p>
                       </div>
                     </article>
                   </li>
-                ))}
+                ))} */}
               </ul>
             </section>
 
@@ -280,7 +352,10 @@ const ChatRecord = () => {
                           {value.user}
                         </td>
                         <td className="flex-1 items-center truncate whitespace-normal px-1 py-3">
-                          {value.question} / {value.answer}
+                          <p className="font-bold underline decoration-dotted underline-offset-4">
+                            Q : {value.question}
+                          </p>
+                          A : {value.answer}
                         </td>
                         <td className="flex w-24 items-center justify-center truncate whitespace-normal px-1 py-3">
                           {value.answer !== WrongAnswerK &&
