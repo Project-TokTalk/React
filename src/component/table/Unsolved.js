@@ -14,7 +14,9 @@ const Unsolved = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://43.201.239.119:8081/admin/unsolve");
+      const response = await axios.get(
+        "http://43.201.239.119:8081/admin/unsolve",
+      );
       setUnsolve(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -81,7 +83,10 @@ const Unsolved = () => {
                   <th className="flex w-16 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
                     No
                   </th>
-                  <th className="flex flex-1 cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900">
+                  <th
+                    className="flex cursor-default justify-center border p-2 text-xl font-bold leading-6 text-gray-900"
+                    style={{ width: "800px" }}
+                  >
                     질문
                   </th>
                   <th className="flex flex-1 cursor-default justify-center   border p-2 pr-3 text-xl font-bold leading-6 text-gray-900">
@@ -106,7 +111,10 @@ const Unsolved = () => {
                         <td className="flex w-16 cursor-default items-center justify-center border">
                           {idx}
                         </td>
-                        <td className="flex flex-1 cursor-default items-center border p-2">
+                        <td
+                          className="flex cursor-default items-center border p-2"
+                          style={{ width: "800px" }}
+                        >
                           {value.question}
                         </td>
                         <td className="flex flex-1 items-center border">
@@ -116,7 +124,6 @@ const Unsolved = () => {
                             id={`answer-${value.id}`}
                             onChange={(e) => onAnswerChange(e, value.id)}
                             placeholder="Type Answer"
-                            style={{ width: "90%", flex: 1 }}
                           />
                         </td>
                       </tr>
@@ -138,7 +145,10 @@ const Unsolved = () => {
                         <td className="flex w-16 cursor-default items-center justify-center border">
                           {idx + ChatK.length}
                         </td>
-                        <td className="flex flex-1 cursor-default items-center border p-2">
+                        <td
+                          className="flex cursor-default items-center border p-2"
+                          style={{ width: "800px" }}
+                        >
                           {value.question}
                         </td>
                         <td className="flex flex-1 items-center border">
@@ -148,7 +158,6 @@ const Unsolved = () => {
                             id={`answer-${value.id}`}
                             onChange={(e) => onAnswerChange(e, value.id)}
                             placeholder="Type Answer"
-                            style={{ width: "90%", flex: 1 }}
                           />
                         </td>
                       </tr>

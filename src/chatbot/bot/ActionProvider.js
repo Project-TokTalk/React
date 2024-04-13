@@ -112,7 +112,7 @@ class ActionProvider {
   };
 
   choose_1_3_1 = (id) => {
-    const userMessage = this.createClientMessage("발급기한");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -128,7 +128,7 @@ class ActionProvider {
   };
 
   choose_1_3_2 = (id) => {
-    const userMessage = this.createClientMessage("사업자등록증");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -156,7 +156,7 @@ class ActionProvider {
   };
 
   choose_2_1 = (id) => {
-    const userMessage = this.createClientMessage("관련 법령");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -171,7 +171,7 @@ class ActionProvider {
   };
 
   choose_2_1_2 = (id) => {
-    const userMessage = this.createClientMessage("중소기업 확인서");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -187,7 +187,7 @@ class ActionProvider {
   };
 
   choose_2_1_4 = (id) => {
-    const userMessage = this.createClientMessage("비영리법인");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -215,7 +215,7 @@ class ActionProvider {
   };
 
   choose_2_2_1 = (id) => {
-    const userMessage = this.createClientMessage("발급일");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -231,7 +231,7 @@ class ActionProvider {
   };
 
   choose_2_2_2 = (id) => {
-    const userMessage = this.createClientMessage("보완요청");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -247,7 +247,7 @@ class ActionProvider {
   };
 
   choose_2_3 = (id) => {
-    const userMessage = this.createClientMessage("관련 법령");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -262,7 +262,7 @@ class ActionProvider {
   };
 
   choose_2_3_1 = (id) => {
-    const userMessage = this.createClientMessage("기업명 변경");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -278,7 +278,7 @@ class ActionProvider {
   };
 
   choose_2_3_2 = (id) => {
-    const userMessage = this.createClientMessage("주소변경");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -306,7 +306,7 @@ class ActionProvider {
   };
 
   choose_2_4_1 = (id) => {
-    const userMessage = this.createClientMessage("업종변경");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -322,7 +322,7 @@ class ActionProvider {
   };
 
   choose_2_4_2 = (id) => {
-    const userMessage = this.createClientMessage("대표자 변경");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -350,7 +350,7 @@ class ActionProvider {
   };
 
   choose_2_5_2 = (id) => {
-    const userMessage = this.createClientMessage("창업이력 변경사항");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -366,7 +366,7 @@ class ActionProvider {
   };
 
   choose_2_5_3 = (id) => {
-    const userMessage = this.createClientMessage("상호명 없음");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -382,7 +382,7 @@ class ActionProvider {
   };
 
   choose_2_5_4 = (id) => {
-    const userMessage = this.createClientMessage("공동대표");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -398,7 +398,7 @@ class ActionProvider {
   };
 
   choose_2_5_6 = (id) => {
-    const userMessage = this.createClientMessage("수기제출");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -414,7 +414,7 @@ class ActionProvider {
   };
 
   choose_2_5_7 = (id) => {
-    const userMessage = this.createClientMessage("업종코드 확인방법");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -454,7 +454,7 @@ class ActionProvider {
   };
 
   choose_3_1_1 = (id) => {
-    const userMessage = this.createClientMessage("사업개시일 확인");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -470,7 +470,7 @@ class ActionProvider {
   };
 
   choose_3_1_2 = (id) => {
-    const userMessage = this.createClientMessage("회원탈퇴");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -486,7 +486,7 @@ class ActionProvider {
   };
 
   choose_3_1_3 = (id) => {
-    const userMessage = this.createClientMessage("공공기관");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -514,7 +514,7 @@ class ActionProvider {
   };
 
   choose_3_3_1 = (id) => {
-    const userMessage = this.createClientMessage("기업정보 입력 오류");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -542,7 +542,7 @@ class ActionProvider {
   };
 
   choose_3_4_1 = (id) => {
-    const userMessage = this.createClientMessage("정보 수정");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
@@ -558,7 +558,7 @@ class ActionProvider {
   };
 
   choose_3_4_2 = (id) => {
-    const userMessage = this.createClientMessage("제품정보");
+    const userMessage = this.createClientMessage(id);
     const botMessage = this.createChatBotMessage(
       "I'll let you know about " + id,
       {
