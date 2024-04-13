@@ -38,14 +38,25 @@ function Answer(props) {
     }
   }, [answer]);
 
+  // URL을 하이퍼링크로 변환하는 함수
+  const convertToLink = (text) => {
+    const linkRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(
+      linkRegex,
+      (url) =>
+        `<br><a href="${url}" target="_blank" style="text-decoration: underline; color:blue; font-weight: bold;">${url}</a><br>`,
+    );
+  };
+
   return (
     <div
       className="flex flex-wrap items-center rounded-3xl border bg-color_d text-white"
       ref={widgetRef}
     >
-      <div className="mx-4 my-2">
-        {answer} {/* answer 상태를 직접 사용 */}
-      </div>
+      <div
+        className="mx-4 my-2"
+        dangerouslySetInnerHTML={{ __html: convertToLink(answer) }}
+      />
     </div>
   );
 }

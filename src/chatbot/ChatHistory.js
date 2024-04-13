@@ -51,6 +51,10 @@ const ChatHistory = () => {
     }
   };
 
+  const handleReturnChat = () => {
+    window.location.href = "/chat";
+  };
+
   return (
     <div className="flex h-screen flex-col">
       <div className="flex w-full items-center bg-top_color p-5">
@@ -70,13 +74,16 @@ const ChatHistory = () => {
             <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
           </svg>
         </div>
-        <div className="flex w-full items-center justify-center text-2xl text-white">
+        <div className="ml-5 flex w-full items-center justify-center text-2xl text-white">
           <div className="mr-2" style={{ fontFamily: "JalnanGothic" }}>
             TokTalk
           </div>
           <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
         </div>
-        <button className="close-button flex justify-end">
+        <button
+          onClick={handleReturnChat}
+          className="close-button flex justify-end"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

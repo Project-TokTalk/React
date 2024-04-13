@@ -89,6 +89,7 @@ class ActionProvider {
       "I'll let you know about " + id,
       {
         widget: "answer",
+        payload: { id: id },
       },
     );
     this.updateChatbotState(userMessage);

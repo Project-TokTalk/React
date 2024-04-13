@@ -27,7 +27,7 @@ const Choose_2_3 = (props) => {
     <button
       key={btn.id}
       onClick={() => handleClick(btn.handler, btn.id)}
-      className="m-1 flex rounded-full border bg-white p-2 text-center text-sm"
+      className="m-1 flex justify-center rounded-3xl border bg-white p-2 text-center text-xs"
     >
       {btn.text}
     </button>

@@ -177,10 +177,7 @@ const getConfig = () => {
             <img src={TokTalk} alt="TokTalk" className="h-6 w-6" />
           </div>
           {close && (
-            <button
-              onClick={returnChat ? handleReturnChat : null}
-              className="close-button flex justify-end"
-            >
+            <button className="close-button flex justify-end">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
