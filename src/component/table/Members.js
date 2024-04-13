@@ -55,6 +55,14 @@ const Members = () => {
     });
   };
 
+  const handleRegister = () => {
+    alert("회원정보가 수정되었습니다");
+  };
+
+  const handleDelete = () => {
+    alert("회원정보가 삭제되었습니다");
+  };
+
   // 04/05
   // 오름차순, 내림차순 정렬 위해 버튼 만들어놧는데 혹시나 안쓸거면 알아서 지우십셔
 
@@ -280,6 +288,7 @@ const Members = () => {
                 <button
                   className="mx-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
                   style={{ fontFamily: "Pretendard-Regular" }}
+                  onClick={handleRegister}
                 >
                   수정하기
                 </button>
@@ -288,6 +297,7 @@ const Members = () => {
                 <button
                   className="ml-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
                   style={{ fontFamily: "Pretendard-Regular" }}
+                  onClick={handleDelete}
                 >
                   삭제하기
                 </button>

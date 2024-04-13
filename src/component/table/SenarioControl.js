@@ -44,6 +44,14 @@ const SenarioControl = () => {
     });
   };
 
+  const handleRegister = () => {
+    alert("시나리오가 수정되었습니다");
+  };
+
+  const handleDelete = () => {
+    alert("시나리오가 삭제되었습니다");
+  };
+
   return (
     <>
       <div className="mx-auto flex h-screen w-full flex-col justify-start p-3 px-16">
@@ -119,7 +127,6 @@ const SenarioControl = () => {
                         type="input"
                         id={`answer-${id_scen}`}
                         onChange={(e) => onAnswerChange(e, id_scen)}
-                        defaultValue="**** 확인"
                         style={{ width: "90%", flex: 1 }}
                       />
                     </td>
@@ -195,6 +202,7 @@ const SenarioControl = () => {
                 <button
                   className="mx-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
                   style={{ fontFamily: "Pretendard-Regular" }}
+                  onClick={handleRegister}
                 >
                   수정하기
                 </button>
@@ -203,6 +211,7 @@ const SenarioControl = () => {
                 <button
                   className="ml-1 mt-3 flex h-10 w-20 items-center justify-center rounded-md border border-indigo-300 bg-indigo-200 focus:active:bg-indigo-300"
                   style={{ fontFamily: "Pretendard-Regular" }}
+                  onClick={handleDelete}
                 >
                   삭제하기
                 </button>
