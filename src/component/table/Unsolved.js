@@ -14,9 +14,7 @@ const Unsolved = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "http://43.201.239.119:8081/admin/unsolve",
-      );
+      const response = await axios.get("http://localhost:8081/admin/unsolve");
       setUnsolve(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -119,7 +117,7 @@ const Unsolved = () => {
                         </td>
                         <td className="flex flex-1 items-center border">
                           <input
-                            className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
+                            className="h-full w-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                             type="input"
                             id={`answer-${value.id}`}
                             onChange={(e) => onAnswerChange(e, value.id)}
@@ -153,7 +151,7 @@ const Unsolved = () => {
                         </td>
                         <td className="flex flex-1 items-center border">
                           <input
-                            className="h-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
+                            className="h-full w-full cursor-default rounded-md border border-white bg-transparent pl-3 hover:border-blue-300 focus:border-blue-300 focus:outline-none"
                             type="input"
                             id={`answer-${value.id}`}
                             onChange={(e) => onAnswerChange(e, value.id)}
