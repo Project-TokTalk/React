@@ -18,6 +18,7 @@ import Choose_3_1 from "../component/Choose_3/Choose_3_1";
 import Choose_3_3 from "../component/Choose_3/Choose_3_3";
 import Choose_3_4 from "../component/Choose_3/Choose_3_4";
 import ChatHistory from "../ChatHistory";
+import { useEffect, useState } from "react";
 
 const botName = "ExcitementBot";
 
@@ -47,14 +48,8 @@ const getConfig = () => {
     window.location.pathname.includes("/admin") ||
     window.location.pathname.includes("/history");
 
-  const returnChat = !window.location.pathname.includes("/admin");
-
   const handleViewHistory = () => {
     window.location.href = "/history";
-  };
-
-  const handleReturnChat = () => {
-    window.location.href = "/chat";
   };
 
   const config = {
@@ -70,6 +65,13 @@ const getConfig = () => {
         },
       ),
     ],
+    customMessages: {
+      SystemMessage({ state: { currentSystemMessage } }) {
+        const [message, setMessage] = useState("");
+        useEffect(() => setMessage(currentSystemMessage), []);
+        return <div>--- System: {message} ---</div>;
+      },
+    },
 
     widgets: [
       {
