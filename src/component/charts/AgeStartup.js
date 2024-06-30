@@ -7,41 +7,49 @@ export default function AgeStartup(props) {
   const [options, setOptions] = useState({
     theme: { mode: "white" },
     chart: {
+      // 그래프 세부 설정
       height: 350,
       type: "bar",
       stacked: true,
-      toolbar: { show: true },
+      toolbar: { show: true }, // 툴바 표시 설정
       animations: {
+        // 애니메이션 설정
         enabled: true,
-        easing: "easeinout",
-        speed: 800,
+        easing: "easeinout", // 애니메이션 완화 방식 설정
+        speed: 800, // 애니메이션 속도 설정
         animateGradually: {
-          enabled: true,
-          delay: 150,
+          enabled: true, // 점진적 애니메이션 활성화
+          delay: 150, // 애니메이션 지연 시간 설정
         },
         dynamicAnimation: {
-          enabled: true,
-          speed: 350,
+          enabled: true, // 동적 애니메이션 활성화
+          speed: 350, // 동적 애니메이션 속도 설
         },
-      }, // 그래프 애니메이션을 비활성화합니다.
+      },
     },
-    dataLabels: { enabled: true, enabledOnSeries: [0, 1] },
-    grid: { show: false },
+    dataLabels: { enabled: true, enabledOnSeries: [0, 1] }, // 데이터 라벨 표시 설정
+    grid: { show: false }, // 그리드 표시 설정
     xaxis: {
+      // x축 설정
       labels: { show: true },
-      axisTicks: { show: false },
-      axisBorder: { show: true },
+      axisTicks: { show: false }, // x축 눈금 표시 설정
+      axisBorder: { show: true }, // x축 경계선 표시 설정
       categories: [],
-      type: "string",
+      type: "string", // x축 데이터 타입 설정
     },
-    yaxis: { axisBorder: { show: true }, title: { text: "Count" } },
+    yaxis: {
+      // y축 설정
+      axisBorder: { show: true }, // y축 경계선 표시 설정
+      title: { text: "Count" }, // y축 제목 설정
+    },
     fill: { type: "gradient", gradient: { stops: [0, 0] } },
-    colors: ["#5CACEE", "#3A5FCD"],
+    colors: ["#5CACEE", "#3A5FCD"], // 막대 색상 설정
     tooltip: {
+      // 툴팁 설정
       enabled: false,
       style: {
-        background: "rgba(0, 0, 0, 0.9)", // 투명도를 조절하여 툴팁의 배경색을 설정합니다.
-        opacity: 1, // 툴팁의 불투명도를 100%로 설정합니다.
+        background: "rgba(0, 0, 0, 0.9)", // 투명도를 조절하여 툴팁의 배경색 설정
+        opacity: 1, // 툴팁의 불투명도를 100%로 설정
       },
     },
   });
@@ -53,11 +61,13 @@ export default function AgeStartup(props) {
     fetchData();
   }, []);
 
+  // 창업 데이터 불러오기
   const fetchData = async () => {
     try {
       const response = await axios.get("http://43.201.239.119:8081/admin/age");
       const data = response.data;
 
+      // admin을 제외한 데이터 새로운 객체로 생성
       const filteredData = Object.keys(data)
         .filter((key) => key !== "ADMIN")
         .reduce((obj, key) => {
@@ -65,16 +75,20 @@ export default function AgeStartup(props) {
           return obj;
         }, {});
 
+      // key값 따로 저장
       const categories = Object.keys(filteredData);
       const totalCountData = Object.values(filteredData).map(
         (item) => item.totalCount || 0,
       );
+      // 창업자 수 저장
       const startTrueCountData = Object.values(filteredData).map(
         (item) => item.startTrueCount || 0,
       );
+      // 비창업자 수 저장
       const startFalseCountData = totalCountData.map(
         (totalCount, index) => totalCount - startTrueCountData[index],
       );
+      // 총 사용자 수 저장
       const total = totalCountData.reduce((acc, val) => acc + val, 0);
       setTotalUsers(total);
 

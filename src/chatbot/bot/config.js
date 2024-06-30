@@ -23,7 +23,7 @@ import { useEffect, useState } from "react";
 const botName = "ExcitementBot";
 
 const getConfig = () => {
-  // 이건 챗봇측 아바타
+  // 챗봇측 아바타
   const BotAvatar = () => {
     return (
       <div className="react-chatbot-kit-chat-bot-avatar">
@@ -39,21 +39,23 @@ const getConfig = () => {
     );
   };
 
-  // 이건 사용자의 아바타
+  // 사용자의 아바타
   const UserAvatar = () => {
     return <div className="react-chatbot-kit-chat-bot-avatar"></div>;
   };
 
+  // 현재 페이지가 /admin, /history인지 확인
   const close =
     window.location.pathname.includes("/admin") ||
     window.location.pathname.includes("/history");
 
+  // 경로설정
   const handleViewHistory = () => {
     window.location.href = "/history";
   };
 
   const config = {
-    // 초기 메시지
+    // 초기 메시지 설정
     botName: botName,
     customStyles: {},
 
@@ -73,6 +75,7 @@ const getConfig = () => {
       },
     },
 
+    // ActionProvider의 위젯을 각각 파일로 연결
     widgets: [
       {
         widgetName: "initial",
@@ -140,10 +143,9 @@ const getConfig = () => {
       },
     ],
     customComponents: {
+      // close의 상태에 따라 랜더링 요소를 다르게 설정
       header: () => (
-        // 헤더 색 적용 완료
         <div className="flex w-full items-center bg-top_color p-5">
-          {/* 여기 버튼이 회원정보로 가는 버튼 */}
           {!close && (
             <button
               onClick={handleViewHistory}
@@ -199,7 +201,7 @@ const getConfig = () => {
         </div>
       ),
 
-      // 챗봇 아바타 변경, 우리 로고쓰면 될듯?
+      // 챗봇 아바타 변경
       botAvatar: (props) => <BotAvatar {...props} />,
 
       // 챗봇 컨테이너 스타일 변경

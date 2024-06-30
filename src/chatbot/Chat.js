@@ -6,23 +6,22 @@ import getConfig from "./bot/config.js";
 import MessageParser from "./bot/MessageParser.js";
 import ActionProvider from "./bot/ActionProvider.js";
 import TokTalk from "../image/TokTalk.png";
-import axios from "axios";
 
 const Chat = () => {
   const [history, toggleHistory] = useState(false);
   const [show, toggleShow] = useState(
+    // /chat에서 가져온 값을 초기값으로 설정
     window.location.pathname.includes("/chat"),
   );
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      // 챗봇이 열려있고 챗봇 헤더 영역이면서 close 버튼을 클릭한 경우에만 창을 닫습니다.
-      // close버튼에 close-button 속성 삽입 함
+      // 챗봇이 열려있고 챗봇 헤더 영역이면서 close 버튼을 클릭한 경우에만 창을 닫기
+      // close버튼에 close-button 속성 삽입
       if (show && e.target.closest(".close-button")) {
         toggleShow(false);
       }
     };
-    // 저도 이건 몰라요.. 지우면 버튼 안되긴 함
     window.addEventListener("click", handleOutsideClick);
 
     return () => {
@@ -38,6 +37,8 @@ const Chat = () => {
     return false;
   };
 
+  // show가 true인 경우 Chatbot 컴포넌트를 렌더링
+  // false인 경우 플로팅버튼을 랜더링
   return show ? (
     <div>
       <Chatbot
@@ -45,7 +46,6 @@ const Chat = () => {
         actionProvider={ActionProvider}
         config={getConfig(onClick)}
         validator={validator}
-        // messageHistory={chatHistory} // 문자열로 설정
         disableScrollToBottom={true}
       />
     </div>

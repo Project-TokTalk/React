@@ -4,10 +4,16 @@ import axios from "axios";
 import UnsolvedHeader from "../layout/UnsolveHeader";
 
 const Unsolved = () => {
+  // 각 입력값들 초기값 설정
   const [CheckList, setCheckList] = useState([]);
   const [Unsolve, setUnsolve] = useState([]);
+  const ChatK = Unsolve["chatListK"];
+  const ChatE = Unsolve["chatListE"];
+
+  // 30개의 답변을 저장할 수 있는 배열 생성
   const [Answers, setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
+  // 랜더링시 처음 한번 데이터를 가져옴
   useEffect(() => {
     fetchData();
   }, []);
@@ -21,9 +27,7 @@ const Unsolved = () => {
     }
   };
 
-  const ChatK = Unsolve["chatListK"];
-  const ChatE = Unsolve["chatListE"];
-
+  // 미해결질문 리스트의 체크박스 상태 저장
   const onChangeEach = (e, id_unsolved) => {
     if (e.target.checked) {
       setCheckList((prevCheckList) => [...prevCheckList, id_unsolved]); // 이전 상태를 이용하여 업데이트
@@ -33,13 +37,6 @@ const Unsolved = () => {
       ); // 이전 상태를 이용하여 업데이트
     }
   };
-
-  // 체크된게 넘어오는지 확인용
-  function Send(updatedCheckList) {
-    console.log("CheckList:", {
-      CheckList: updatedCheckList,
-    });
-  }
 
   // CheckList가 업데이트될 때마다 Send 함수 호출
   useEffect(() => {
@@ -62,9 +59,6 @@ const Unsolved = () => {
 
   return (
     <>
-      {console.log("UNSOLVING")}
-      {console.log(Unsolve)}
-      {console.log(ChatK)}
       <div className="mx-auto flex h-screen w-full flex-col justify-start px-16">
         <UnsolvedHeader />
         <div className="flex h-3/4 flex-row">
@@ -94,7 +88,6 @@ const Unsolved = () => {
               </thead>
               <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
                 <div className="flex h-full w-full flex-col overflow-auto">
-                  {/* 여기서 데이터 삽입하면 됩니다. */}
                   {ChatK &&
                     ChatK.map((value, idx) => (
                       <tr key={idx} className="flex text-gray-700">

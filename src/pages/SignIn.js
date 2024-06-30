@@ -28,7 +28,7 @@ const SignIn = () => {
   }, [phone]);
 
   const handle_phone = (e) => {
-    // 손승아, 입력값 길이 11자 제한, 20240329
+    // 입력값 길이 11자 제한
     if (e.target.value.length <= 11) {
       setPhone(e.target.value);
     }
@@ -47,7 +47,7 @@ const SignIn = () => {
       return;
     }
 
-    // 손승아, DB에 사용자 정보 있을 때만 로그인, 20240327
+    // DB에 사용자 정보 있을 때만 로그인
     try {
       const response = await axios.post(
         "http://43.201.239.119:8081/user/login",

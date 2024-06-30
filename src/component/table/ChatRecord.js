@@ -19,6 +19,7 @@ const ChatRecord = () => {
     // 화면 로딩 후 첫 번째 항목 클릭
   }, []);
 
+  // 채팅기록 불러오기
   const fetchData = async () => {
     try {
       const response1 = await axios.get(
@@ -112,10 +113,6 @@ const ChatRecord = () => {
 
   return (
     <>
-      {console.log(Kodata)}
-      {/* {console.log(Endata)}
-      {console.log(sortedChats)}
-      {console.log(allKeys)} */}
       <div
         className="flex h-screen w-full justify-center bg-white text-gray-800 antialiased"
         style={{ fontFamily: "Pretendard-Regular" }}
@@ -131,7 +128,6 @@ const ChatRecord = () => {
                     type="input"
                     className="flex w-full rounded-md border border-hidden border-gray-300 pl-2 focus:outline-none"
                   ></input>
-                  {/* 검색란 추가 */}
 
                   <button className="pr-1">
                     <svg
@@ -218,31 +214,6 @@ const ChatRecord = () => {
                     </article>
                   </li>
                 ))}
-                {/* {allKeys.map((key, index) => (
-                  <li key={index} onClick={() => handleUserClick(key)}>
-                    <article
-                      tabIndex="0"
-                      className="mb-2 flex cursor-pointer rounded-md border bg-white p-3 text-gray-700 hover:border-green-500 focus:border-green-500 focus:outline-none"
-                    >
-                      <span className="flex-none pr-2 pt-1">
-                        <image
-                          className="h-8 w-8 rounded-md"
-                          src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"
-                          alt="User Avatar"
-                        />
-                      </span>
-
-                      <div className="flex-1">
-                        <header className="mb-1">
-                          {key} <span className="font-semibold">Chat</span> on
-                        </header>
-                        <p className="text-gray-600">
-                          {}
-                        </p>
-                      </div>
-                    </article>
-                  </li>
-                ))} */}
               </ul>
             </section>
 

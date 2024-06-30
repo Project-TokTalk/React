@@ -1,22 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import "./Font.css"; // CSS 파일을 불러옵니다.
+import "./Font.css"; // 폰트 사용을 위한 css파일
 
 export default function Gender(props) {
   const [options] = useState({
     theme: { mode: "white" },
     plotOptions: {
       bar: {
-        borderRadius: 4,
-        horizontal: true,
+        borderRadius: 4, // 테두리 둥글게 설정
+        horizontal: true, // 막대 수평
       },
     },
     dataLabels: {
-      enabled: false,
+      enabled: false, // 라벨 비활성화
     },
     xaxis: {
-      categories: ["Female", "Male"],
+      categories: ["Female", "Male"], // 카테고리명 설정
     },
     colors: ["#155DDB", "#7BBEEB"], // 여러 색상으로 변경
     tooltip: {
@@ -40,12 +40,13 @@ export default function Gender(props) {
   const [series, setSeries] = useState([]);
   const [genderTexts, setGenderTexts] = useState([]);
 
+  // 성별 데이터 불러오기
   useEffect(() => {
     axios
       .get("http://43.201.239.119:8081/admin/gender")
       .then((response) => {
         const genderDataList = response.data.filter(
-          (genderData) => genderData.gender !== "ADMIN",
+          (genderData) => genderData.gender !== "ADMIN", // 관리자는 제외
         );
 
         // 성별 데이터 변환
@@ -56,6 +57,7 @@ export default function Gender(props) {
             genderData.gender === "M" ? options.colors[1] : options.colors[0], // 여자는 첫 번째 색상, 남자는 두 번째 색상
         }));
 
+        // 데이터 시각화
         setSeries([
           {
             data: genderDataWithFullText.map((genderData) => ({

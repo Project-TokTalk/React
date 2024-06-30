@@ -30,8 +30,6 @@ const ChatHistory = () => {
       const response2 = await axios.get(
         "http://43.201.239.119:8081/admin/enlog",
       );
-      console.log("한글 채팅 로그", response1.data);
-      console.log("영어 채팅 로그", response2.data);
 
       // response1.data 또는 response2.data가 undefined인 경우를 처리
       const data1 =
@@ -58,7 +56,6 @@ const ChatHistory = () => {
   return (
     <div className="flex h-screen flex-col">
       <div className="flex w-full items-center bg-top_color p-5">
-        {/* 여기 버튼이 회원정보로 가는 버튼 */}
         <div className="chat-history flex h-5 w-5 justify-start rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +97,7 @@ const ChatHistory = () => {
           </svg>
         </button>
       </div>
-      <div className="bg-color_e flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto bg-color_e">
         <ul className="flex flex-col">
           {chatHistory.map((message, index) => (
             <li key={index} className="flex w-full flex-col">

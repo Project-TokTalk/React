@@ -10,6 +10,7 @@ const DateGraph = () => {
     fetchData();
   }, []);
 
+  // 가입자 데이터 불러오기
   const fetchData = async () => {
     try {
       const response = await axios.get("http://43.201.239.119:8081/admin/date");
@@ -19,7 +20,6 @@ const DateGraph = () => {
         return aYear === bYear ? aMonth - bMonth : aYear - bYear;
       });
       setData(sortedData);
-      console.log("월별 사용자 증가 추이 : ", sortedData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -70,7 +70,6 @@ const DateGraph = () => {
 
   return (
     <div className="m-auto mt-8 w-11/12">
-      {/* 80%의 너비를 가지고 중앙 정렬 */}
       <div
         className="mb-4 text-center text-3xl text-color_b"
         style={{ fontFamily: "JalnanGothic" }}

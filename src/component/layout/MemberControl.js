@@ -10,8 +10,6 @@ const MemberControl = () => {
         </div>
         <div className="flex h-full w-1/6 items-end pb-3">
           <div className="flex h-2/5 w-full items-center rounded-md border border-gray-300 bg-white pr-2">
-            {/* 검색란 추가 */}
-
             <input
               className="flex h-full w-full rounded-md border-white pl-5 focus:outline-none"
               type="input"

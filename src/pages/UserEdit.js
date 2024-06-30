@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const UserEdit = () => {
-  // 전화번호 입력 시 숫자, '-'를 제외하고 입력을 제한, 글자수 제한
+  // 각 입력값들 초기값 설정
   const [password, setPassword] = useState("");
   const [passwordck, setPasswordck] = useState("");
   const [phone, setphone] = useState("");
@@ -12,14 +12,7 @@ const UserEdit = () => {
   const [selectedBusiness, setSelectedBusiness] = useState(null);
 
   function edit() {
-    console.log("Sending data:", {
-      password: password,
-      phone: phone,
-      mobile: mobile,
-      nickname: nickname,
-      selectedBusiness: selectedBusiness,
-    });
-
+    // 수정된 회원정보 axios로 전송
     axios({
       url: "/chat",
       method: "post",
@@ -31,11 +24,8 @@ const UserEdit = () => {
         selectedBusiness: selectedBusiness,
       },
       baseURL: "http://43.201.239.119:8081",
-      //withCredentials: true,
     })
-      .then(function (response) {
-        console.log(response.data);
-      })
+      .then(function (response) {})
       .catch((error) => {
         if (error.response) {
           console.log(error.response.data);
@@ -45,20 +35,20 @@ const UserEdit = () => {
       });
   }
 
+  // Password input 값이 바뀔때마다 상태 관리
   const handle_pw = (e) => {
     setPassword(e.target.value);
   };
-  const handle_pwck = (e) => {
-    setPasswordck(e.target.value);
-  };
 
   const handle_phone = (e) => {
+    // 0~9까지의 숫자, 11자리까지 입력
     const regex = /^[0-9]{0,11}$/;
     if (regex.test(e.target.value)) {
       setphone(e.target.value);
     }
   };
 
+  // 통신사 옵션 선택
   const mobileList = [
     { value: "skt", name: "SKT" },
     { value: "kt", name: "KT" },
@@ -66,10 +56,12 @@ const UserEdit = () => {
     { value: "mvno", name: "알뜰폰" },
   ];
 
+  // 통신사 선택이 바뀔때마다 상태 관리
   const handle_mobile = (e) => {
     setMobile(e.target.value);
   };
 
+  // Nickname값이 바뀔때마다 상태 관리
   const handle_nick = (e) => {
     setNickname(e.target.value);
   };
@@ -79,6 +71,8 @@ const UserEdit = () => {
     { text: "Y", value: 0 },
     { text: "N", value: 1 },
   ];
+
+  // 선택 여부가 바뀔때 마다 상태 관리
   const handle_business = (e) => {
     setSelectedBusiness(Number(e.target.value));
   };
@@ -86,6 +80,9 @@ const UserEdit = () => {
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        {/* 화면 크기에 따른 설정 추가 */}
+        {/* flex-col : 요소를 세로로 정렬 
+              flex-1 : 요소의 남은 영역 차지*/}
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
@@ -109,7 +106,6 @@ const UserEdit = () => {
                   name="phone"
                   type="text"
                   value={phone}
-                  placeholder="기존 전화번호 나오게 해줘요"
                   required
                   onChange={handle_phone}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -137,7 +133,6 @@ const UserEdit = () => {
                     </option>
                   ))}
                 </select>
-                {/* 이거도 통신사 변경할때 모달창으로 바꿀거임 */}
               </div>
             </div>
             <div>
@@ -171,7 +166,7 @@ const UserEdit = () => {
                   id="passwordck"
                   name="passwordck"
                   type="password"
-                  value={passwordck} // 이거 비밀번호하고 동일한지 ajax로 확인하는거 핵심때 했는데 나중에 시간나면 해드림
+                  value={passwordck}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -236,7 +231,6 @@ const UserEdit = () => {
                   name="nickname"
                   type="text"
                   value={nickname}
-                  placeholder="기존 닉네임으로 바꿔줘요"
                   required
                   maxLength={13}
                   onChange={handle_nick}

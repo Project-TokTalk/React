@@ -6,12 +6,7 @@ const SenarioControl = () => {
   const [CheckList, setCheckList] = useState([]);
   const [setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
-  // 각각의 아이템에 대한 ID 리스트
-  const IdList = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30,
-  ]; // 예시로 임의의 ID 리스트 설정
-
+  // 리스트의 체크박스 상태 저장
   const onChangeEach = (e, id_scen) => {
     if (e.target.checked) {
       setCheckList((prevCheckList) => [...prevCheckList, id_scen]); // 이전 상태를 이용하여 업데이트
@@ -21,13 +16,6 @@ const SenarioControl = () => {
       ); // 이전 상태를 이용하여 업데이트
     }
   };
-
-  // 체크된게 넘어오는지 확인용
-  function Send(updatedCheckList) {
-    console.log("CheckList:", {
-      CheckList: updatedCheckList,
-    });
-  }
 
   // CheckList가 업데이트될 때마다 Send 함수 호출
   useEffect(() => {

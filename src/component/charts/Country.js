@@ -5,12 +5,13 @@ import "./Font.css"; // CSS 파일을 불러옵니다.
 
 const Country = () => {
   const [chartData, setChartData] = useState([]);
-  const [refreshKey, setRefreshKey] = useState(0); // State to force re-render
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  // 나라 데이터 불러오기
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -21,7 +22,7 @@ const Country = () => {
       const filteredData = data.filter((item) => item.nation !== "ADMIN"); // admin 국가 필터링
       const sortedData = filteredData.sort((a, b) => b.userCount - a.userCount); // 내림차순 정렬
       setChartData(sortedData);
-      setRefreshKey((prevKey) => prevKey + 1); // Increment the key to force re-render
+      setRefreshKey((prevKey) => prevKey + 1);
     } catch (error) {
       console.error("데이터 요청 실패", error);
     }
@@ -48,7 +49,7 @@ const Country = () => {
   const chartOptions = {
     chart: {
       type: "donut",
-      animations: { enabled: true, easing: "easeinout", speed: 800 }, // Enable animations with easeinout easing and a speed of 1000ms
+      animations: { enabled: true, easing: "easeinout", speed: 800 },
     },
     labels: chartData.slice(0, 6).map((item) => getCountryName(item.nation)), // 상위 6개 국가만 라벨로 사용
     dataLabels: {
@@ -119,7 +120,7 @@ const Country = () => {
     <div className="mt-12 flex h-3/4 items-center">
       <div className="w-3/4">
         <ReactApexChart
-          key={refreshKey} // Unique key to force re-render
+          key={refreshKey}
           options={{ ...chartOptions, labels: modifiedLabels }} // 수정된 데이터 라벨 적용
           series={[
             ...chartData.slice(0, 6).map((item) => item.userCount),
@@ -167,7 +168,6 @@ const Country = () => {
               </div>
             </div>
           ))}
-          {/* "기타" 항목 표시 */}
         </div>
       </div>
     </div>

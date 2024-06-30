@@ -13,6 +13,7 @@ import Gender from "../component/charts/Gender";
 import DateGraph from "../component/charts/DateGraph";
 
 const AdminMain = () => {
+  // sidebar 상태를 저장
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // 스크롤 이동을 위한 ref
@@ -42,7 +43,6 @@ const AdminMain = () => {
 
   return (
     <>
-      {/* 사이드 바 따로 분리하고 싶었으나 전체 페이지의 이동을 위해 여기로 합침 */}
       <aside
         className={`fixed z-50 flex h-screen w-60 ${
           isSidebarOpen ? "translate-x-none" : "-translate-x-48"

@@ -19,6 +19,7 @@ class ActionProvider {
     }
   }
 
+  // 채팅 기록을 불러와서 현재 메시지 상태에 추가
   chathistory = () => {
     const { chatHistory } = this.props.widgets;
     const messages = chatHistory.map((message) => {
@@ -36,14 +37,17 @@ class ActionProvider {
     }));
   };
 
+  // 봇의 답변을 생성하여 상태를 업데이트
   handleHello(answer) {
     const botMessage = this.createChatBotMessage(answer);
     this.updateChatbotState(botMessage);
+    // 답변 생성 후 화면 아래로 스크롤
     setTimeout(() => {
       this.scrollToBottom();
     }, 0);
   }
 
+  // 초기 메시지 생성 및 상태 업데이트
   Initial = () => {
     const botMessage = this.createChatBotMessage(
       "Hello. This is TokTalk. We provide consultation on start-up-related complaints. Please ask a question using keywords in the chat window.",
@@ -54,11 +58,10 @@ class ActionProvider {
     this.updateChatbotState(botMessage);
   };
 
+  // 각각 항목에 따른 메시지 연결
+  // id는 각 파일(Choose_*_*) 에 각각 지정
   choose_1 = (id) => {
-    // 이건 사용자측에서 채팅이 나오도록 하는 속성, 원하는 텍스트로 바꾸고 싶을 시 id 대신에 작성
-    // id는 각 파일(Choose_*_*) 에 각각 지정되어 있음
     const userMessage = this.createClientMessage(id);
-    // 챗봇측에서 나오는 메시지, 이거 메시지 안나오고 위젯의 메시지만 띄우고 싶은데 그건 안된다.
     const botMessage = this.createChatBotMessage("Please select below.", {
       widget: "Choose_1",
     });

@@ -7,7 +7,10 @@ const Members = () => {
   const [CheckList, setCheckList] = useState([]);
   const [memberList, setMemberList] = useState([]);
 
-  // 이주명(0405) 멤버리스트 불러오기 추가
+  // 30개의 답변을 저장할 수 있는 배열 생성
+  const [setAnswers] = useState(Array.from({ length: 30 }, () => ""));
+
+  // 멤버리스트 불러오기 추가
   useEffect(() => {
     axios
       .get("http://43.201.239.119:8081/admin/member")
@@ -19,9 +22,6 @@ const Members = () => {
         console.error("데이터 요청 실패", error);
       });
   }, []);
-  console.log(memberList);
-  // 이주명(0405) 여기까지
-  const [setAnswers] = useState(Array.from({ length: 30 }, () => ""));
 
   const onChangeEach = (e, id_mem) => {
     if (e.target.checked) {
@@ -32,13 +32,6 @@ const Members = () => {
       ); // 이전 상태를 이용하여 업데이트
     }
   };
-
-  // 체크된게 넘어오는지 확인용
-  function Send(updatedCheckList) {
-    console.log("CheckList:", {
-      CheckList: updatedCheckList,
-    });
-  }
 
   // CheckList가 업데이트될 때마다 Send 함수 호출
   useEffect(() => {
@@ -62,9 +55,6 @@ const Members = () => {
   const handleDelete = () => {
     alert("회원정보가 삭제되었습니다");
   };
-
-  // 04/05
-  // 오름차순, 내림차순 정렬 위해 버튼 만들어놧는데 혹시나 안쓸거면 알아서 지우십셔
 
   return (
     <>
@@ -190,7 +180,6 @@ const Members = () => {
 
             <tbody className="flex min-h-0 w-full flex-1 flex-col bg-gray-50">
               <div className="flex h-full w-full flex-col overflow-auto">
-                {/* 여기서 데이터 삽입하면 됩니다. */}
                 {memberList.map((member, index) => (
                   <tr key={index} className="flex w-full text-gray-700">
                     <td className="flex w-16 items-center justify-center border">
@@ -270,8 +259,6 @@ const Members = () => {
             </tbody>
           </table>
         </div>
-        {/* <button className="justify-right p-3">수정 완료</button> */}
-        {/* 테이블 하단 우측에 수정 완료 버튼 배치중 */}
         <div className="flex flex-row justify-center">
           <div class="item flex h-full grow items-center justify-center"></div>
           <div class="flex h-full flex-none items-center justify-center text-center">

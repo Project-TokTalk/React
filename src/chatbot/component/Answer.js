@@ -19,7 +19,6 @@ function Answer(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Initial response:", data);
         setAnswer(data.message); // 상태 업데이트
       })
       .catch((error) => {

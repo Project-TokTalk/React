@@ -2,11 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-// 통신사, 약관동의는 모달창으로 처리 예정
-// 나머지 요소들은 아마도? 그대로 사용 예정 (약간의 스타일 변경 필요)
-
 const SignUp = () => {
-  // 전화번호 입력 시 숫자, '-'를 제외하고 입력을 제한, 글자수 제한
+  // 각 입력값들 초기값 설정
   const [password, setPassword] = useState("");
   const [phone, setphone] = useState("");
   const [mobile, setMobile] = useState("skt");
@@ -18,25 +15,11 @@ const SignUp = () => {
   const [service, setService] = useState(false);
   const [policy, setPolicy] = useState(false);
 
-  // const resi_numRef = useRef("");
-  // const genderRef = useRef("");
   const navigate = useNavigate();
 
   // 최종적으로 저장된 데이터를 보내주는 함수
   function Send() {
-    console.log("Sending data:", {
-      password: password,
-      phone: phone,
-      mobile: mobile,
-      country: country,
-      age: age,
-      selectedGender: selectedGender,
-      nickname: nickname,
-      start: selectedBusiness,
-      service: service,
-      policy: policy,
-    });
-    // 손승아, axios.post를 이용해 Spring Boot와 연결, 20240326
+    // axios.post를 이용해 Spring Boot와 연결
     axios
       .post(
         "http://43.201.239.119:8081/user/signup",
@@ -58,9 +41,7 @@ const SignUp = () => {
           },
         },
       )
-      .then(function (response) {
-        console.log(response.data);
-      })
+      .then(function (response) {})
       .catch((error) => {
         if (error.response) {
           console.log(error.response.data);
@@ -96,6 +77,7 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
+  // 0~9까지의 숫자, 11자리까지 입력
   const handle_phone = (e) => {
     const regex = /^[0-9]{0,11}$/;
     if (regex.test(e.target.value)) {
@@ -142,21 +124,7 @@ const SignUp = () => {
 
   const handle_age = (e) => {
     setAgeRange(e.target.value);
-    console.log(e.target.value);
   };
-
-  // 주민번호 앞 6자리를 입력 시 자동으로 뒷자리 입력란으로 이동
-  // useEffect(() => {
-  //   resi_num.length >= 6 && genderRef.current.focus();
-  // }, [resi_num]);
-
-  // 성별 입력란
-  // const handle_gender = (e) => {
-  //   const regex2 = /^[0-9]{0,1}$/;
-  //   if (regex2.test(e.target.value)) {
-  //     setSelectedGender(e.target.value);
-  //   }
-  // };
 
   const Gender = [
     { name: "Male", value: "M" },
@@ -389,29 +357,6 @@ const SignUp = () => {
                     </span>
                   </label>
                 ))}
-                {/* {Business.map((Business, text) => (
-                  <label key={text} className="flex items-center justify-center">
-                    <input
-                      id="Business"
-                      name="Business"
-                      type="radio"
-                      value={Business.value}
-                      required
-                      onChange={handle_business}
-                      checked={text === selectedBusiness}
-                      className="hidden"
-                    />
-                    <span
-                      // flex-grow : 나눠진 칸을 전체 차지하도록 설정
-                      className={`Business flex flex-grow cursor-pointer items-center justify-center
-                          ${text === selectedBusiness ? "border-indigo-300 bg-indigo-100" : "border-gray-300 bg-gray-100"}
-                          mx-2 rounded-md border px-4 py-2`}
-                      onClick={() => setSelectedBusiness(text)}
-                    >
-                      {Business.text}
-                    </span>
-                  </label>
-                ))} */}
               </div>
             </div>
 

@@ -18,7 +18,6 @@ const AdminHeader = () => {
         <div className="flex p-5 pl-10 text-3xl">서비스 대시보드</div>
       </div>
       <div className="flex w-1/5 items-center justify-end p-4 font-medium">
-        {/* 로그아웃 버튼 */}
         <button className="m-1 rounded text-sm" onClick={handleLogout}>
           Logout
         </button>
