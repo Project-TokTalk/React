@@ -38,11 +38,6 @@ const Unsolved = () => {
     }
   };
 
-  // CheckList가 업데이트될 때마다 Send 함수 호출
-  useEffect(() => {
-    Send(CheckList);
-  }, [CheckList]);
-
   // 답안 입력 변경 핸들러
   const onAnswerChange = (e, id_unsolved) => {
     const { value } = e.target;

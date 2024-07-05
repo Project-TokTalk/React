@@ -17,11 +17,6 @@ const SenarioControl = () => {
     }
   };
 
-  // CheckList가 업데이트될 때마다 Send 함수 호출
-  useEffect(() => {
-    Send(CheckList);
-  }, [CheckList]);
-
   // 답안 입력 변경 핸들러
   const onAnswerChange = (e, id_unsolved) => {
     const { defaultValue } = e.target;
@@ -31,6 +26,12 @@ const SenarioControl = () => {
       return updatedAnswers;
     });
   };
+
+  // 각각의 아이템에 대한 ID 리스트
+  const IdList = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30,
+  ]; // 예시로 임의의 ID 리스트 설정
 
   const handleRegister = () => {
     alert("시나리오가 수정되었습니다");
